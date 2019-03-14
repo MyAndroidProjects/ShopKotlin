@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">ShopKotlin</string>
+
+    <string name="menu_item_smartphones">Смартфоны</string>
+    <string name="menu_item_graphic_tablets">Графические планшеты</string>
+    <string name="menu_item_laptops">Ноутбуки</string>
+    <string name="menu_item_cameras">Фотокамеры</string>
+    <string name="menu_item_headphones">Наушники</string>
+    <string name="menu_item_speakers">Колонки</string>
+    <string name="image_description_shopping_cart">Shopping cart</string>
+    <string name="start_text_toolbar">0</string>
 </resources>

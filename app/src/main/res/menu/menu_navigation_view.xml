@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navItemSmartphones"
+            android:title="@string/menu_item_smartphones"/>
+        <item
+            android:id="@+id/navItemGraphicTablets"
+            android:title="@string/menu_item_graphic_tablets"/>
+        <item
+            android:id="@+id/navItemLaptops"
+            android:title="@string/menu_item_laptops"/>
+        <item
+            android:id="@+id/navItemCameras"
+            android:title="@string/menu_item_cameras"/>
+        <item
+            android:id="@+id/navItemSpeakers"
+            android:title="@string/menu_item_speakers"/>
+        <item
+            android:id="@+id/navItemHeadphones"
+            android:title="@string/menu_item_headphones"/>
+    </group>
+</menu>

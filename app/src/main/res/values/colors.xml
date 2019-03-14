@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="app_bar_layout">@color/deep_purple_500</color>
+    <color name="collapsing_toolbar">@color/deep_purple_500</color>
+    <color name="toolbar">@color/deep_purple_500</color>
+    <color name="toolbar_text">@color/yellow_300</color>
+    <color name="fab_background_tint">@color/deep_purple_500</color>
+
+    <color name="nested_scroll_view">@color/teal_100</color>
+    <color name="navigation_view_background">@color/blue_100</color>
+
+
 </resources>
