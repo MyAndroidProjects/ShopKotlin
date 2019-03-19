@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
@@ -22,7 +23,7 @@
             app:expandedTitleMarginEnd="@dimen/title_margin_end_collapsing_toolbar"
             app:expandedTitleMarginStart="@dimen/title_margin_start_collapsing_toolbar"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:title="Super Shop">
+            app:title="@string/collapsing_toolbar_title">
 
             <!--            <ImageView
                             android:id="@+id/collapsingImage"
@@ -65,13 +66,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/nested_scroll_view"
+        android:scrollbarDefaultDelayBeforeFade="@integer/scrollbar_default_delay_before_fade_nested_scroll_view"
+        android:scrollbarSize="@dimen/scrollbar_size_nested_scroll_view"
+        android:scrollbars="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
 
         <FrameLayout
             android:id="@+id/fragmentContainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
+
+        </FrameLayout>
 
     </android.support.v4.widget.NestedScrollView>
 
@@ -80,8 +85,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="32dp"
-        android:elevation="8dp"
+        android:layout_margin="@dimen/margin_fab"
+        android:elevation="@dimen/elevation_fab"
         android:src="@drawable/ic_baseline_shopping_cart_24px"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         app:backgroundTint="@color/fab_background_tint" />

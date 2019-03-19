@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:card_view="http://schemas.android.com/apk/res-auto">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -7,9 +7,51 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+
+    <!--    <style name="CardViewStyle"  parent="CardView">
+            <item name="cardCornerRadius">4dp</item>
+            <item name="cardElevation">4dp</item>
+        </style>-->
+
+
+    <style name="card_catalog">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/catalog_image_height</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_card_catalog</item>
+        <item name="android:layout_marginBottom">@dimen/margin_bottom_card_catalog</item>
+        <item name="cardBackgroundColor">@color/card_catalog_background</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardElevation">4dp</item>
+    </style>
+
+    <style name="card_catalog.left">
+        <item name="layout_column">0</item>
+        <item name="layout_columnWeight">50</item>
+        <item name="android:layout_marginEnd">4dp</item>
+        <item name="android:layout_marginStart">12dp</item>
+    </style>
+
+    <style name="card_catalog.center">
+
+    </style>
+
+    <style name="card_catalog.right">
+        <item name="layout_column">1</item>
+        <item name="layout_columnWeight">50</item>
+    </style>
+
+    <style name="catalog_image">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <!--<item name="android:layout_gravity">center</item>-->
+        <item name="android:scaleType">centerInside</item>
+    </style>
+
 
 </resources>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- AppBarLayout -->
     <dimen name="height_app_bar_layout">244dp</dimen>
     <dimen name="title_margin_end_collapsing_toolbar">48dp</dimen>
     <dimen name="title_margin_start_collapsing_toolbar">48dp</dimen>
@@ -10,5 +11,23 @@
     <dimen name="title_margin_start_toolbar">36dp</dimen>
     <dimen name="title_margin_end_toolbar">12dp</dimen>
 
+    <!-- FAB -->
+    <dimen name="margin_fab">32dp</dimen>
+    <dimen name="elevation_fab">8dp</dimen>
+
+    <!-- Catalog -->
+    <dimen name="catalog_image_height">144dp</dimen>
+    <dimen name="margin_top_card_catalog">4dp</dimen>
+    <dimen name="margin_bottom_card_catalog">4dp</dimen>
+    <dimen name="item_product_list_card_margin">4dp</dimen>
+    <dimen name="item_product_list_card_corner_radius">8dp</dimen>
+    <dimen name="item_product_list_card_corner_elevation">8dp</dimen>
+    <dimen name="item_product_list_image_size">96dp</dimen>
+    <dimen name="item_product_list_image_margin">16dp</dimen>
+    <dimen name="item_product_list_brand_margin">4dp</dimen>
+    <dimen name="margin_item_product_list_price">8dp</dimen>
+    <dimen name="item_product_list_name_margin">8dp</dimen>
+    <dimen name="drawable_padding_item_product_list_price">8dp</dimen>
+    <dimen name="scrollbar_size_nested_scroll_view">36dp</dimen>
 
 </resources>
