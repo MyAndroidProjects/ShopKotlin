@@ -26,8 +26,6 @@ class DatabaseHelper(context: Context) :
 
     override fun onCreate(db: SQLiteDatabase?) {
         createAllTables(db)
-        val databaseManager = DatabaseManager()
-        databaseManager.fillAllTables()
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
