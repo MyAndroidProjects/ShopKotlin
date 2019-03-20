@@ -12,17 +12,21 @@ class DatabaseManager() {
 
     fun getProductListFromTable(context: Context, tableName: String): ArrayList<Product> {
         val list = ArrayList<Product>()
-        val databaseHelper = DatabaseHelper.getInstance(context)
-        val database = databaseHelper.readableDatabase
-        database.select(tableName, "*").exec {
-            if (this.moveToFirst()) {
-                do {
-                    val product: Product = getProductFromCursor(this, tableName)
-                    list.add(product)
-                } while (this.moveToNext())
-            } else {
-                Log.d("myLog", "!!!!! this.moveToFirst() ")
+        try {
+            val databaseHelper = DatabaseHelper.getInstance(context)
+            val database = databaseHelper.readableDatabase
+            database.select(tableName, "*").exec {
+                if (this.moveToFirst()) {
+                    do {
+                        val product: Product = getProductFromCursor(this, tableName)
+                        list.add(product)
+                    } while (this.moveToNext())
+                } else {
+                    Log.d("myLog", "!!!!! this.moveToFirst() ")
+                }
             }
+        }catch (e: Exception) {
+            Log.d("myLog", "Exception: " + e.toString())
         }
         return list
     }

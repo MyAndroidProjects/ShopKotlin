@@ -13,43 +13,33 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-
-    <!--    <style name="CardViewStyle"  parent="CardView">
-            <item name="cardCornerRadius">4dp</item>
-            <item name="cardElevation">4dp</item>
-        </style>-->
-
-
     <style name="card_catalog">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">@dimen/catalog_image_height</item>
         <item name="android:layout_marginTop">@dimen/margin_top_card_catalog</item>
         <item name="android:layout_marginBottom">@dimen/margin_bottom_card_catalog</item>
         <item name="cardBackgroundColor">@color/card_catalog_background</item>
-        <item name="cardCornerRadius">8dp</item>
-        <item name="cardElevation">4dp</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius_card_catalog</item>
+        <item name="cardElevation">@dimen/card_elevation_card_catalog</item>
     </style>
 
     <style name="card_catalog.left">
-        <item name="layout_column">0</item>
-        <item name="layout_columnWeight">50</item>
-        <item name="android:layout_marginEnd">4dp</item>
-        <item name="android:layout_marginStart">12dp</item>
-    </style>
-
-    <style name="card_catalog.center">
-
+        <item name="layout_column">@integer/layout_column_card_catalog_left</item>
+        <item name="layout_columnWeight">@integer/layout_column_weight_card_catalog</item>
+        <item name="android:layout_marginStart">@dimen/layout_margin_start_card_catalog_left</item>
+        <item name="android:layout_marginEnd">@dimen/layout_margin_end_card_catalog_left</item>
     </style>
 
     <style name="card_catalog.right">
-        <item name="layout_column">1</item>
-        <item name="layout_columnWeight">50</item>
+        <item name="layout_column">@integer/layout_column_card_catalog_right</item>
+        <item name="layout_columnWeight">@integer/layout_column_weight_card_catalog</item>
+        <item name="android:layout_marginStart">@dimen/layout_margin_start_card_catalog_right</item>
+        <item name="android:layout_marginEnd">@dimen/layout_margin_end_card_catalog_right</item>
     </style>
 
     <style name="catalog_image">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <!--<item name="android:layout_gravity">center</item>-->
         <item name="android:scaleType">centerInside</item>
     </style>
 

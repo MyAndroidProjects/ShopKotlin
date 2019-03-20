@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- content description -->
+    <string name="content_description_smartphone">Смартфоны</string>
+    <string name="content_description_graphic_tablet">Графические планшеты</string>
+    <string name="content_description_laptop">Ноутбуки</string>
+    <string name="content_description_speakers">Колонки</string>
+    <string name="content_description_headphones">Наушники</string>
+    <string name="content_description_camera">Фотокамеры</string>
+    <string name="image_description_shopping_cart">Изображение тележки для продуктов</string>
+
+    <string name="product_content_description">Изображение товара</string>
+
+    <!-- Catalog -->
+    <string name="menu_item_smartphones">Смартфоны</string>
+    <string name="menu_item_graphic_tablets">Графические планшеты</string>
+    <string name="menu_item_laptops">Ноутбуки</string>
+    <string name="menu_item_cameras">Фотокамеры</string>
+    <string name="menu_item_headphones">Наушники</string>
+    <string name="menu_item_speakers">Колонки</string>
+
+</resources>

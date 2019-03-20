@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingDefaultResource">
+    <dimen name="layout_margin_start_card_catalog_center">4dp</dimen>
+    <dimen name="layout_margin_end_card_catalog_center">4dp</dimen>
+    <dimen name="layout_margin_start_item_product_list_card">48dp</dimen>
+    <dimen name="layout_margin_end_item_product_list_card">48dp</dimen>
+</resources>

@@ -9,7 +9,8 @@ import com.study.riseof.shopkotlin.R
 import kotlinx.android.synthetic.main.fragment_navigation_view.*
 
 class NavigationViewFragment : Fragment(), NavigationView.OnNavigationItemSelectedListener {
-    var presenter: NavigationViewFragmentContract.Presenter? = null
+
+    private var presenter: NavigationViewFragmentContract.Presenter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -21,44 +22,40 @@ class NavigationViewFragment : Fragment(), NavigationView.OnNavigationItemSelect
         super.onStart()
         presenter = NavigationViewFragmentPresenter
         navigationView.setNavigationItemSelectedListener(this)
-        Log.d("myLog", "onStart")
     }
 
     override fun onStop() {
-        super.onStop()
+        Log.d("myLog", " onStop "+this.toString())
         presenter = null
+        super.onStop()
     }
 
-    override fun onResume() {
-        super.onResume()
-        Log.d("myLog", "onResume")
-    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.navItemSmartphones -> {
-                presenter?.navItemSmartphonesSelected()
+                presenter?.navItemSmartphonesSelected(context)
                 Log.d("myLog", "navItemSmartphones")
             }
             R.id.navItemGraphicTablets -> {
-                presenter?.navItemGraphicTabletsSelected()
+                presenter?.navItemGraphicTabletsSelected(context)
                 Log.d("myLog", "navItemGraphicTablets")
             }
             R.id.navItemLaptops -> {
-                presenter?.navItemLaptopsSelected()
-                Log.d("myLog", "navItemGraphicTablets")
+                presenter?.navItemLaptopsSelected(context)
+                Log.d("myLog", "navItemLaptopsSelected")
             }
             R.id.navItemCameras -> {
-                presenter?.navItemCamerasSelected()
-                Log.d("myLog", "navItemGraphicTablets")
+                presenter?.navItemCamerasSelected(context)
+                Log.d("myLog", "navItemCamerasSelected")
             }
             R.id.navItemSpeakers -> {
-                presenter?.navItemSpeakersSelected()
-                Log.d("myLog", "navItemGraphicTablets")
+                presenter?.navItemSpeakersSelected(context)
+                Log.d("myLog", "navItemSpeakersSelected")
             }
             R.id.navItemHeadphones -> {
-                presenter?.navItemHeadphonesSelected()
-                Log.d("myLog", "navItemGraphicTablets")
+                presenter?.navItemHeadphonesSelected(context)
+                Log.d("myLog", "navItemHeadphonesSelected")
             }
             else -> {
                 Log.d("myLog", "else")
@@ -67,4 +64,14 @@ class NavigationViewFragment : Fragment(), NavigationView.OnNavigationItemSelect
         presenter?.anyNavigationItemSelected()
         return true
     }
+
+/*    override fun onDestroyView() {
+        Log.d("myLog", " onDestroyView "+this.toString())
+        super.onDestroyView()
+    }
+
+    override fun onDestroy() {
+        Log.d("myLog", " onDestroy "+this.toString())
+        super.onDestroy()
+    }*/
 }

@@ -29,5 +29,16 @@
     <dimen name="item_product_list_name_margin">8dp</dimen>
     <dimen name="drawable_padding_item_product_list_price">8dp</dimen>
     <dimen name="scrollbar_size_nested_scroll_view">36dp</dimen>
+    <dimen name="spacing_extra_item_product_list_name">16dp</dimen>
+    <dimen name="card_corner_radius_card_catalog">8dp</dimen>
+    <dimen name="card_elevation_card_catalog">4dp</dimen>
+    <dimen name="layout_margin_end_card_catalog_left">4dp</dimen>
+    <dimen name="layout_margin_start_card_catalog_left">12dp</dimen>
+    <dimen name="layout_margin_start_card_catalog_right">4dp</dimen>
+    <dimen name="layout_margin_end_card_catalog_right">12dp</dimen>
+    <dimen name="layout_margin_top_item_product_list_card">4dp</dimen>
+    <dimen name="layout_margin_bottom_item_product_list_card">4dp</dimen>
+    <dimen name="layout_margin_start_item_product_list_card">12dp</dimen>
+    <dimen name="layout_margin_end_item_product_list_card">12dp</dimen>
 
 </resources>

@@ -1,4 +1,4 @@
 package com.study.riseof.shopkotlin.fragment.productListFragment
 
-object ProductListFragmentPresenter {
+object ProductListFragmentPresenter:ProductListFragmentContract.Presenter {
 }

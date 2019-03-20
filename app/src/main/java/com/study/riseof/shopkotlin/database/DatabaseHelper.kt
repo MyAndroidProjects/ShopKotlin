@@ -50,14 +50,18 @@ class DatabaseHelper(context: Context) :
         specialColumnName: String,
         specialColumnStorageClass: SqlType
     ) {
-        db?.createTable(
-            tableName, true,
-            DatabaseInfo.COLUMN_PRODUCT_ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
-            DatabaseInfo.COLUMN_PRODUCT_BRAND to TEXT,
-            DatabaseInfo.COLUMN_PRODUCT_NAME to INTEGER,
-            DatabaseInfo.COLUMN_PRODUCT_IMAGE_PATH to TEXT,
-            DatabaseInfo.COLUMN_PRODUCT_PRICE to INTEGER,
-            specialColumnName to specialColumnStorageClass
-        )
+        try {
+            db?.createTable(
+                tableName, true,
+                DatabaseInfo.COLUMN_PRODUCT_ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+                DatabaseInfo.COLUMN_PRODUCT_BRAND to TEXT,
+                DatabaseInfo.COLUMN_PRODUCT_NAME to INTEGER,
+                DatabaseInfo.COLUMN_PRODUCT_IMAGE_PATH to TEXT,
+                DatabaseInfo.COLUMN_PRODUCT_PRICE to INTEGER,
+                specialColumnName to specialColumnStorageClass
+            )
+        } catch (e: Exception) {
+            Log.d("myLog", "Exception: " + e.toString())
+        }
     }
 }

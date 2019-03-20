@@ -1,7 +1,6 @@
 package com.study.riseof.shopkotlin.fragment.catalogFragment
 
 
-import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
@@ -15,17 +14,13 @@ import kotlinx.android.synthetic.main.fragment_catalog.*
 class CatalogFragment : Fragment() {
 
     companion object {
-        private var instance: CatalogFragment? = null
         @Synchronized
         fun getInstance(): CatalogFragment {
-            if (instance == null) {
-                instance = CatalogFragment()
-            }
-            return instance!!
+            return  CatalogFragment()
         }
     }
 
-    var presenter: CatalogFragmentContract.Presenter? = null
+    private var presenter: CatalogFragmentContract.Presenter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -34,27 +29,15 @@ class CatalogFragment : Fragment() {
 
 
     private val clickListener = View.OnClickListener { v: View ->
-    //    try {
-            if(presenter==null){
-                Log.d("myLog", "presenter==null")
-            }
-
-            val con = context
-            if(con==null){
-                Log.d("myLog", " if(con==null) ")
-            }
-            when (v) {
-                imageSmartphone -> presenter?.imageSmartphoneSelected(con!!)
-                imageGraphicTablet -> presenter?.imageGraphicTabletSelected(con!!)
-                imageLaptop -> presenter?.imageLaptopSelected(con!!)
-                imageCamera -> presenter?.imageCameraSelected(context!!)
-                imageSpeakers -> presenter?.imageSpeakersSelected(context!!)
-                imageHeadphones -> presenter?.imageHeadphonesSelected(context!!)
-                else -> Log.d("myLog", "else")
-            }
-    //    } catch (e: Exception) {
-       //     Log.d("myLog", "context==null Exception: " + e.toString())
-      //  }
+        when (v) {
+            imageSmartphone -> presenter?.imageSmartphoneSelected(context)
+            imageGraphicTablet -> presenter?.imageGraphicTabletSelected(context)
+            imageLaptop -> presenter?.imageLaptopSelected(context)
+            imageCamera -> presenter?.imageCameraSelected(context)
+            imageSpeakers -> presenter?.imageSpeakersSelected(context)
+            imageHeadphones -> presenter?.imageHeadphonesSelected(context)
+            else -> Log.d("myLog", "else")
+        }
     }
 
     override fun onStart() {
@@ -72,5 +55,20 @@ class CatalogFragment : Fragment() {
         imageHeadphones.setOnClickListener(clickListener)
     }
 
+    override fun onStop() {
+        Log.d("myLog", " onStop " + this.toString())
+        presenter = null
+        super.onStop()
+    }
+
+/*    override fun onDestroyView() {
+        Log.d("myLog", " onDestroyView " + this.toString())
+        super.onDestroyView()
+    }
+
+    override fun onDestroy() {
+        Log.d("myLog", " onDestroy " + this.toString())
+        super.onDestroy()
+    }*/
 }
 

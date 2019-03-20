@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.study.riseof.shopkotlin.model.Product
 import android.view.LayoutInflater
-import android.widget.ImageView
-import android.widget.TextView
 import com.study.riseof.shopkotlin.R
 import com.squareup.picasso.Picasso
 
@@ -31,11 +29,13 @@ class ProductListRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        if(list.isEmpty()){
+            Log.d("myLog", " onBindViewHolder list.isEmpty() ")
+        }
         val item = list[position]
         holder.productView.productName.text = item.name
         holder.productView.productBrand.text = item.brand
         holder.productView.productPrice.text = item.price.toString()
-        val img = holder.productView.productImage
         Picasso.get()
             .load(item.imagePath)
             .placeholder(com.study.riseof.shopkotlin.R.drawable.ic_baseline_add_shopping_cart_96px)
