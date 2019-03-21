@@ -1,11 +1,10 @@
 package com.study.riseof.shopkotlin.fragment.catalogFragment
 
 import android.content.Context
-import android.util.Log
-import com.study.riseof.shopkotlin.database.DatabaseInfo
-import com.study.riseof.shopkotlin.database.DatabaseManager
+import com.study.riseof.shopkotlin.model.database.DatabaseInfo
+import com.study.riseof.shopkotlin.model.database.DatabaseManager
 import com.study.riseof.shopkotlin.fragment.productListFragment.ProductListFragment
-import com.study.riseof.shopkotlin.model.Product
+import com.study.riseof.shopkotlin.model.data.Product
 
 object CatalogFragmentPresenter : CatalogFragmentContract.Presenter {
 
@@ -77,7 +76,7 @@ object CatalogFragmentPresenter : CatalogFragmentContract.Presenter {
     }
 
     private fun getProductListFromTable(context: Context, tableName: String): ArrayList<Product> {
-        val databaseManager = DatabaseManager()
+        val databaseManager = DatabaseManager() as CatalogFragmentContract.Model
 /*   ***     val list = databaseManager.getProductListFromTable(context, tableName)
         Log.d("myLog", "presenter getProductListFromTable " + list.toString())
         if (list.isEmpty()) {

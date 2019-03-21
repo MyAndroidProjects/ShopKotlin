@@ -3,7 +3,6 @@ package com.study.riseof.shopkotlin.navigation
 import android.support.v4.app.Fragment
 import android.util.Log
 import com.study.riseof.shopkotlin.activity.MainActivityPresenter
-import com.study.riseof.shopkotlin.model.Product
 
 object NavigationManager : NavigationContract.Manager, NavigationContract.SetActivities {
     private var mainActivity: NavigationContract.MainActivity? = null

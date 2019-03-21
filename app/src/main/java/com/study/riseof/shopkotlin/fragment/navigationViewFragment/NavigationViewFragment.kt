@@ -33,6 +33,10 @@ class NavigationViewFragment : Fragment(), NavigationView.OnNavigationItemSelect
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.navItemCatalog-> {
+                presenter?.navItemCatalogSelected(context)
+                return true
+            }
             R.id.navItemSmartphones -> {
                 presenter?.navItemSmartphonesSelected(context)
                 Log.d("myLog", "navItemSmartphones")
@@ -69,7 +73,7 @@ class NavigationViewFragment : Fragment(), NavigationView.OnNavigationItemSelect
                 Log.d("myLog", "else")
             }
         }
-        presenter?.anyNavigationItemSelected()
+        presenter?.anyCatalogSectionSelected()
         return true
     }
 

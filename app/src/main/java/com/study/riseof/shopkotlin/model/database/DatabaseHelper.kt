@@ -1,4 +1,4 @@
-package com.study.riseof.shopkotlin.database
+package com.study.riseof.shopkotlin.model.database
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase

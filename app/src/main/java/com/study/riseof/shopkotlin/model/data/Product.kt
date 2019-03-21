@@ -1,4 +1,4 @@
-package com.study.riseof.shopkotlin.model
+package com.study.riseof.shopkotlin.model.data
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

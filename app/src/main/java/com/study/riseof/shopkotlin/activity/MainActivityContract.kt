@@ -28,6 +28,6 @@ interface MainActivityContract {
     }
 
     interface Model {
-
+        fun fillAllTables(context: Context)
     }
 }

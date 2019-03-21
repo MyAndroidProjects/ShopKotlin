@@ -1,4 +1,4 @@
-package com.study.riseof.shopkotlin.database
+package com.study.riseof.shopkotlin.model.database
 
 object DatabaseInfo {
     const val DATABASE_NAME = "simpleShopDatabase"
@@ -32,5 +32,5 @@ object DatabaseInfo {
     const val COLUMN_INDEX_NAME = 2
     const val COLUMN_INDEX_IMAGE_PATH = 3
     const val COLUMN_INDEX_PRICE = 4
-    const val COLUMN_INDEX_SPECIAL_CHARACTERISTIC = 4
+    const val COLUMN_INDEX_SPECIAL_CHARACTERISTIC = 5
 }

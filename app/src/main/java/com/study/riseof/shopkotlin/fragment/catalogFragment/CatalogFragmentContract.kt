@@ -2,7 +2,7 @@ package com.study.riseof.shopkotlin.fragment.catalogFragment
 
 import android.content.Context
 import android.support.v4.app.Fragment
-import com.study.riseof.shopkotlin.model.Product
+import com.study.riseof.shopkotlin.model.data.Product
 
 interface CatalogFragmentContract {
     interface View {
@@ -27,7 +27,7 @@ interface CatalogFragmentContract {
     }
 
     interface Model {
-
+        fun getProductListFromTable(context: Context, tableName: String): ArrayList<Product>
     }
 
 }

@@ -1,7 +1,6 @@
 package com.study.riseof.shopkotlin.navigation
 
 import android.support.v4.app.Fragment
-import com.study.riseof.shopkotlin.model.Product
 
 interface NavigationContract {
     // Если несколько activity работают с менеджером, то подключать каждую,

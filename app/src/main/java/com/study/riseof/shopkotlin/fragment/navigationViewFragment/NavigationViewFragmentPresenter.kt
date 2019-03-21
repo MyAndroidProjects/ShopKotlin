@@ -1,17 +1,25 @@
 package com.study.riseof.shopkotlin.fragment.navigationViewFragment
 
 import android.content.Context
-import android.support.v4.app.Fragment
-import android.util.Log
-import com.study.riseof.shopkotlin.database.DatabaseInfo
-import com.study.riseof.shopkotlin.database.DatabaseManager
+import com.study.riseof.shopkotlin.fragment.catalogFragment.CatalogFragment
+import com.study.riseof.shopkotlin.model.database.DatabaseInfo
+import com.study.riseof.shopkotlin.model.database.DatabaseManager
 import com.study.riseof.shopkotlin.fragment.productListFragment.ProductListFragment
-import com.study.riseof.shopkotlin.model.Product
+import com.study.riseof.shopkotlin.model.data.Product
 
 object NavigationViewFragmentPresenter : NavigationViewFragmentContract.Presenter {
 
     private val navigator = NavigationViewFragmentNavigator as NavigationViewFragmentContract.Navigator
     private lateinit var productList: ArrayList<Product>
+
+    override fun navItemCatalogSelected(context: Context?) {
+        context ?: return
+        navigator.closeDrawerLayout()
+        navigator.cleanBackStack()
+        navigator.createFragment(
+            CatalogFragment.getInstance()
+        )
+    }
 
     override fun navItemSmartphonesSelected(context: Context?) {
         context ?: return
@@ -53,7 +61,7 @@ object NavigationViewFragmentPresenter : NavigationViewFragmentContract.Presente
         productList = getProductListFromTable(context, DatabaseInfo.TABLE_FLASH_DRIVES)
     }
 
-    override fun anyNavigationItemSelected() {
+    override fun anyCatalogSectionSelected() {
         navigator.closeDrawerLayout()
         navigator.cleanBackStack()
         navigator.createFragment(
@@ -62,7 +70,7 @@ object NavigationViewFragmentPresenter : NavigationViewFragmentContract.Presente
     }
 
     private fun getProductListFromTable(context: Context, tableName: String): ArrayList<Product> {
-        val databaseManager = DatabaseManager()
+        val databaseManager = DatabaseManager() as NavigationViewFragmentContract.Model
 /*   ***     val list = databaseManager.getProductListFromTable(context, tableName)
         Log.d("myLog", "presenter getProductListFromTable " + list.toString())
         if (list.isEmpty()) {

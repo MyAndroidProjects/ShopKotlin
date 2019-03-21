@@ -1,7 +1,6 @@
 package com.study.riseof.shopkotlin.fragment.catalogFragment
 
 import android.support.v4.app.Fragment
-import com.study.riseof.shopkotlin.model.Product
 import com.study.riseof.shopkotlin.navigation.NavigationContract
 import com.study.riseof.shopkotlin.navigation.NavigationManager
 

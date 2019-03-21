@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View, NavigationC
         presenter?.activityIsOnCreate(this)
         navigationManager = NavigationManager
         navigationManager?.setMainActivityToNavigationManager(this)
-        toast("Hi there!")
+     //   toast("onCreate")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -132,4 +132,5 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View, NavigationC
             i++
         }
     }
+
 }

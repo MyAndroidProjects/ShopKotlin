@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
-import com.study.riseof.shopkotlin.model.Product
+import com.study.riseof.shopkotlin.model.data.Product
 import android.view.LayoutInflater
 import com.study.riseof.shopkotlin.R
 import com.squareup.picasso.Picasso

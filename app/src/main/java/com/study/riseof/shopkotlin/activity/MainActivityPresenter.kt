@@ -5,7 +5,7 @@ import android.content.Context.MODE_PRIVATE
 import android.support.v4.app.FragmentManager
 import android.util.Log
 import com.study.riseof.shopkotlin.SharedPreferencesInfo
-import com.study.riseof.shopkotlin.database.DatabaseManager
+import com.study.riseof.shopkotlin.model.database.DatabaseManager
 import com.study.riseof.shopkotlin.fragment.catalogFragment.CatalogFragment
 import com.study.riseof.shopkotlin.navigation.NavigationContract
 
@@ -21,7 +21,7 @@ object MainActivityPresenter : MainActivityContract.Presenter, NavigationContrac
         val prefs = context.getSharedPreferences(SharedPreferencesInfo.FILE_NAME, MODE_PRIVATE)
         if (prefs.getBoolean(SharedPreferencesInfo.KEY_APPLICATION_FIRST_LAUNCH, true)) {
             Log.d("myLog", " FIRST_LAUNCH ")
-            val databaseManager = DatabaseManager()
+            val databaseManager = DatabaseManager() as MainActivityContract.Model
             databaseManager.fillAllTables(context)
             prefs.edit().putBoolean(SharedPreferencesInfo.KEY_APPLICATION_FIRST_LAUNCH, false).apply()
         } else {
