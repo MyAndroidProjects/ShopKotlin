@@ -16,10 +16,12 @@ interface NavigationViewFragmentContract {
         fun navItemSpeakersSelected(context: Context?)
         fun navItemHeadphonesSelected(context: Context?)
         fun anyNavigationItemSelected()
+        fun navItemMicrophonesSelected(context: Context?)
+        fun navItemFlashDrivesSelected(context: Context?)
 
     }
 
-    interface Navigator{
+    interface Navigator {
         fun createFragment(fragment: Fragment)
         fun closeDrawerLayout()
         fun cleanBackStack()

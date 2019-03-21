@@ -16,6 +16,8 @@ interface CatalogFragmentContract {
         fun imageCameraSelected(context: Context?)
         fun imageSpeakersSelected(context: Context?)
         fun imageHeadphonesSelected(context: Context?)
+        fun imageMicrophoneSelected(context: Context?)
+        fun imageFlashDriveSelected(context: Context?)
 
     }
 

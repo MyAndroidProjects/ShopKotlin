@@ -9,6 +9,8 @@ object DatabaseInfo {
     const val TABLE_CAMERAS = "cameras"
     const val TABLE_SPEAKERS = "speakers"
     const val TABLE_HEADPHONES = "headphones"
+    const val TABLE_MICROPHONES = "microphones"
+    const val TABLE_FLASH_DRIVES = "flashDrives"
 
     const val COLUMN_PRODUCT_ID = "id"
     const val COLUMN_PRODUCT_BRAND = "brand"
@@ -22,6 +24,8 @@ object DatabaseInfo {
     const val COLUMN_CAMERA_RESOLUTION = "resolution"
     const val COLUMN_SPEAKERS_POWER = "power"
     const val COLUMN_HEADPHONES_TYPE = "type"
+    const val COLUMN_MICROPHONE_SENSITIVITY = "sensitivity"
+    const val COLUMN_FLASH_MEMORY_CAPACITY = "memory"
 
     const val COLUMN_INDEX_ID = 0
     const val COLUMN_INDEX_BRAND = 1

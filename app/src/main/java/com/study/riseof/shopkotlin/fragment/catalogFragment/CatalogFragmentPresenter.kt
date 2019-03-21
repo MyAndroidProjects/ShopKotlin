@@ -60,6 +60,22 @@ object CatalogFragmentPresenter : CatalogFragmentContract.Presenter {
         )
     }
 
+    override fun imageMicrophoneSelected(context: Context?) {
+        context?:return
+        val productList =  getProductListFromTable(context, DatabaseInfo.TABLE_MICROPHONES)
+        navigator.createFragment(
+            ProductListFragment.getInstance(productList)
+        )
+    }
+
+    override fun imageFlashDriveSelected(context: Context?) {
+        context?:return
+        val productList =  getProductListFromTable(context, DatabaseInfo.TABLE_FLASH_DRIVES)
+        navigator.createFragment(
+            ProductListFragment.getInstance(productList)
+        )
+    }
+
     private fun getProductListFromTable(context: Context, tableName: String): ArrayList<Product> {
         val databaseManager = DatabaseManager()
 /*   ***     val list = databaseManager.getProductListFromTable(context, tableName)

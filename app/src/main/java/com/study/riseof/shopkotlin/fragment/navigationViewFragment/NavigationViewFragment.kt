@@ -57,6 +57,14 @@ class NavigationViewFragment : Fragment(), NavigationView.OnNavigationItemSelect
                 presenter?.navItemHeadphonesSelected(context)
                 Log.d("myLog", "navItemHeadphonesSelected")
             }
+            R.id.navItemMicrophones -> {
+                presenter?.navItemMicrophonesSelected(context)
+                Log.d("myLog", "navItemSpeakersSelected")
+            }
+            R.id.navItemFlashDrives-> {
+                presenter?.navItemFlashDrivesSelected(context)
+                Log.d("myLog", "navItemHeadphonesSelected")
+            }
             else -> {
                 Log.d("myLog", "else")
             }

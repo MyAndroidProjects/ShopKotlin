@@ -36,6 +36,8 @@ class CatalogFragment : Fragment() {
             imageCamera -> presenter?.imageCameraSelected(context)
             imageSpeakers -> presenter?.imageSpeakersSelected(context)
             imageHeadphones -> presenter?.imageHeadphonesSelected(context)
+            imageMicrophone ->presenter?.imageMicrophoneSelected(context)
+            imageFlashDrive->presenter?.imageFlashDriveSelected(context)
             else -> Log.d("myLog", "else")
         }
     }

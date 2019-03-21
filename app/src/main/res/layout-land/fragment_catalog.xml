@@ -28,19 +28,19 @@
     <android.support.v7.widget.CardView style="@style/card_catalog.center.right">
 
         <ImageView
-            android:id="@+id/imageLaptop"
+            android:id="@+id/imageCamera"
             style="@style/catalog_image"
-            android:contentDescription="@string/content_description_laptop"
-            android:src="@drawable/laptop" />
+            android:contentDescription="@string/content_description_camera"
+            android:src="@drawable/camera" />
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView style="@style/card_catalog.right">
 
         <ImageView
-            android:id="@+id/imageCamera"
+            android:id="@+id/imageLaptop"
             style="@style/catalog_image"
-            android:contentDescription="@string/content_description_camera"
-            android:src="@drawable/camera" />
+            android:contentDescription="@string/content_description_laptop"
+            android:src="@drawable/laptop" />
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView style="@style/card_catalog.left">
@@ -65,13 +65,18 @@
     <android.support.v7.widget.CardView style="@style/card_catalog.center.right">
 
         <ImageView
-            android:id="@+id/image_speakers2"
+            android:id="@+id/imageMicrophone"
             style="@style/catalog_image"
-            android:contentDescription="@string/content_description_speakers"
-            android:src="@drawable/speakers" />
+            android:contentDescription="@string/content_description_microphone"
+            android:src="@drawable/microphone" />
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView style="@style/card_catalog.right">
 
+        <ImageView
+            android:id="@+id/imageFlashDrive"
+            style="@style/catalog_image"
+            android:contentDescription="@string/content_description_flash_drive"
+            android:src="@drawable/flash_drive" />
     </android.support.v7.widget.CardView>
 </android.support.v7.widget.GridLayout>

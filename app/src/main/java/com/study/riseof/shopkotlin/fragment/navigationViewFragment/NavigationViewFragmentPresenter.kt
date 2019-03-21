@@ -43,6 +43,16 @@ object NavigationViewFragmentPresenter : NavigationViewFragmentContract.Presente
         productList = getProductListFromTable(context, DatabaseInfo.TABLE_HEADPHONES)
     }
 
+    override fun navItemMicrophonesSelected(context: Context?) {
+        context ?: return
+        productList = getProductListFromTable(context, DatabaseInfo.TABLE_MICROPHONES)
+    }
+
+    override fun navItemFlashDrivesSelected(context: Context?) {
+        context ?: return
+        productList = getProductListFromTable(context, DatabaseInfo.TABLE_FLASH_DRIVES)
+    }
+
     override fun anyNavigationItemSelected() {
         navigator.closeDrawerLayout()
         navigator.cleanBackStack()

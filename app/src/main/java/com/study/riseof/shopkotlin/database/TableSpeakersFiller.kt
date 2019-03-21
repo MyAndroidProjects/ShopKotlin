@@ -1,12 +1,10 @@
 package com.study.riseof.shopkotlin.database
 
 import android.content.Context
-import android.database.sqlite.SQLiteDatabase
 import android.util.Log
-import org.jetbrains.anko.db.*
-import kotlin.random.Random
+import org.jetbrains.anko.db.insert
 
-class TableSmartphonesFiller {
+class TableSpeakersFiller {
     private val productQuantity = 20
     private val imgBasePath = "file:///android_asset/pictures/smartphones/"
     private val brands: Array<String> = arrayOf(
@@ -40,7 +38,6 @@ class TableSmartphonesFiller {
                     Log.d("myLog", brand + " " + name + " " + path + " " + price + " " + diagonal)
                     i++
                 }
-                showBaseInLog(this)
             }
         } catch (e: Exception) {
             Log.d("myLog", "Exception: " + e.toString())
@@ -48,24 +45,4 @@ class TableSmartphonesFiller {
         return true
     }
 
-    fun showBaseInLog(database: SQLiteDatabase?) {
-        try {
-            database?.select(DatabaseInfo.TABLE_SMARTPHONES, "*")?.exec {
-                if (this.moveToFirst()) {
-                    do {
-                        Log.d("myLog", "TableSmartphonesFiller STEP ")
-                        Log.d(
-                            "myLog", "id= " + this.getInt(0) + " " + this.getString(1) + " " +
-                                    this.getInt(2) + " " + this.getString(3) + " " +
-                                    getInt(4) + " " + getFloat(5)
-                        )
-                    } while (this.moveToNext())
-                } else {
-                    Log.d("myLog", "TableSmartphonesFiller !!!!! this.moveToFirst() ")
-                }
-            }
-        } catch (e: Exception) {
-            Log.d("myLog", "Exception: " + e.toString())
-        }
-    }
 }

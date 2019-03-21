@@ -2,22 +2,40 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="none">
         <item
+            android:id="@+id/navItemCatalog"
+            android:icon="@drawable/ic_baseline_list_24px"
+            android:title="@string/menu_item_catalog"/>
+        <item
             android:id="@+id/navItemSmartphones"
+            android:icon="@drawable/ic_baseline_smartphone_24px"
             android:title="@string/menu_item_smartphones"/>
         <item
             android:id="@+id/navItemGraphicTablets"
+            android:icon="@drawable/ic_baseline_tablet_24px"
             android:title="@string/menu_item_graphic_tablets"/>
         <item
-            android:id="@+id/navItemLaptops"
-            android:title="@string/menu_item_laptops"/>
-        <item
             android:id="@+id/navItemCameras"
+            android:icon="@drawable/ic_baseline_photo_camera_24px"
             android:title="@string/menu_item_cameras"/>
         <item
+            android:id="@+id/navItemLaptops"
+            android:icon="@drawable/ic_baseline_laptop_windows_24px"
+            android:title="@string/menu_item_laptops"/>
+        <item
             android:id="@+id/navItemSpeakers"
+            android:icon="@drawable/ic_baseline_speaker_24px"
             android:title="@string/menu_item_speakers"/>
         <item
             android:id="@+id/navItemHeadphones"
+            android:icon="@drawable/ic_baseline_headset_24px"
             android:title="@string/menu_item_headphones"/>
+        <item
+            android:id="@+id/navItemMicrophones"
+            android:icon="@drawable/ic_baseline_keyboard_voice_24px"
+            android:title="@string/menu_item_microphone"/>
+        <item
+            android:id="@+id/navItemFlashDrives"
+            android:icon="@drawable/ic_baseline_usb_24px"
+            android:title="@string/menu_item_flash_drives"/>
     </group>
 </menu>

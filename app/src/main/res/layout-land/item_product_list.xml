@@ -34,7 +34,6 @@
         <TextView
             android:id="@+id/productBrand"
             android:layout_margin="@dimen/item_product_list_brand_margin"
-            android:text="Plum"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             android:textStyle="bold"
             app:layout_column="1"
@@ -47,7 +46,6 @@
             android:id="@+id/productName"
             android:layout_margin="@dimen/item_product_list_name_margin"
             android:lineSpacingExtra="@dimen/spacing_extra_item_product_list_name"
-            android:text="7250"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             android:textStyle="bold"
             app:layout_column="2"
@@ -60,7 +58,6 @@
             android:id="@+id/productPrice"
             android:drawableStart="@drawable/ic_baseline_euro_symbol_24px"
             android:drawablePadding="@dimen/drawable_padding_item_product_list_price"
-            android:text="3000"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             android:textStyle="bold"
             app:layout_column="2"
