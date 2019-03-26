@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:checkableBehavior="none">
         <item
             android:id="@+id/navItemCatalog"
             android:icon="@drawable/ic_baseline_list_24px"
-            android:title="@string/menu_item_catalog"/>
+            android:title="@string/menu_item_catalog"
+            />
         <item
             android:id="@+id/navItemSmartphones"
             android:icon="@drawable/ic_baseline_smartphone_24px"

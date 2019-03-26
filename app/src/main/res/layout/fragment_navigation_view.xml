@@ -9,7 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/navigation_view_background"
+        android:background="@color/background_fragments"
+        app:itemTextColor="@color/menu_text"
+        app:itemTextAppearance="@style/TextAppearance.MaterialComponents.Headline6"
         android:fitsSystemWindows="true"
         app:menu="@menu/menu_navigation_view" />
 </FrameLayout>
+<!-- app:itemTextAppearance="" -->

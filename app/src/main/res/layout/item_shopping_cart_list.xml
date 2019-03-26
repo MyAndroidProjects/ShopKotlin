@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="24dp"
+    android:layout_marginEnd="24dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10">
+
+        <Button
+            android:id="@+id/buttonDelete"
+            style="@style/button_shopping_cart"
+            android:layout_weight="2"
+            android:drawableStart="@drawable/ic_baseline_remove_shopping_cart_24px"
+            android:text="убрать"
+       />
+
+        <TextView
+            android:id="@+id/productShoppingCartType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:paddingStart="8dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            tools:ignore="RtlSymmetry" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/productShoppingCartBrandAndName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+    <TextView
+        android:id="@+id/productFeatureAndPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/ic_baseline_euro_symbol_24px"
+        android:drawablePadding="4dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+</LinearLayout>

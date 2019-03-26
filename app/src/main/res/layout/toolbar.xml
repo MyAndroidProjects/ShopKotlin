@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbarReserve"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/toolbar"
+    app:layout_collapseMode="pin"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    app:titleEnabled="false"
+    app:titleMarginEnd="@dimen/title_margin_end_toolbar"
+    app:titleMarginStart="@dimen/title_margin_start_toolbar">
+
+    <TextView
+        android:id="@+id/productsQuantityReserve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end"
+        android:drawableStart="@drawable/ic_baseline_shopping_cart_24px"
+        android:drawablePadding="@dimen/drawable_padding_text_toolbar"
+        android:paddingStart="@dimen/padding_start_text_toolbar"
+        android:paddingEnd="@dimen/padding_end_text_toolbar"
+        android:text="@string/start_text_toolbar"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/toolbar_text"
+        android:textStyle="bold" />
+
+</android.support.v7.widget.Toolbar>

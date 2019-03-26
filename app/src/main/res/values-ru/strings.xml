@@ -17,8 +17,8 @@
     <!-- Catalog -->
     <string name="menu_item_smartphones">Смартфоны</string>
     <string name="menu_item_microphone">Микрофоны</string>
-    <string name="menu_item_flash_drives">USB Флеш накопители</string>
-    <string name="menu_item_graphic_tablets">Графические планшеты</string>
+    <string name="menu_item_flash_drives">USB Флешки</string>
+    <string name="menu_item_graphic_tablets">Гр. планшеты</string>
     <string name="menu_item_laptops">Ноутбуки</string>
     <string name="menu_item_cameras">Фотокамеры</string>
     <string name="menu_item_headphones">Наушники</string>
@@ -26,5 +26,35 @@
     <string name="menu_item_catalog">Каталог</string>
 
     <!-- product info -->
+    <string name="brand_header">Производитель:</string>
+    <string name="name_header">Модель:</string>
+    <string name="feature_header">Характеристика:</string>
+    <string name="price_header">Цена:</string>
+
+    <string name="feature_smartphones">Диагональ:</string>
+    <string name="feature_microphone">Чувствительность:</string>
+    <string name="feature_flash_drives">Объем памяти:</string>
+    <string name="feature_graphic_tablets">Формат:</string>
+    <string name="feature_laptops">Цвет:</string>
+    <string name="feature_cameras">Разрешение:</string>
+    <string name="feature_headphones">Тип:</string>
+    <string name="feature_speakers">Мощность:</string>
+
+    <!-- shopping cart -->
+    <string name="button_back">Назад</string>
+    <string name="button_clean">Очистить</string>
+    <string name="button_buy">Купить</string>
+    <string name="label_products">products,</string>
+    <string name="label_total_products">Итого товаров:</string>
+    <string name="label_amount">Стоимость:</string>
+
+    <string name="product_type_smartphone">Смартфон</string>
+    <string name="product_type_microphone">Микрофон</string>
+    <string name="product_type_flash_drive">USB флешка</string>
+    <string name="product_type_graphic_tablet">Граф. планшет</string>
+    <string name="product_type_laptop">Ноутбук</string>
+    <string name="product_type_camera">Фотоаппарат</string>
+    <string name="product_type_headphones">Наушники</string>
+    <string name="product_type_speakers">Колонки</string>
 
 </resources>

@@ -3,8 +3,8 @@
 
     <integer name="product_image_size">144</integer>
     <integer name="scrollbar_default_delay_before_fade_nested_scroll_view">3000</integer>
-    <integer name="layout_column_weight_card_catalog">50</integer>
-    <integer name="layout_column_card_catalog_left">0</integer>
-    <integer name="layout_column_card_catalog_right">1</integer>
+    <integer name="layout_column_weight_cart_catalog">50</integer>
+    <integer name="layout_column_cart_catalog_left">0</integer>
+    <integer name="layout_column_cart_catalog_right">1</integer>
 
 </resources>

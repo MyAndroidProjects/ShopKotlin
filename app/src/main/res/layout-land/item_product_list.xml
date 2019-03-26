@@ -5,13 +5,13 @@
     android:id="@+id/itemProductList"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/layout_margin_start_item_product_list_card"
-    android:layout_marginTop="@dimen/layout_margin_top_item_product_list_card"
-    android:layout_marginEnd="@dimen/layout_margin_end_item_product_list_card"
-    android:layout_marginBottom="@dimen/layout_margin_bottom_item_product_list_card"
-    card_view:cardBackgroundColor="@color/item_product_list_card_background"
-    card_view:cardCornerRadius="@dimen/item_product_list_card_corner_radius"
-    card_view:cardElevation="@dimen/item_product_list_card_corner_elevation">
+    android:layout_marginStart="@dimen/layout_margin_start_item_product_list_cart"
+    android:layout_marginTop="@dimen/layout_margin_top_item_product_list_cart"
+    android:layout_marginEnd="@dimen/layout_margin_end_item_product_list_cart"
+    android:layout_marginBottom="@dimen/layout_margin_bottom_item_product_list_cart"
+    card_view:cardBackgroundColor="@color/item_product_list_cart_background"
+    card_view:cardCornerRadius="@dimen/item_product_list_cart_corner_radius"
+    card_view:cardElevation="@dimen/item_product_list_cart_corner_elevation">
 
     <android.support.v7.widget.GridLayout
         android:layout_width="match_parent"

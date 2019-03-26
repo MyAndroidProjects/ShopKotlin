@@ -19,8 +19,8 @@
     <!-- Catalog -->
     <string name="menu_item_smartphones">Smartphones</string>
     <string name="menu_item_microphone">Microphones</string>
-    <string name="menu_item_flash_drives">USB flash drives</string>
-    <string name="menu_item_graphic_tablets">Graphic Tablets</string>
+    <string name="menu_item_flash_drives">USB flash drive</string>
+    <string name="menu_item_graphic_tablets">Graphic tablets</string>
     <string name="menu_item_laptops">Laptops</string>
     <string name="menu_item_cameras">Cameras</string>
     <string name="menu_item_headphones">Headphones</string>
@@ -30,10 +30,37 @@
     <!-- TODO не забыть потом убрать  -->
     <string name="start_text_toolbar" translatable="false">0</string>
 
+
     <!-- product info -->
+    <string name="brand_header">Brand:</string>
+    <string name="name_header">Model:</string>
+    <string name="feature_header">Feature:</string>
+    <string name="price_header">Price:</string>
 
+    <string name="feature_smartphones">Diagonal:</string>
+    <string name="feature_microphone">Sensitivity:</string>
+    <string name="feature_flash_drives">Memory capacity:</string>
+    <string name="feature_graphic_tablets">Format:</string>
+    <string name="feature_laptops">Color:</string>
+    <string name="feature_cameras">Resolution:</string>
+    <string name="feature_headphones">Type:</string>
+    <string name="feature_speakers">Power:</string>
 
+    <!-- shopping cart -->
+    <string name="button_back">Back</string>
+    <string name="button_clean">Clean</string>
+    <string name="button_buy">Buy</string>
+    <string name="label_products">products,</string>
+    <string name="label_total_products">Total products:</string>
+    <string name="label_amount">Amount:</string>
 
-
-
+    <string name="product_type_smartphone">Smartphones</string>
+    <string name="product_type_microphone">Microphones</string>
+    <string name="product_type_flash_drive">USB flash drive</string>
+    <string name="product_type_graphic_tablet">Graphic tablets</string>
+    <string name="product_type_laptop">Laptops</string>
+    <string name="product_type_camera">Cameras</string>
+    <string name="product_type_headphones">Headphones</string>
+    <string name="product_type_speakers">Speakers</string>
+    
 </resources>

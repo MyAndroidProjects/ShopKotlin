@@ -4,13 +4,13 @@
     android:id="@+id/itemProductList"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/layout_margin_top_item_product_list_card"
-    android:layout_marginBottom="@dimen/layout_margin_bottom_item_product_list_card"
-    android:layout_marginStart="@dimen/layout_margin_start_item_product_list_card"
-    android:layout_marginEnd="@dimen/layout_margin_end_item_product_list_card"
-    card_view:cardBackgroundColor="@color/item_product_list_card_background"
-    card_view:cardCornerRadius="@dimen/item_product_list_card_corner_radius"
-    card_view:cardElevation="@dimen/item_product_list_card_corner_elevation">
+    android:layout_marginTop="@dimen/layout_margin_top_item_product_list_cart"
+    android:layout_marginBottom="@dimen/layout_margin_bottom_item_product_list_cart"
+    android:layout_marginStart="@dimen/layout_margin_start_item_product_list_cart"
+    android:layout_marginEnd="@dimen/layout_margin_end_item_product_list_cart"
+    card_view:cardBackgroundColor="@color/item_product_list_cart_background"
+    card_view:cardCornerRadius="@dimen/item_product_list_cart_corner_radius"
+    card_view:cardElevation="@dimen/item_product_list_cart_corner_elevation">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,7 +34,9 @@
                 android:id="@+id/productBrand"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/item_product_list_brand_margin"
+                android:layout_marginTop="@dimen/item_product_list_brand_margin"
+                android:layout_marginStart="@dimen/item_product_list_brand_margin"
+                android:layout_marginEnd="@dimen/item_product_list_brand_margin"
                 android:gravity="bottom|start"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
 
@@ -42,7 +44,9 @@
                 android:id="@+id/productName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/item_product_list_name_margin"
+                android:layout_marginBottom="@dimen/item_product_list_name_margin"
+                android:layout_marginStart="@dimen/item_product_list_name_margin"
+                android:layout_marginEnd="@dimen/item_product_list_name_margin"
                 android:gravity="top|end"
                 android:lineSpacingExtra="@dimen/spacing_extra_item_product_list_name"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />

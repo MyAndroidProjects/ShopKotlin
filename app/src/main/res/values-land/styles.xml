@@ -1,19 +1,19 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:card_view="http://schemas.android.com/apk/res-auto">
 
 
-    <style name="card_catalog.center">
-        <item name="layout_columnWeight">@integer/layout_column_weight_card_catalog</item>
-        <item name="android:layout_marginStart">@dimen/layout_margin_start_card_catalog_center</item>
-        <item name="android:layout_marginEnd">@dimen/layout_margin_end_card_catalog_center</item>
+    <style name="cart_catalog.center">
+        <item name="layout_columnWeight">@integer/layout_column_weight_cart_catalog</item>
+        <item name="android:layout_marginStart">@dimen/layout_margin_start_cart_catalog_center</item>
+        <item name="android:layout_marginEnd">@dimen/layout_margin_end_cart_catalog_center</item>
     </style>
 
-    <style name="card_catalog.center.left">
-        <item name="layout_column">@integer/layout_column_card_catalog_center_left</item>
+    <style name="cart_catalog.center.left">
+        <item name="layout_column">@integer/layout_column_cart_catalog_center_left</item>
 
     </style>
 
-    <style name="card_catalog.center.right">
-        <item name="layout_column">@integer/layout_column_card_catalog_center_right</item>
+    <style name="cart_catalog.center.right">
+        <item name="layout_column">@integer/layout_column_cart_catalog_center_right</item>
     </style>
 
 

@@ -17,28 +17,33 @@
 
     <!-- Catalog -->
     <dimen name="catalog_image_height">144dp</dimen>
-    <dimen name="margin_top_card_catalog">4dp</dimen>
-    <dimen name="margin_bottom_card_catalog">4dp</dimen>
-    <dimen name="item_product_list_card_margin">4dp</dimen>
-    <dimen name="item_product_list_card_corner_radius">8dp</dimen>
-    <dimen name="item_product_list_card_corner_elevation">8dp</dimen>
+    <dimen name="margin_top_cart_catalog">4dp</dimen>
+    <dimen name="margin_bottom_cart_catalog">4dp</dimen>
+    <dimen name="item_product_list_cart_margin">4dp</dimen>
+    <dimen name="item_product_list_cart_corner_radius">8dp</dimen>
+    <dimen name="item_product_list_cart_corner_elevation">8dp</dimen>
     <dimen name="item_product_list_image_size">96dp</dimen>
     <dimen name="item_product_list_image_margin">16dp</dimen>
-    <dimen name="item_product_list_brand_margin">4dp</dimen>
+    <dimen name="item_product_list_brand_margin">8dp</dimen>
     <dimen name="margin_item_product_list_price">8dp</dimen>
     <dimen name="item_product_list_name_margin">8dp</dimen>
     <dimen name="drawable_padding_item_product_list_price">8dp</dimen>
     <dimen name="scrollbar_size_nested_scroll_view">36dp</dimen>
     <dimen name="spacing_extra_item_product_list_name">16dp</dimen>
-    <dimen name="card_corner_radius_card_catalog">8dp</dimen>
-    <dimen name="card_elevation_card_catalog">4dp</dimen>
-    <dimen name="layout_margin_end_card_catalog_left">4dp</dimen>
-    <dimen name="layout_margin_start_card_catalog_left">12dp</dimen>
-    <dimen name="layout_margin_start_card_catalog_right">4dp</dimen>
-    <dimen name="layout_margin_end_card_catalog_right">12dp</dimen>
-    <dimen name="layout_margin_top_item_product_list_card">4dp</dimen>
-    <dimen name="layout_margin_bottom_item_product_list_card">4dp</dimen>
-    <dimen name="layout_margin_start_item_product_list_card">12dp</dimen>
-    <dimen name="layout_margin_end_item_product_list_card">12dp</dimen>
+    <dimen name="cart_corner_radius_cart_catalog">8dp</dimen>
+    <dimen name="cart_elevation_cart_catalog">4dp</dimen>
+    <dimen name="layout_margin_end_cart_catalog_left">4dp</dimen>
+    <dimen name="layout_margin_start_cart_catalog_left">12dp</dimen>
+    <dimen name="layout_margin_start_cart_catalog_right">4dp</dimen>
+    <dimen name="layout_margin_end_cart_catalog_right">12dp</dimen>
+    <dimen name="layout_margin_top_item_product_list_cart">4dp</dimen>
+    <dimen name="layout_margin_bottom_item_product_list_cart">4dp</dimen>
+    <dimen name="layout_margin_start_item_product_list_cart">12dp</dimen>
+    <dimen name="layout_margin_end_item_product_list_cart">12dp</dimen>
+    <dimen name="size_image_product_info">144dp</dimen>
+    <dimen name="layout_margin_image_product_info">24dp</dimen>
+    <dimen name="layout_margin_start_headers_product_info">32dp</dimen>
+    <dimen name="layout_margin_button_shopping_cart">8dp</dimen>
+    <dimen name="corners_radius_button_shopping_cart">8dp</dimen>
 
 </resources>
