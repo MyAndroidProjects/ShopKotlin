@@ -77,11 +77,6 @@ object CatalogFragmentPresenter : CatalogFragmentContract.Presenter {
 
     private fun getProductListFromShopDatabase(context: Context, tableName: String): ArrayList<Product> {
         val databasesManager = DatabasesManager() as CatalogFragmentContract.Model
-/*   ***     val list = databasesManager.getProductListFromShopDatabase(context, tableName)
-        Log.d("myLog", "presenter getProductListFromShopDatabase " + list.toString())
-        if (list.isEmpty()) {
-            Log.d("myLog", " list.isEmpty() ")
-        }*/
         return databasesManager.getProductListFromShopDatabase(context, tableName)
     }
 

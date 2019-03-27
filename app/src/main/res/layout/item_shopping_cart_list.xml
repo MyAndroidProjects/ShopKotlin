@@ -5,43 +5,61 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="24dp"
     android:layout_marginEnd="24dp"
-    android:orientation="vertical">
+    android:orientation="horizontal"
+    android:weightSum="10">
+
+    <Button
+        android:id="@+id/buttonDelete"
+        style="@style/button_shopping_cart"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:drawableStart="@drawable/ic_baseline_remove_shopping_cart_24px"
+        android:text="убрать" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:weightSum="10">
-
-        <Button
-            android:id="@+id/buttonDelete"
-            style="@style/button_shopping_cart"
-            android:layout_weight="2"
-            android:drawableStart="@drawable/ic_baseline_remove_shopping_cart_24px"
-            android:text="убрать"
-       />
+        android:layout_weight="8"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/productShoppingCartType"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="8"
             android:paddingStart="8dp"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
             tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/productShoppingCartBrandAndName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/productShoppingCartFeature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/productShoppingCartPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_baseline_euro_symbol_24px"
+            android:drawablePadding="4dp"
+            android:gravity="end"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/toolbar"
+ />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/productShoppingCartBrandAndName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
-
-    <TextView
-        android:id="@+id/productFeatureAndPrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableEnd="@drawable/ic_baseline_euro_symbol_24px"
-        android:drawablePadding="4dp"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
 
 </LinearLayout>

@@ -23,7 +23,7 @@
             android:background="@color/toolbar"
             app:layout_collapseMode="pin"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:titleEnabled="false"
+            app:title="@string/collapsing_toolbar_title"
             app:titleMarginEnd="@dimen/title_margin_end_toolbar"
             app:titleMarginStart="@dimen/title_margin_start_toolbar">
 
@@ -59,6 +59,12 @@
                     app:layout_constraintTop_toTopOf="@id/constraintLayout" />
 
         </FrameLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/toolbar"
+            app:layout_constraintBottom_toTopOf="@id/bottomInfoArea"/>
 
         <LinearLayout
             android:id="@+id/bottomInfoArea"

@@ -37,7 +37,7 @@ object NavigationManager : NavigationContract.Manager, NavigationContract.SetAct
         mainActivity?.cleanBackStack()
     }
 
-// Main Activity Presenter
+    // Main Activity Presenter
     override fun closeDrawerLayout() {
         mainActivityPresenter.closeDrawerLayout()
     }
@@ -54,16 +54,12 @@ object NavigationManager : NavigationContract.Manager, NavigationContract.SetAct
         mainActivity?.startShoppingCartActivity(list)
     }
 
-    override fun startMainActivity() {
-        shoppingCartActivity?.startMainActivity()
+    override fun startMainActivity(fragmentType: Int, startSnackBarMessage: String?) {
+        shoppingCartActivity?.startMainActivity(fragmentType,startSnackBarMessage)
     }
 
     override fun shoppingCartActivityCallSuperOnBackPressed() {
         shoppingCartActivityPresenter.callSuperOnBackPressed()
     }
 
-    override fun shoppingCartActivityCleanBackStack() {
-        shoppingCartActivity?.cleanBackStack()
-
-    }
 }

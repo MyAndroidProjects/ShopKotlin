@@ -8,6 +8,7 @@ import com.study.riseof.shopkotlin.R
 import com.study.riseof.shopkotlin.SharedPreferencesInfo
 import com.study.riseof.shopkotlin.activity.shopping_cart.ShoppingCartActivity
 import com.study.riseof.shopkotlin.fragment.catalog.CatalogFragment
+import com.study.riseof.shopkotlin.fragment.product_list.ProductListFragment
 import com.study.riseof.shopkotlin.model.data.Product
 import com.study.riseof.shopkotlin.model.database.DatabasesManager
 import com.study.riseof.shopkotlin.model.database.simple_shop.ShopDatabaseInfo
@@ -17,29 +18,107 @@ import org.jetbrains.anko.singleTop
 
 object MainActivityPresenter : MainActivityContract.Presenter, NavigationContract.MainActivityPresenter {
 
+    const val KEY_TO_DELETE_SHOPPING_CART_DATABASE = "toDeleteShoppingCartDatabase"
+    const val KEY_TO_CREATE_CATALOG_FRAGMENT = "toCreateCatalogFragment"
+    const val KEY_PRODUCT_LIST_FRAGMENT_TYPE = "productListFragmentType"
+    const val KEY_START_SNACK_BAR_MESSAGE = "startSnackBarMessage"
+
     private var view: MainActivityContract.View? = null
     private val navigator: MainActivityContract.Navigator = MainActivityNavigator
-    private val databasesManager: MainActivityContract.Model = DatabasesManager()
     private var currentSelectedProduct: Product? = null
+
+    enum class ProductListFragmentType {
+        NON,
+        CAMERAS,
+        FLASH_DRIVES,
+        GRAPHIC_TABLETS,
+        HEADPHONES,
+        LAPTOPS,
+        MICROPHONES,
+        SMARTPHONES,
+        SPEAKERS
+    }
+
 
     override fun setViewToPresenter(view: MainActivityContract.View?) {
         MainActivityPresenter.view = view
+        ProductListFragmentType.CAMERAS.ordinal
+
     }
 
-    override fun activityIsOnStart(context: Context) {
+    override fun activityIsOnStart(
+        context: Context,
+        toDeleteShoppingCartDatabase: Boolean,
+        toCreateCatalogFragment: Boolean,
+        productListFragmentType: Int,
+        startSnackBarMessage: String?
+    ) {
+        if (isApplicationFirstLaunch(context)) {
+            val databasesManager: MainActivityContract.Model = DatabasesManager()
+            databasesManager.fillShopDatabaseTables(context)
+            Log.d("myLog", "isApplicationFirstLaunch  true")
+        }
+        if (toDeleteShoppingCartDatabase) {
+            Log.d("myLog", "toDeleteShoppingCartDatabase  true")
+            val databasesManager: MainActivityContract.Model = DatabasesManager()
+            //  databasesManager.deleteShoppingCartDatabase(context)
+            databasesManager.deleteAllInShoppingCartDatabase(context)
+        }
+        if (toCreateCatalogFragment) {
+            navigator.createFragment(CatalogFragment.getInstance())
+            Log.d("myLog", "toCreateCatalogFragment  true")
+        }
+        if (startSnackBarMessage!=null) {
+            view?.showSnackBar(startSnackBarMessage)
+            view?.setStartSnackBarMessage(null)
+        }
+        startCreationProductListFragment(context, productListFragmentType)
+        view?.setMainActivityFlagsToFalse()
+    }
+
+    private fun startCreationProductListFragment(context: Context, productListFragmentType: Int) {
+        var productList: ArrayList<Product>? = null
+        when (productListFragmentType) {
+            ProductListFragmentType.NON.ordinal
+            -> return
+            ProductListFragmentType.CAMERAS.ordinal
+            -> productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_CAMERAS)
+            ProductListFragmentType.FLASH_DRIVES.ordinal
+            -> productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_FLASH_DRIVES)
+            ProductListFragmentType.GRAPHIC_TABLETS.ordinal
+            -> productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_GRAPHIC_TABLETS)
+            ProductListFragmentType.HEADPHONES.ordinal
+            -> productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_HEADPHONES)
+            ProductListFragmentType.LAPTOPS.ordinal
+            -> productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_LAPTOPS)
+            ProductListFragmentType.MICROPHONES.ordinal
+            -> productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_MICROPHONES)
+            ProductListFragmentType.SMARTPHONES.ordinal
+            -> productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_SMARTPHONES)
+            ProductListFragmentType.SPEAKERS.ordinal
+            -> productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_SPEAKERS)
+        }
+        productList ?: return
+        Log.d("myLog", "startCreationProductListFragment  true")
+        navigator.createFragment(
+            ProductListFragment.getInstance(productList)
+        )
+    }
+
+    private fun getProductListFromShopDatabase(context: Context, tableName: String): ArrayList<Product> {
+        val databasesManager: MainActivityContract.Model = DatabasesManager()
+        return databasesManager.getProductListFromShopDatabase(context, tableName)
+    }
+
+
+    private fun isApplicationFirstLaunch(context: Context): Boolean {
         val prefs = context.getSharedPreferences(SharedPreferencesInfo.FILE_NAME, MODE_PRIVATE)
         if (prefs.getBoolean(SharedPreferencesInfo.KEY_APPLICATION_FIRST_LAUNCH, true)) {
-            Log.d("myLog", " FIRST_LAUNCH ")
-            databasesManager.fillShopDatabaseTables(context)
             prefs.edit().putBoolean(SharedPreferencesInfo.KEY_APPLICATION_FIRST_LAUNCH, false).apply()
+            return true
         } else {
-            Log.d("myLog", " NOT FIRST_LAUNCH ")
+            return false
         }
-    }
-
-    override fun applicationIsStarting(context: Context) {
-        navigator.createFragment(CatalogFragment.getInstance())
-        databasesManager.deleteShoppingCartDatabase(context)
     }
 
     override fun menuButtonHomeSelected() {
@@ -48,19 +127,13 @@ object MainActivityPresenter : MainActivityContract.Presenter, NavigationContrac
 
     override fun backButtonSelected(supportFragmentManager: FragmentManager?) {
         view?.closeDrawer()
+        view?.hideProductInfoButtons()
+        currentSelectedProduct = null
         val count = supportFragmentManager?.backStackEntryCount
         navigator.callSuperOnBackPressed()
         when (count) {
             2 -> navigator.cleanBackStack()
             1 -> navigator.callSuperOnBackPressed()
-        }
-        if (count == 2) {
-            Log.d("myLog", " backButtonSelected cleanBackStack")
-        }
-        if (count == 1) {
-            Log.d("myLog", " callSuperOnBackPressed ДВА РАЗА")
-        } else {
-            Log.d("myLog", " callSuperOnBackPressed ОДИН РАЗ")
         }
     }
 
@@ -71,15 +144,12 @@ object MainActivityPresenter : MainActivityContract.Presenter, NavigationContrac
     }
 
     override fun fabAddToShoppingCartSelected(context: Context) {
-       // view?.hideProductInfoButtons()
+        // view?.hideProductInfoButtons()
         // TODO увеличить количество товаров в корзине
         addProductToShoppingCartDatabase(
             context,
             currentSelectedProduct
         )
-        // todo snack bar с надписью о добавлении
-        view?.showSnackBar(currentSelectedProduct?.price.toString())
-
         currentSelectedProduct = null
         view?.hideProductInfoButtons()
         navigator.callSuperOnBackPressed()
@@ -106,21 +176,24 @@ object MainActivityPresenter : MainActivityContract.Presenter, NavigationContrac
             ShopDatabaseInfo.TABLE_FLASH_DRIVES ->
                 type = context.resources.getString(R.string.product_type_flash_drive)
         }
+        val databasesManager: MainActivityContract.Model = DatabasesManager()
         databasesManager.putProductToShoppingCartDatabase(context, product, type)
-        //todo добавить snake bar c продуктом
+        val messageProduct =
+            "${type} ${currentSelectedProduct?.brand} ${currentSelectedProduct?.name}," +
+                    "\n${context.resources.getString(R.string.end_of_message_add_to_shopping_cart)}"
+        view?.showSnackBar(messageProduct)
     }
 
     override fun fabShoppingCartSelected(context: Context) {
-        startShoppingCart(context)
+        startShoppingCartActivity(context)
     }
 
     override fun productsQuantityViewSelected(context: Context) {
-        startShoppingCart(context)
+        startShoppingCartActivity(context)
     }
 
-    private fun startShoppingCart(context: Context) {
-        view?.hideProductInfoButtons()
-        currentSelectedProduct = null
+    private fun startShoppingCartActivity(context: Context) {
+        val databasesManager: MainActivityContract.Model = DatabasesManager()
         val list = databasesManager.getProductListFromShoppingCartDatabase(context)
         navigator.startShoppingCartActivity(list)
     }

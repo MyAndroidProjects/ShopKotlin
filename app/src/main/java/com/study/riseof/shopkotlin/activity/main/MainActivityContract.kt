@@ -13,12 +13,17 @@ interface MainActivityContract {
         fun showProductInfoButtons()
         fun hideProductInfoButtons()
         fun showSnackBar(message: String)
+        fun setMainActivityFlagsToFalse()
+        fun setStartSnackBarMessage(startSnackBarMessage: String?)
     }
 
     interface Presenter {
         fun setViewToPresenter(view: View?)
-        fun activityIsOnStart(context: Context)
-        fun applicationIsStarting(context: Context)
+        fun activityIsOnStart(context: Context,
+                              toDeleteShoppingCartDatabase: Boolean,
+                              toCreateCatalogFragment: Boolean,
+                              productListFragmentType: Int,
+                              startSnackBarMessage: String?)
         fun menuButtonHomeSelected()
         fun closeDrawerLayout()
         fun backButtonSelected(supportFragmentManager: FragmentManager?)
@@ -39,7 +44,10 @@ interface MainActivityContract {
     interface Model {
         fun fillShopDatabaseTables(context: Context)
         fun deleteShoppingCartDatabase(context: Context)
-        fun putProductToShoppingCartDatabase(context: Context, product: Product, type:String): Boolean
+        fun deleteAllInShoppingCartDatabase(context: Context)
+        fun putProductToShoppingCartDatabase(context: Context, product: Product, type: String): Boolean
         fun getProductListFromShoppingCartDatabase(context: Context): ArrayList<ShoppingCartProduct>
+        fun getProductListFromShopDatabase(context: Context, tableName: String): ArrayList<Product>
     }
+
 }

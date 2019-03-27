@@ -30,11 +30,10 @@ class ShoppingCartActivityRecyclerAdapter(
         }
         val item = list[position]
         val brandAndName: String = "${item.brand} ${item.name},"
-        val featureAndPrice: String = "${item.feature}, ${item.price}"
         holder.productView.productShoppingCartType.text = item.type
         holder.productView.productShoppingCartBrandAndName.text = brandAndName
-        holder.productView.productFeatureAndPrice.text = featureAndPrice
-
+        holder.productView.productShoppingCartFeature.text = item.feature
+        holder.productView.productShoppingCartPrice.text = item.price.toString()
 
         holder.productView.buttonDelete.setOnClickListener {
             clickListener.onDeleteFromCartButtonClick(item)

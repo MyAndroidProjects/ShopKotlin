@@ -57,4 +57,15 @@
     <string name="product_type_headphones">Наушники</string>
     <string name="product_type_speakers">Колонки</string>
 
+    <!-- messages -->
+    <string name="end_of_message_add_to_shopping_cart">добавлен в корзину</string>
+    <string name="title_delete_product_dialog">Удалить товар из корзины?</string>
+    <string name="title_delete_all_dialog">Очистить корзину?</string>
+    <string name="message_delete_all_dialog">Все данные будут потеряны.</string>
+    <string name="message_delete_product_snack_bar">Товар удален из корзины.</string>
+    <string name="message_delete_all_snack_bar">Ваша корзина пуста.</string>
+    <string name="title_buy_dialog">Зарезервировать товар?</string>
+    <string name="message_buy_dialog">Вы сможете забрать зарезервированный товар втечении пяти дней.</string>
+    <string name="message_buy_snack_bar">Товар зарезервирован.</string>
+
 </resources>

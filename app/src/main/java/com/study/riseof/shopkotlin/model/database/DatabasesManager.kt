@@ -29,15 +29,16 @@ class DatabasesManager :
         try {
             val databaseHelper =
                 ShopDatabaseHelper.getInstance(context)
-            val database = databaseHelper.readableDatabase
-            database.select(tableName, "*").exec {
-                if (this.moveToFirst()) {
-                    do {
-                        val product: Product = getProductFromCursor(this, tableName)
-                        list.add(product)
-                    } while (this.moveToNext())
-                } else {
-                    Log.d("myLog", "!!!!! this.moveToFirst() ")
+            databaseHelper.use {
+                select(tableName, "*").exec {
+                    if (this.moveToFirst()) {
+                        do {
+                            val product: Product = getProductFromCursor(this, tableName)
+                            list.add(product)
+                        } while (this.moveToNext())
+                    } else {
+                        Log.d("myLog", "!!!!! this.moveToFirst() ")
+                    }
                 }
             }
         } catch (e: Exception) {
@@ -46,30 +47,7 @@ class DatabasesManager :
         return list
     }
 
-    //todo посмотреть необходимость этого метода, если да, то переименовать
-    fun getProductFromTable(context: Context, id: Int, tableName: String): Product {
-        lateinit var product: Product
-        try {
-            val databaseHelper =
-                ShopDatabaseHelper.getInstance(context)
-            val database = databaseHelper.readableDatabase
-            database.select(tableName, "*")
-                .whereArgs(
-                    "($COLUMN_PRODUCT_ID = $id)"
-                )
-                .exec {
-                    this.moveToFirst()
-                    product = getProductFromCursor(this, tableName)
-                }
-        } catch (e: Exception) {
-            Log.d("myLog", "getProductFromTable Exception: " + e.toString())
-        }
-        Log.d("myLog", "product: " + product.toString())
-        Log.d("myLog", "product id: " + product.id)
-        Log.d("myLog", "product name: " + product.name)
-        Log.d("myLog", "product price: " + product.price.toString())
-        return product
-    }
+
 
 
     override fun fillShopDatabaseTables(context: Context) {
@@ -96,11 +74,26 @@ class DatabasesManager :
     override fun deleteShoppingCartDatabase(context: Context) {
         Log.d("myLog", "DELETE  deleteShoppingCartDatabase ")
         context.deleteDatabase(ShoppingCartDatabaseInfo.DATABASE_NAME)
+        val dataBaseHelper = ShoppingCartDatabaseHelper.getInstance(context)
+        dataBaseHelper.close()
     }
+
+    override fun deleteAllInShoppingCartDatabase(context: Context) {
+        Log.d("myLog", "DELETE  deleteAllInShoppingCartDatabase ")
+        try {
+            val dataBaseHelper = ShoppingCartDatabaseHelper.getInstance(context)
+            dataBaseHelper.use {
+                delete(ShoppingCartDatabaseInfo.TABLE_NAME)
+            }
+        } catch (e: Exception) {
+            Log.d("myLog", "deleteAllInShoppingCartDatabase Exception: " + e.toString())
+        }
+    }
+
 
     override fun putProductToShoppingCartDatabase(context: Context, product: Product, type: String): Boolean {
         try {
-            val dataBaseHelper = ShoppingCartDatabaseHelper.getInstance(context)
+            val databaseHelper = ShoppingCartDatabaseHelper.getInstance(context)
             Log.d(
                 "myLog", "putProductToShoppingCart: " + "\n" +
                         ShoppingCartDatabaseInfo.COLUMN_PRODUCT_BRAND + "\n" + product.brand + "\n" +
@@ -109,7 +102,7 @@ class DatabasesManager :
                         ShoppingCartDatabaseInfo.COLUMN_PRODUCT_FEATURE + "\n" + product.feature + "\n" +
                         ShoppingCartDatabaseInfo.COLUMN_PRODUCT_TYPE + "\n" + type
             )
-            dataBaseHelper.use {
+            databaseHelper.use {
                 insert(
                     ShoppingCartDatabaseInfo.TABLE_NAME,
                     ShoppingCartDatabaseInfo.COLUMN_PRODUCT_BRAND to product.brand,
@@ -117,14 +110,6 @@ class DatabasesManager :
                     ShoppingCartDatabaseInfo.COLUMN_PRODUCT_PRICE to product.price,
                     ShoppingCartDatabaseInfo.COLUMN_PRODUCT_FEATURE to product.feature,
                     ShoppingCartDatabaseInfo.COLUMN_PRODUCT_TYPE to type
-/*
-                            const val COLUMN_INDEX_ID = 0
-                            const val COLUMN_INDEX_BRAND = 1
-                            const val COLUMN_INDEX_NAME = 2
-                            const val COLUMN_INDEX_PRICE = 3
-                            const val COLUMN_INDEX_FEATURE = 4
-                            const val COLUMN_INDEX_TYPE = 5*/
-
                 )
             }
         } catch (e: Exception) {
@@ -148,7 +133,18 @@ class DatabasesManager :
     }
 
     override fun deleteProductFromShoppingCartDatabaseById(context: Context, id: Int) {
-        TODO("not implemented")
+        try {
+            val databaseHelper =
+                ShoppingCartDatabaseHelper.getInstance(context)
+            databaseHelper.use {
+                delete(
+                    ShoppingCartDatabaseInfo.TABLE_NAME,
+                    ShoppingCartDatabaseInfo.COLUMN_PRODUCT_ID + " = " + id.toString()
+                )
+            }
+        } catch (e: Exception) {
+            Log.d("myLog", "deleteProductFromShoppingCartDatabaseById Exception: " + e.toString())
+        }
     }
 
     override fun getProductListFromShoppingCartDatabase(context: Context): ArrayList<ShoppingCartProduct> {
@@ -156,15 +152,16 @@ class DatabasesManager :
         try {
             val databaseHelper =
                 ShoppingCartDatabaseHelper.getInstance(context)
-            val database = databaseHelper.readableDatabase
-            database.select(ShoppingCartDatabaseInfo.TABLE_NAME, "*").exec {
-                if (this.moveToFirst()) {
-                    do {
-                        val product: ShoppingCartProduct = getShoppingCartProductFromCursor(this)
-                        list.add(product)
-                    } while (this.moveToNext())
-                } else {
-                    Log.d("myLog", "!this.moveToFirst() ")
+            databaseHelper.use {
+                select(ShoppingCartDatabaseInfo.TABLE_NAME, "*").exec {
+                    if (this.moveToFirst()) {
+                        do {
+                            val product: ShoppingCartProduct = getShoppingCartProductFromCursor(this)
+                            list.add(product)
+                        } while (this.moveToNext())
+                    } else {
+                        Log.d("myLog", "!this.moveToFirst() ")
+                    }
                 }
             }
         } catch (e: Exception) {
@@ -191,5 +188,30 @@ class DatabasesManager :
             cursor.getFloat(ShoppingCartDatabaseInfo.COLUMN_INDEX_PRICE)
 
         )
+    }
+
+    fun getProductFromTable(context: Context, id: Int, tableName: String): Product {
+        lateinit var product: Product
+        try {
+            val databaseHelper =
+                ShopDatabaseHelper.getInstance(context)
+            databaseHelper.use {
+                select(tableName, "*")
+                    .whereArgs(
+                        "($COLUMN_PRODUCT_ID = $id)"
+                    )
+                    .exec {
+                        this.moveToFirst()
+                        product = getProductFromCursor(this, tableName)
+                    }
+            }
+        } catch (e: Exception) {
+            Log.d("myLog", "getProductFromTable Exception: " + e.toString())
+        }
+        Log.d("myLog", "product: " + product.toString())
+        Log.d("myLog", "product id: " + product.id)
+        Log.d("myLog", "product name: " + product.name)
+        Log.d("myLog", "product price: " + product.price.toString())
+        return product
     }
 }

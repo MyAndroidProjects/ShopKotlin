@@ -3,7 +3,7 @@ package com.study.riseof.shopkotlin.model.database.shopping_cart
 object ShoppingCartDatabaseInfo {
     const val DATABASE_NAME = "shoppingCartDatabase"
 
-    const val TABLE_NAME = "productList"
+    const val TABLE_NAME = "products"
 
     const val COLUMN_PRODUCT_ID = "_id"
     const val COLUMN_PRODUCT_BRAND = "brand"

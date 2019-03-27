@@ -27,9 +27,8 @@ interface NavigationViewFragmentContract {
         fun createFragment(fragment: Fragment)
         fun closeDrawerLayout()
         fun cleanBackStack()
-        fun startMainActivity()
+        fun startMainActivity(fragmentType: Int, startSnackBarMessage: String?)
         fun shoppingCartActivityCallSuperOnBackPressed()
-        fun shoppingCartActivityCleanBackStack()
     }
 
     interface Model {

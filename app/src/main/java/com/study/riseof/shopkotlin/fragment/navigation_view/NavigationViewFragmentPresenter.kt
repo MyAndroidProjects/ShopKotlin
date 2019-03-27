@@ -3,6 +3,7 @@ package com.study.riseof.shopkotlin.fragment.navigation_view
 import android.app.Application
 import android.content.Context
 import android.util.Log
+import com.study.riseof.shopkotlin.activity.main.MainActivityPresenter
 import com.study.riseof.shopkotlin.fragment.catalog.CatalogFragment
 import com.study.riseof.shopkotlin.model.database.simple_shop.ShopDatabaseInfo
 import com.study.riseof.shopkotlin.model.database.DatabasesManager
@@ -26,120 +27,113 @@ object NavigationViewFragmentPresenter : NavigationViewFragmentContract.Presente
 
     override fun navItemCatalogSelected(context: Context?) {
         context ?: return
-        if (currentActivity ==
-            NavigationViewFragmentPresenter.CurrentActivity.ShoppingCartActivity
-        ) {
-            navigator.startMainActivity()
+        when (currentActivity) {
+            CurrentActivity.MainActivity
+            -> {
+                navigator.closeDrawerLayout()
+                navigator.cleanBackStack()
+                navigator.createFragment(
+                    CatalogFragment.getInstance()
+                )
+                navigator.cleanBackStack()
+            }
+            CurrentActivity.ShoppingCartActivity
+            -> navigator.startMainActivity(MainActivityPresenter.ProductListFragmentType.NON.ordinal, null)
         }
-        navigator.closeDrawerLayout()
-        navigator.cleanBackStack()
-        navigator.createFragment(
-            CatalogFragment.getInstance()
-        )
-        navigator.cleanBackStack()
     }
 
     override fun navItemSmartphonesSelected(context: Context?) {
         context ?: return
         when (currentActivity) {
-            CurrentActivity.MainActivity -> Log.d("myLog", " !!!!!!!!!!!!!!!!!!!! CurrentActivity.MainActivity ")
-            CurrentActivity.ShoppingCartActivity ->{
-                navigator.shoppingCartActivityCleanBackStack()
-                navigator.startMainActivity()
-            }
-
+            CurrentActivity.MainActivity
+            -> productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_SMARTPHONES)
+            CurrentActivity.ShoppingCartActivity
+            -> navigator.startMainActivity(MainActivityPresenter.ProductListFragmentType.SMARTPHONES.ordinal, null)
         }
-
-        productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_SMARTPHONES)
-        Log.d("myLog", "shoppingCart productList "+productList.toString())
     }
 
     override fun navItemGraphicTabletsSelected(context: Context?) {
         context ?: return
         when (currentActivity) {
-            CurrentActivity.MainActivity -> Log.d("myLog", " !!!!!!!!!!!!!!!!!!!! CurrentActivity.MainActivity ")
-            CurrentActivity.ShoppingCartActivity -> {
-               // val con = context as ApplicationContext
-
-                Log.d("myLog", " !!!!!!!!!!!!!!!!!!!! CurrentActivity.ShoppingCartActivity ")
-            }
+            CurrentActivity.MainActivity
+            -> productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_GRAPHIC_TABLETS)
+            CurrentActivity.ShoppingCartActivity
+            -> navigator.startMainActivity(MainActivityPresenter.ProductListFragmentType.GRAPHIC_TABLETS.ordinal, null)
         }
-        productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_GRAPHIC_TABLETS)
-
     }
 
     override fun navItemLaptopsSelected(context: Context?) {
         context ?: return
         when (currentActivity) {
-            CurrentActivity.MainActivity -> Log.d("myLog", " !!!!!!!!!!!!!!!!!!!! CurrentActivity.MainActivity ")
-            CurrentActivity.ShoppingCartActivity -> Log.d("myLog", " !!!!!!!!!!!!!!!!!!!! CurrentActivity.ShoppingCartActivity ")
+            CurrentActivity.MainActivity
+            -> productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_LAPTOPS)
+            CurrentActivity.ShoppingCartActivity
+            -> navigator.startMainActivity(MainActivityPresenter.ProductListFragmentType.LAPTOPS.ordinal, null)
         }
-        productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_LAPTOPS)
     }
 
     override fun navItemCamerasSelected(context: Context?) {
         context ?: return
         when (currentActivity) {
-            CurrentActivity.MainActivity -> Log.d("myLog", " !!!!!!!!!!!!!!!!!!!! CurrentActivity.MainActivity ")
-            CurrentActivity.ShoppingCartActivity -> Log.d("myLog", " !!!!!!!!!!!!!!!!!!!! CurrentActivity.ShoppingCartActivity ")
+            CurrentActivity.MainActivity
+            -> productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_CAMERAS)
+            CurrentActivity.ShoppingCartActivity
+            -> navigator.startMainActivity(MainActivityPresenter.ProductListFragmentType.CAMERAS.ordinal, null)
         }
-        productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_CAMERAS)
     }
 
     override fun navItemSpeakersSelected(context: Context?) {
         context ?: return
         when (currentActivity) {
-            CurrentActivity.MainActivity -> Log.d("myLog", " !!!!!!!!!!!!!!!!!!!! CurrentActivity.MainActivity ")
-            CurrentActivity.ShoppingCartActivity -> Log.d("myLog", " !!!!!!!!!!!!!!!!!!!! CurrentActivity.ShoppingCartActivity ")
+            CurrentActivity.MainActivity
+            -> productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_SPEAKERS)
+            CurrentActivity.ShoppingCartActivity
+            -> navigator.startMainActivity(MainActivityPresenter.ProductListFragmentType.SPEAKERS.ordinal, null)
         }
-        productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_SPEAKERS)
     }
 
     override fun navItemHeadphonesSelected(context: Context?) {
         context ?: return
         when (currentActivity) {
-            CurrentActivity.MainActivity -> Log.d("myLog", " !!!!!!!!!!!!!!!!!!!! CurrentActivity.MainActivity ")
-            CurrentActivity.ShoppingCartActivity -> Log.d("myLog", " !!!!!!!!!!!!!!!!!!!! CurrentActivity.ShoppingCartActivity ")
+            CurrentActivity.MainActivity
+            -> productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_HEADPHONES)
+            CurrentActivity.ShoppingCartActivity
+            -> navigator.startMainActivity(MainActivityPresenter.ProductListFragmentType.HEADPHONES.ordinal, null)
         }
-        productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_HEADPHONES)
     }
 
     override fun navItemMicrophonesSelected(context: Context?) {
         context ?: return
         when (currentActivity) {
-            CurrentActivity.MainActivity -> Log.d("myLog", " !!!!!!!!!!!!!!!!!!!! CurrentActivity.MainActivity ")
-            CurrentActivity.ShoppingCartActivity -> Log.d("myLog", " !!!!!!!!!!!!!!!!!!!! CurrentActivity.ShoppingCartActivity ")
+            CurrentActivity.MainActivity
+            -> productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_MICROPHONES)
+            CurrentActivity.ShoppingCartActivity
+            -> navigator.startMainActivity(MainActivityPresenter.ProductListFragmentType.MICROPHONES.ordinal, null)
         }
-        productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_MICROPHONES)
     }
 
     override fun navItemFlashDrivesSelected(context: Context?) {
         context ?: return
         when (currentActivity) {
-            CurrentActivity.MainActivity -> Log.d("myLog", " !!!!!!!!!!!!!!!!!!!! CurrentActivity.MainActivity ")
-            CurrentActivity.ShoppingCartActivity -> Log.d("myLog", " !!!!!!!!!!!!!!!!!!!! CurrentActivity.ShoppingCartActivity ")
+            CurrentActivity.MainActivity
+            -> productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_FLASH_DRIVES)
+            CurrentActivity.ShoppingCartActivity
+            -> navigator.startMainActivity(MainActivityPresenter.ProductListFragmentType.FLASH_DRIVES.ordinal, null)
         }
-        productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_FLASH_DRIVES)
     }
 
-
     override fun anyCatalogSectionSelected() {
-        Log.d("myLog", " anyCatalogSectionSelected ")
-        navigator.closeDrawerLayout()
-        navigator.cleanBackStack()
-        navigator.createFragment(
-            ProductListFragment.getInstance(productList)
-        )
+        if (currentActivity == CurrentActivity.MainActivity) {
+            navigator.closeDrawerLayout()
+            navigator.cleanBackStack()
+            navigator.createFragment(
+                ProductListFragment.getInstance(productList)
+            )
+        }
     }
 
     private fun getProductListFromShopDatabase(context: Context, tableName: String): ArrayList<Product> {
         val databasesManager = DatabasesManager() as NavigationViewFragmentContract.Model
-/*   ***     val list = databasesManager.getProductListFromShopDatabase(context, tableName)
-        Log.d("myLog", "presenter getProductListFromShopDatabase " + list.toString())
-        if (list.isEmpty()) {
-            Log.d("myLog", " list.isEmpty() ")
-        }*/
         return databasesManager.getProductListFromShopDatabase(context, tableName)
     }
-
 }

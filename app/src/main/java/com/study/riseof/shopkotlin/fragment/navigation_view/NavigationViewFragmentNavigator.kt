@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment
 import com.study.riseof.shopkotlin.navigation.NavigationContract
 import com.study.riseof.shopkotlin.navigation.NavigationManager
 
-object NavigationViewFragmentNavigator :NavigationViewFragmentContract.Navigator{
+object NavigationViewFragmentNavigator : NavigationViewFragmentContract.Navigator {
     private val manager = NavigationManager as NavigationContract.Manager
 
     override fun createFragment(fragment: Fragment) {
@@ -19,15 +19,13 @@ object NavigationViewFragmentNavigator :NavigationViewFragmentContract.Navigator
         manager.cleanBackStack()
     }
 
-    override fun startMainActivity() {
-        manager.startMainActivity()
+    override fun startMainActivity(fragmentType: Int, startSnackBarMessage: String?) {
+        manager.startMainActivity(fragmentType, startSnackBarMessage)
     }
 
     override fun shoppingCartActivityCallSuperOnBackPressed() {
         manager.shoppingCartActivityCallSuperOnBackPressed()
     }
 
-    override fun shoppingCartActivityCleanBackStack() {
-        manager.shoppingCartActivityCleanBackStack()
-    }
+
 }

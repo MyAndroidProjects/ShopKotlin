@@ -1,21 +1,28 @@
 package com.study.riseof.shopkotlin.activity.shopping_cart
 
+import android.content.DialogInterface
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.app.AppCompatDialog
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
+import com.study.riseof.shopkotlin.R
 import com.study.riseof.shopkotlin.activity.main.MainActivity
+import com.study.riseof.shopkotlin.activity.main.MainActivityPresenter.KEY_PRODUCT_LIST_FRAGMENT_TYPE
+import com.study.riseof.shopkotlin.activity.main.MainActivityPresenter.KEY_START_SNACK_BAR_MESSAGE
+import com.study.riseof.shopkotlin.activity.main.MainActivityPresenter.KEY_TO_CREATE_CATALOG_FRAGMENT
+import com.study.riseof.shopkotlin.activity.main.MainActivityPresenter.KEY_TO_DELETE_SHOPPING_CART_DATABASE
 import com.study.riseof.shopkotlin.model.data.ShoppingCartProduct
 import com.study.riseof.shopkotlin.navigation.NavigationContract
 import com.study.riseof.shopkotlin.navigation.NavigationManager
 import kotlinx.android.synthetic.main.activity_shopping_cart.*
-import kotlinx.android.synthetic.main.toolbar.*
-import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.*
+import org.jetbrains.anko.design.snackbar
 
 class ShoppingCartActivity : AppCompatActivity(),
     ShoppingCartActivityContract.View,
@@ -55,7 +62,7 @@ class ShoppingCartActivity : AppCompatActivity(),
         navigationManager = NavigationManager
         navigationManager?.setShoppingCartActivityToNavigationManager(this)
         setRecyclerAdapter(productList)
-        Log.d("myLog", " ShoppingCartActivity onStart productList "+productList.toString())
+        Log.d("myLog", " ShoppingCartActivity onStart productList " + productList.toString())
         setClickListeners()
         Log.d("myLog", " ShoppingCartActivity onStart ")
     }
@@ -75,10 +82,15 @@ class ShoppingCartActivity : AppCompatActivity(),
         productList = savedInstanceState?.getParcelableArrayList(keyProductList) ?: return
     }
 
-    override fun startMainActivity() {
-         val applicationIsStarting: Boolean = false
-         val keyApplicationIsStarting = "applicationIsStarting"
-        startActivity(intentFor<MainActivity>(keyApplicationIsStarting to applicationIsStarting))
+    override fun startMainActivity(fragmentType: Int, startSnackBarMessage: String?) {
+        startActivity(
+            intentFor<MainActivity>(
+                KEY_TO_DELETE_SHOPPING_CART_DATABASE to false,
+                KEY_TO_CREATE_CATALOG_FRAGMENT to true,
+                KEY_PRODUCT_LIST_FRAGMENT_TYPE to fragmentType,
+                KEY_START_SNACK_BAR_MESSAGE to startSnackBarMessage
+            ).clearTop()
+        )
     }
 
     override fun setRecyclerAdapter(list: ArrayList<ShoppingCartProduct>) {
@@ -161,18 +173,36 @@ class ShoppingCartActivity : AppCompatActivity(),
         buttonBuy.setOnClickListener(clickListener)
     }
 
-    // оставляет один фрагмент - CatalogFragment
-    override fun cleanBackStack() {
-        Log.d("myLog", "Shopping Cart  cleanBackStack ")
-        val fragmentManager = supportFragmentManager
-        val count = fragmentManager.backStackEntryCount
-        var i = 1
-        while (i < count) {
-            // с Immediate на долю секунды появяется каталог перед новым фрагментом, - некрасиво
-            //  fragmentManager.popBackStackImmediate()
-            fragmentManager.popBackStack()
-            i++
-        }
+
+    override fun showDeleteAllInShoppingCartDialog() {
+        val message = resources.getString(R.string.message_delete_all_dialog)
+        val title = resources.getString(R.string.title_delete_all_dialog)
+        alert(message, title) {
+            yesButton { presenter?.yesButtonDeleteAllDialogSelected(this.ctx) }
+            noButton {}
+        }.show()
     }
+
+    override fun showDeleteProductDialog(message: String, id: Int) {
+        val title = resources.getString(R.string.title_delete_product_dialog)
+        alert(message, title) {
+            yesButton { presenter?.yesButtonDeleteProductDialogSelected(this.ctx, id) }
+            noButton {}
+        }.show()
+    }
+
+    override fun showBuyProductsDialog() {
+        val message = resources.getString(R.string.message_buy_dialog)
+        val title = resources.getString(R.string.title_buy_dialog)
+        alert(message, title) {
+            yesButton { presenter?.yesButtonBuyDialogSelected(ctx) }
+            noButton {}
+        }.show()
+    }
+
+    override fun showSnackBar(message: String) {
+        drawerLayout.snackbar(message)
+    }
+
 
 }

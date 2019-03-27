@@ -14,17 +14,22 @@ import android.os.Build
 import android.support.v4.view.GravityCompat
 import kotlinx.android.synthetic.main.activity_main.*
 import android.view.MenuItem
+import com.study.riseof.shopkotlin.activity.main.MainActivityPresenter.KEY_PRODUCT_LIST_FRAGMENT_TYPE
+import com.study.riseof.shopkotlin.activity.main.MainActivityPresenter.KEY_START_SNACK_BAR_MESSAGE
+import com.study.riseof.shopkotlin.activity.main.MainActivityPresenter.KEY_TO_CREATE_CATALOG_FRAGMENT
+import com.study.riseof.shopkotlin.activity.main.MainActivityPresenter.KEY_TO_DELETE_SHOPPING_CART_DATABASE
 import com.study.riseof.shopkotlin.activity.shopping_cart.ShoppingCartActivity
 import com.study.riseof.shopkotlin.model.data.ShoppingCartProduct
-import kotlinx.android.synthetic.main.toolbar.*
 import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.singleTop
 
 class MainActivity : AppCompatActivity(), MainActivityContract.View, NavigationContract.MainActivity {
 
-    private var applicationIsStarting: Boolean = true
-    private val keyApplicationIsStarting = "applicationIsStarting"
+    private var toDeleteShoppingCartDatabase: Boolean = true
+    private var toCreateCatalogFragment: Boolean = true
+    private var productListFragmentType: Int = MainActivityPresenter.ProductListFragmentType.NON.ordinal
+    private var startSnackBarMessage: String? = null
 
     private var presenter: MainActivityContract.Presenter? = null
     private var navigationManager: NavigationContract.SetActivities? = null
@@ -32,7 +37,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View, NavigationC
     private val clickListener = View.OnClickListener { v: View ->
         when (v) {
             fabBack -> presenter?.fabBackSelected()
-            fabAddToShoppingCart ->presenter?.fabAddToShoppingCartSelected(this)
+            fabAddToShoppingCart -> presenter?.fabAddToShoppingCartSelected(this)
             fabShoppingCart -> presenter?.fabShoppingCartSelected(this)
             productsQuantity -> presenter?.productsQuantityViewSelected(this)
             else -> Log.d("myLog", "else")
@@ -53,45 +58,76 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View, NavigationC
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putBoolean(keyApplicationIsStarting, applicationIsStarting)
+        outState.putBoolean(KEY_TO_DELETE_SHOPPING_CART_DATABASE, toDeleteShoppingCartDatabase)
+        outState.putBoolean(KEY_TO_CREATE_CATALOG_FRAGMENT, toCreateCatalogFragment)
     }
 
     override fun onStart() {
         super.onStart()
-        presenter = MainActivityPresenter
-        presenter?.setViewToPresenter(this)
-        presenter?.activityIsOnStart(this)
-        navigationManager = NavigationManager
-        navigationManager?.setMainActivityToNavigationManager(this)
+        setPresenterAndNavigator()
+        presenter?.activityIsOnStart(
+            this,
+            toDeleteShoppingCartDatabase,
+            toCreateCatalogFragment,
+            productListFragmentType,
+            startSnackBarMessage
+        )
         Log.d("myLog", " MainActivity onStart ")
-        if (applicationIsStarting) {
-            presenter?.applicationIsStarting(this)
-            applicationIsStarting = false
-            Log.d("myLog", " applicationIsStarting ")
-        } else {
-            Log.d("myLog", " !!!!!applicationIsStarting ")
-        }
         setClickListeners()
     }
 
+    override fun setMainActivityFlagsToFalse() {
+        toDeleteShoppingCartDatabase = false
+        toCreateCatalogFragment = false
+        productListFragmentType = MainActivityPresenter.ProductListFragmentType.NON.ordinal
+    }
+
+    override fun setStartSnackBarMessage(startSnackBarMessage: String?) {
+        this.startSnackBarMessage = startSnackBarMessage
+    }
+
+    private fun setPresenterAndNavigator() {
+        presenter = MainActivityPresenter
+        presenter?.setViewToPresenter(this)
+        navigationManager = NavigationManager
+        navigationManager?.setMainActivityToNavigationManager(this)
+    }
+
     override fun onStop() {
+        nullifyPresenterAndNavigator()
+        Log.d("myLog", " MainActivity onStop ")
+        super.onStop()
+    }
+
+    private fun nullifyPresenterAndNavigator() {
         navigationManager?.setMainActivityToNavigationManager(null)
         presenter?.setViewToPresenter(null)
         presenter = null
         navigationManager = null
-        Log.d("myLog", " MainActivity onStop ")
-        super.onStop()
     }
 
     override fun onDestroy() {
         Log.d("myLog", " MainActivity onDestroy ")
         super.onDestroy()
     }
+
     private fun getValuesFromSaveInstanceState(savedInstanceState: Bundle?) {
-        applicationIsStarting = savedInstanceState?.getBoolean(keyApplicationIsStarting) ?: return
+        savedInstanceState ?: return
+        toDeleteShoppingCartDatabase = savedInstanceState.getBoolean(KEY_TO_DELETE_SHOPPING_CART_DATABASE)
+        toCreateCatalogFragment = savedInstanceState.getBoolean(KEY_TO_CREATE_CATALOG_FRAGMENT)
     }
+
     private fun getValuesFromIntent() {
-        applicationIsStarting = intent?.getBooleanExtra(keyApplicationIsStarting,true) ?: return
+        Log.d("myLog", " startSnackBarMessage LJ intent "+startSnackBarMessage)
+        startSnackBarMessage = intent?.getStringExtra(KEY_START_SNACK_BAR_MESSAGE)
+        Log.d("myLog", " startSnackBarMessage после intent "+startSnackBarMessage)
+        intent ?: return
+        toDeleteShoppingCartDatabase = intent.getBooleanExtra(KEY_TO_DELETE_SHOPPING_CART_DATABASE, true)
+        toCreateCatalogFragment = intent.getBooleanExtra(KEY_TO_CREATE_CATALOG_FRAGMENT, true)
+        productListFragmentType = intent.getIntExtra(
+            KEY_PRODUCT_LIST_FRAGMENT_TYPE,
+            MainActivityPresenter.ProductListFragmentType.NON.ordinal
+        )
     }
 
     private fun setActionBar() {
@@ -130,7 +166,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View, NavigationC
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.getItemId()) {
+        when (item.itemId) {
             android.R.id.home -> {
                 presenter?.menuButtonHomeSelected()
                 return true
@@ -139,12 +175,12 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View, NavigationC
         return super.onOptionsItemSelected(item)
     }
 
-    override fun showSnackBar(message: String){
-        fragmentContainer.snackbar(message)
+    override fun showSnackBar(message: String) {
+        drawerLayout.snackbar(message)
     }
 
     override fun createFragment(fragment: Fragment) {
-        Log.d("myLog", " createFragment fragment:" + fragment.toString())
+        Log.d("myLog", " createFragment fragment:$fragment")
         val manager = supportFragmentManager
         val transaction = manager.beginTransaction()
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
@@ -182,7 +218,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View, NavigationC
         startActivity(intentFor<ShoppingCartActivity>(keyProductList to list))
     }
 
-    private fun setClickListeners(){
+    private fun setClickListeners() {
         fabBack.setOnClickListener(clickListener)
         fabAddToShoppingCart.setOnClickListener(clickListener)
         fabShoppingCart.setOnClickListener(clickListener)

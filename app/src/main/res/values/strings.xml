@@ -54,13 +54,24 @@
     <string name="label_total_products">Total products:</string>
     <string name="label_amount">Amount:</string>
 
-    <string name="product_type_smartphone">Smartphones</string>
-    <string name="product_type_microphone">Microphones</string>
+    <string name="product_type_smartphone">Smartphone</string>
+    <string name="product_type_microphone">Microphone</string>
     <string name="product_type_flash_drive">USB flash drive</string>
-    <string name="product_type_graphic_tablet">Graphic tablets</string>
-    <string name="product_type_laptop">Laptops</string>
-    <string name="product_type_camera">Cameras</string>
+    <string name="product_type_graphic_tablet">Graphic tablet</string>
+    <string name="product_type_laptop">Laptop</string>
+    <string name="product_type_camera">Camera</string>
     <string name="product_type_headphones">Headphones</string>
     <string name="product_type_speakers">Speakers</string>
-    
+
+    <!-- messages -->
+    <string name="end_of_message_add_to_shopping_cart">add to the shopping cart</string>
+    <string name="title_delete_product_dialog">Remove from the shopping cart?</string>
+    <string name="title_delete_all_dialog">Clean the shopping cart?</string>
+    <string name="message_delete_all_dialog">You\'ll lose all goods.</string>
+    <string name="message_delete_product_snack_bar">Product was remove from shopping cart</string>
+    <string name="message_delete_all_snack_bar">Your shopping cart is empty</string>
+    <string name="title_buy_dialog">Create a reserve?</string>
+    <string name="message_buy_dialog">You\'ll be able to take the goods within five days.</string>
+    <string name="message_buy_snack_bar">Reserve created.</string>
+
 </resources>

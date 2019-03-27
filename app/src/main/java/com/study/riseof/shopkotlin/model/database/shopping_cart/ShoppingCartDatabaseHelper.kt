@@ -31,6 +31,7 @@ class ShoppingCartDatabaseHelper(context: Context) :
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
+        Log.d("myLog", " CREATE onCreate ShoppingCartDatabase ")
         try {
             db?.createTable(
                 ShoppingCartDatabaseInfo.TABLE_NAME, true,

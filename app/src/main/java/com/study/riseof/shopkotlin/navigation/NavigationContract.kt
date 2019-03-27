@@ -21,9 +21,8 @@ interface NavigationContract {
         fun showProductInfoButtons()
         fun selectedProduct(product: Product)
         fun startShoppingCartActivity(list: ArrayList<ShoppingCartProduct>)
-        fun startMainActivity()
+        fun startMainActivity(fragmentType: Int, startSnackBarMessage: String?)
         fun shoppingCartActivityCallSuperOnBackPressed()
-        fun shoppingCartActivityCleanBackStack()
     }
 
     // Для работы с context, при работе с другими activity будут использоваться
@@ -36,8 +35,7 @@ interface NavigationContract {
     }
 
     interface ShoppingCartActivity {
-        fun startMainActivity()
-        fun cleanBackStack()
+        fun startMainActivity(fragmentType: Int, startSnackBarMessage: String?)
     }
 
     // При необходимости передать команды фрагментам (для работы с View через презентер) будут использоваться
