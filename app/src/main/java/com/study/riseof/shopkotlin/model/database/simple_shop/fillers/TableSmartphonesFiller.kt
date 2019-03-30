@@ -2,7 +2,7 @@ package com.study.riseof.shopkotlin.model.database.simple_shop.fillers
 
 import com.study.riseof.shopkotlin.model.database.simple_shop.ShopDatabaseInfo
 
-class TableSmartphonesFiller: BaseTableFiller() {
+class TableSmartphonesFiller : BaseTableFiller() {
     override val tableName: String
         get() = ShopDatabaseInfo.TABLE_SMARTPHONES
     override val productQuantity: Int
@@ -22,7 +22,7 @@ class TableSmartphonesFiller: BaseTableFiller() {
         )
 
     override val price: Float
-        get() =  (30..300).random() * 10f
+        get() = (30..300).random() * 10f
     override val specialColumnValue: String
-        get() = ((4..6).random() + (2..8).random() * 0.1f).toString()+'"'
+        get() = ((4..6).random() + (2..8).random() * 0.1f).toString() + '"'
 }

@@ -17,6 +17,5 @@ object ShoppingCartDatabaseInfo {
     const val COLUMN_INDEX_BRAND = 2
     const val COLUMN_INDEX_NAME = 3
     const val COLUMN_INDEX_FEATURE = 4
-    const val COLUMN_INDEX_PRICE  = 5
-
+    const val COLUMN_INDEX_PRICE = 5
 }

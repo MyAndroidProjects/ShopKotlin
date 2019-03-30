@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:layout_weight="2"
         android:drawableStart="@drawable/ic_baseline_remove_shopping_cart_24px"
-        android:text="убрать" />
+        android:text="@string/text_button_delete_from_shopping_cart" />
 
     <LinearLayout
         android:layout_width="0dp"

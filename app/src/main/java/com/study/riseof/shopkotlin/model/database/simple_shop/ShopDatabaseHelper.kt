@@ -6,7 +6,8 @@ import android.util.Log
 import org.jetbrains.anko.db.*
 
 class ShopDatabaseHelper(context: Context) :
-    ManagedSQLiteOpenHelper(context,
+    ManagedSQLiteOpenHelper(
+        context,
         ShopDatabaseInfo.DATABASE_NAME, null,
         DB_VERSION
     ) {
@@ -23,7 +24,7 @@ class ShopDatabaseHelper(context: Context) :
             try {
                 instance!!
             } catch (e: Exception) {
-                Log.d("myLog", "ShopDatabaseHelper Exception: " + e.toString())
+                Log.d("myLog", "ShopDatabaseHelper Exception: $e")
             }
             return instance as ShopDatabaseHelper
         }
@@ -34,39 +35,46 @@ class ShopDatabaseHelper(context: Context) :
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-
     }
 
     private fun createAllTables(db: SQLiteDatabase?) {
-        createTable(db,
+        createTable(
+            db,
             ShopDatabaseInfo.TABLE_SMARTPHONES,
             ShopDatabaseInfo.COLUMN_SMARTPHONE_DIAGONAL
         )
-        createTable(db,
+        createTable(
+            db,
             ShopDatabaseInfo.TABLE_GRAPHIC_TABLETS,
             ShopDatabaseInfo.COLUMN_GRAPHIC_TABLET_FORMAT
         )
-        createTable(db,
+        createTable(
+            db,
             ShopDatabaseInfo.TABLE_LAPTOPS,
             ShopDatabaseInfo.COLUMN_LAPTOP_COLOR
         )
-        createTable(db,
+        createTable(
+            db,
             ShopDatabaseInfo.TABLE_CAMERAS,
             ShopDatabaseInfo.COLUMN_CAMERA_RESOLUTION
         )
-        createTable(db,
+        createTable(
+            db,
             ShopDatabaseInfo.TABLE_SPEAKERS,
             ShopDatabaseInfo.COLUMN_SPEAKERS_POWER
         )
-        createTable(db,
+        createTable(
+            db,
             ShopDatabaseInfo.TABLE_HEADPHONES,
             ShopDatabaseInfo.COLUMN_HEADPHONES_TYPE
         )
-        createTable(db,
+        createTable(
+            db,
             ShopDatabaseInfo.TABLE_MICROPHONES,
             ShopDatabaseInfo.COLUMN_MICROPHONE_SENSITIVITY
         )
-        createTable(db,
+        createTable(
+            db,
             ShopDatabaseInfo.TABLE_FLASH_DRIVES,
             ShopDatabaseInfo.COLUMN_FLASH_MEMORY_CAPACITY
         )
@@ -88,7 +96,7 @@ class ShopDatabaseHelper(context: Context) :
                 specialColumnName to TEXT
             )
         } catch (e: Exception) {
-            Log.d("myLog", "Exception: " + e.toString())
+            Log.d("myLog", "Exception: $e")
         }
     }
 }

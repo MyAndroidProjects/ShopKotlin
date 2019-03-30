@@ -5,7 +5,7 @@ import com.study.riseof.shopkotlin.model.data.Product
 import com.study.riseof.shopkotlin.navigation.NavigationContract
 import com.study.riseof.shopkotlin.navigation.NavigationManager
 
-object ProductListFragmentNavigator : ProductListFragmentContract.Navigator{
+object ProductListFragmentNavigator : ProductListFragmentContract.Navigator {
     private val manager = NavigationManager as NavigationContract.Manager
 
 

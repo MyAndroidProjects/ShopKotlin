@@ -6,15 +6,12 @@ import android.support.v4.app.FragmentManager
 import android.util.Log
 import com.study.riseof.shopkotlin.R
 import com.study.riseof.shopkotlin.SharedPreferencesInfo
-import com.study.riseof.shopkotlin.activity.shopping_cart.ShoppingCartActivity
 import com.study.riseof.shopkotlin.fragment.catalog.CatalogFragment
 import com.study.riseof.shopkotlin.fragment.product_list.ProductListFragment
 import com.study.riseof.shopkotlin.model.data.Product
 import com.study.riseof.shopkotlin.model.database.DatabasesManager
 import com.study.riseof.shopkotlin.model.database.simple_shop.ShopDatabaseInfo
 import com.study.riseof.shopkotlin.navigation.NavigationContract
-import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.singleTop
 
 object MainActivityPresenter : MainActivityContract.Presenter, NavigationContract.MainActivityPresenter {
 
@@ -26,6 +23,7 @@ object MainActivityPresenter : MainActivityContract.Presenter, NavigationContrac
     private var view: MainActivityContract.View? = null
     private val navigator: MainActivityContract.Navigator = MainActivityNavigator
     private var currentSelectedProduct: Product? = null
+    private var productsQuantity: Int = 0
 
     enum class ProductListFragmentType {
         NON,
@@ -39,6 +37,7 @@ object MainActivityPresenter : MainActivityContract.Presenter, NavigationContrac
         SPEAKERS
     }
 
+    // Implements function in interface MainActivityContract.Presenter
 
     override fun setViewToPresenter(view: MainActivityContract.View?) {
         MainActivityPresenter.view = view
@@ -68,12 +67,83 @@ object MainActivityPresenter : MainActivityContract.Presenter, NavigationContrac
             navigator.createFragment(CatalogFragment.getInstance())
             Log.d("myLog", "toCreateCatalogFragment  true")
         }
-        if (startSnackBarMessage!=null) {
+        if (startSnackBarMessage != null) {
             view?.showSnackBar(startSnackBarMessage)
             view?.setStartSnackBarMessage(null)
         }
+        productsQuantity = getProductQuantityFromShoppingCartDatabase(context)
+        setTextToToolbar(productsQuantity.toString())
         startCreationProductListFragment(context, productListFragmentType)
         view?.setMainActivityFlagsToFalse()
+    }
+
+    override fun menuButtonHomeSelected() {
+        view?.openDrawer()
+    }
+
+    override fun backButtonSelected(supportFragmentManager: FragmentManager?) {
+        view?.closeDrawer()
+        view?.hideProductInfoButtons()
+        currentSelectedProduct = null
+        val count = supportFragmentManager?.backStackEntryCount
+        navigator.callSuperOnBackPressed()
+        when (count) {
+            2 -> navigator.cleanBackStack()
+            1 -> navigator.callSuperOnBackPressed()
+        }
+    }
+
+    override fun fabBackSelected() {
+        view?.hideProductInfoButtons()
+        currentSelectedProduct = null
+        navigator.callSuperOnBackPressed()
+    }
+
+    override fun fabAddToShoppingCartSelected(context: Context) {
+        addProductToShoppingCartDatabase(
+            context,
+            currentSelectedProduct
+        )
+        currentSelectedProduct = null
+        productsQuantity++
+        setTextToToolbar(productsQuantity.toString())
+        view?.hideProductInfoButtons()
+        navigator.callSuperOnBackPressed()
+    }
+
+    override fun fabShoppingCartSelected(context: Context) {
+        startShoppingCartActivity(context)
+    }
+
+    override fun productsQuantityViewSelected(context: Context) {
+        startShoppingCartActivity(context)
+    }
+
+    override fun closeDrawerLayout() {
+        view?.closeDrawer()
+    }
+
+    // Implements function in interface NavigationContract.MainActivityPresenter
+    override fun hideProductInfoButtons() {
+        view?.hideProductInfoButtons()
+    }
+
+    override fun showProductInfoButtons() {
+        view?.showProductInfoButtons()
+    }
+
+    override fun selectedProduct(product: Product) {
+        currentSelectedProduct = product
+    }
+
+
+    private fun getProductQuantityFromShoppingCartDatabase(context: Context): Int {
+        val databasesManager: MainActivityContract.Model = DatabasesManager()
+        return databasesManager.getProductQuantityFromShoppingCartDatabase(context)
+    }
+
+    private fun setTextToToolbar(text: String) {
+        view?.setToolbarText(text)
     }
 
     private fun startCreationProductListFragment(context: Context, productListFragmentType: Int) {
@@ -110,49 +180,14 @@ object MainActivityPresenter : MainActivityContract.Presenter, NavigationContrac
         return databasesManager.getProductListFromShopDatabase(context, tableName)
     }
 
-
     private fun isApplicationFirstLaunch(context: Context): Boolean {
         val prefs = context.getSharedPreferences(SharedPreferencesInfo.FILE_NAME, MODE_PRIVATE)
-        if (prefs.getBoolean(SharedPreferencesInfo.KEY_APPLICATION_FIRST_LAUNCH, true)) {
+        return if (prefs.getBoolean(SharedPreferencesInfo.KEY_APPLICATION_FIRST_LAUNCH, true)) {
             prefs.edit().putBoolean(SharedPreferencesInfo.KEY_APPLICATION_FIRST_LAUNCH, false).apply()
-            return true
+            true
         } else {
-            return false
+            false
         }
-    }
-
-    override fun menuButtonHomeSelected() {
-        view?.openDrawer()
-    }
-
-    override fun backButtonSelected(supportFragmentManager: FragmentManager?) {
-        view?.closeDrawer()
-        view?.hideProductInfoButtons()
-        currentSelectedProduct = null
-        val count = supportFragmentManager?.backStackEntryCount
-        navigator.callSuperOnBackPressed()
-        when (count) {
-            2 -> navigator.cleanBackStack()
-            1 -> navigator.callSuperOnBackPressed()
-        }
-    }
-
-    override fun fabBackSelected() {
-        view?.hideProductInfoButtons()
-        currentSelectedProduct = null
-        navigator.callSuperOnBackPressed()
-    }
-
-    override fun fabAddToShoppingCartSelected(context: Context) {
-        // view?.hideProductInfoButtons()
-        // TODO увеличить количество товаров в корзине
-        addProductToShoppingCartDatabase(
-            context,
-            currentSelectedProduct
-        )
-        currentSelectedProduct = null
-        view?.hideProductInfoButtons()
-        navigator.callSuperOnBackPressed()
     }
 
     private fun addProductToShoppingCartDatabase(context: Context, product: Product?) {
@@ -179,17 +214,9 @@ object MainActivityPresenter : MainActivityContract.Presenter, NavigationContrac
         val databasesManager: MainActivityContract.Model = DatabasesManager()
         databasesManager.putProductToShoppingCartDatabase(context, product, type)
         val messageProduct =
-            "${type} ${currentSelectedProduct?.brand} ${currentSelectedProduct?.name}," +
+            "$type ${currentSelectedProduct?.brand} ${currentSelectedProduct?.name}," +
                     "\n${context.resources.getString(R.string.end_of_message_add_to_shopping_cart)}"
         view?.showSnackBar(messageProduct)
-    }
-
-    override fun fabShoppingCartSelected(context: Context) {
-        startShoppingCartActivity(context)
-    }
-
-    override fun productsQuantityViewSelected(context: Context) {
-        startShoppingCartActivity(context)
     }
 
     private fun startShoppingCartActivity(context: Context) {
@@ -198,17 +225,4 @@ object MainActivityPresenter : MainActivityContract.Presenter, NavigationContrac
         navigator.startShoppingCartActivity(list)
     }
 
-    // реализация методов interface NavigationContract.MainActivityPresenter
-
-    override fun closeDrawerLayout() {
-        view?.closeDrawer()
-    }
-
-    override fun showProductInfoButtons() {
-        view?.showProductInfoButtons()
-    }
-
-    override fun selectedProduct(product: Product) {
-        currentSelectedProduct = product
-    }
 }

@@ -13,7 +13,6 @@
     <string name="content_description_camera">Camera</string>
     <string name="content_description_microphone">Microphone</string>
     <string name="content_description_flash_drive">USB flash drive</string>
-    <string name="image_description_shopping_cart">Shopping cart</string>
     <string name="product_content_description">Image of product</string>
 
     <!-- Catalog -->
@@ -26,10 +25,6 @@
     <string name="menu_item_headphones">Headphones</string>
     <string name="menu_item_speakers">Speakers</string>
     <string name="menu_item_catalog">Catalog</string>
-
-    <!-- TODO не забыть потом убрать  -->
-    <string name="start_text_toolbar" translatable="false">0</string>
-
 
     <!-- product info -->
     <string name="brand_header">Brand:</string>
@@ -50,7 +45,7 @@
     <string name="button_back">Back</string>
     <string name="button_clean">Clean</string>
     <string name="button_buy">Buy</string>
-    <string name="label_products">products,</string>
+    <string name="text_button_delete_from_shopping_cart">remove</string>
     <string name="label_total_products">Total products:</string>
     <string name="label_amount">Amount:</string>
 
@@ -73,5 +68,8 @@
     <string name="title_buy_dialog">Create a reserve?</string>
     <string name="message_buy_dialog">You\'ll be able to take the goods within five days.</string>
     <string name="message_buy_snack_bar">Reserve created.</string>
+    <string name="title_empty_dialog">Your shopping card is empty.</string>
+    <string name="message_empty_dialog">Select products in the catalog.</string>
+
 
 </resources>

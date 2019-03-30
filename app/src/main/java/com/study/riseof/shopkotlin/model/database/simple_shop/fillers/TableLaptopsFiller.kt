@@ -13,6 +13,7 @@ class TableLaptopsFiller : BaseTableFiller() {
         get() = ShopDatabaseInfo.COLUMN_LAPTOP_COLOR
     override val productImageFolder: String
         get() = "laptops/"
+
     override val brands: Array<String>
         get() = arrayOf(
             "Banana", "Cherry", "Plum", "Pear", "Lemon"

@@ -14,7 +14,6 @@ import com.study.riseof.shopkotlin.model.database.shopping_cart.ShoppingCartData
 import com.study.riseof.shopkotlin.model.database.shopping_cart.ShoppingCartDatabaseInfo
 import com.study.riseof.shopkotlin.model.database.simple_shop.ShopDatabaseHelper
 import com.study.riseof.shopkotlin.model.database.simple_shop.ShopDatabaseInfo
-import com.study.riseof.shopkotlin.model.database.simple_shop.ShopDatabaseInfo.COLUMN_PRODUCT_ID
 import org.jetbrains.anko.db.*
 
 class DatabasesManager :
@@ -36,19 +35,14 @@ class DatabasesManager :
                             val product: Product = getProductFromCursor(this, tableName)
                             list.add(product)
                         } while (this.moveToNext())
-                    } else {
-                        Log.d("myLog", "!!!!! this.moveToFirst() ")
                     }
                 }
             }
         } catch (e: Exception) {
-            Log.d("myLog", "Exception: " + e.toString())
+            Log.d("myLog", "Exception: $e")
         }
         return list
     }
-
-
-
 
     override fun fillShopDatabaseTables(context: Context) {
         val tableCamerasFiller = TableCamerasFiller()
@@ -72,36 +66,25 @@ class DatabasesManager :
     // ------------ Shopping Cart Database
 
     override fun deleteShoppingCartDatabase(context: Context) {
-        Log.d("myLog", "DELETE  deleteShoppingCartDatabase ")
         context.deleteDatabase(ShoppingCartDatabaseInfo.DATABASE_NAME)
         val dataBaseHelper = ShoppingCartDatabaseHelper.getInstance(context)
         dataBaseHelper.close()
     }
 
     override fun deleteAllInShoppingCartDatabase(context: Context) {
-        Log.d("myLog", "DELETE  deleteAllInShoppingCartDatabase ")
         try {
             val dataBaseHelper = ShoppingCartDatabaseHelper.getInstance(context)
             dataBaseHelper.use {
                 delete(ShoppingCartDatabaseInfo.TABLE_NAME)
             }
         } catch (e: Exception) {
-            Log.d("myLog", "deleteAllInShoppingCartDatabase Exception: " + e.toString())
+            Log.d("myLog", "deleteAllInShoppingCartDatabase Exception: $e")
         }
     }
-
 
     override fun putProductToShoppingCartDatabase(context: Context, product: Product, type: String): Boolean {
         try {
             val databaseHelper = ShoppingCartDatabaseHelper.getInstance(context)
-            Log.d(
-                "myLog", "putProductToShoppingCart: " + "\n" +
-                        ShoppingCartDatabaseInfo.COLUMN_PRODUCT_BRAND + "\n" + product.brand + "\n" +
-                        ShoppingCartDatabaseInfo.COLUMN_PRODUCT_NAME + "\n" + product.name + "\n" +
-                        ShoppingCartDatabaseInfo.COLUMN_PRODUCT_PRICE + "\n" + product.price + "\n" +
-                        ShoppingCartDatabaseInfo.COLUMN_PRODUCT_FEATURE + "\n" + product.feature + "\n" +
-                        ShoppingCartDatabaseInfo.COLUMN_PRODUCT_TYPE + "\n" + type
-            )
             databaseHelper.use {
                 insert(
                     ShoppingCartDatabaseInfo.TABLE_NAME,
@@ -113,24 +96,49 @@ class DatabasesManager :
                 )
             }
         } catch (e: Exception) {
-            Log.d("myLog", "Exception: " + e.toString())
+            Log.d("myLog", "Exception: $e")
             return false
         }
         return true
     }
 
-
-    private fun getProductFromCursor(cursor: Cursor, tableName: String): Product {
-        return Product(
-            cursor.getInt(ShopDatabaseInfo.COLUMN_INDEX_ID),
-            cursor.getString(ShopDatabaseInfo.COLUMN_INDEX_IMAGE_PATH),
-            cursor.getString(ShopDatabaseInfo.COLUMN_INDEX_BRAND),
-            cursor.getString(ShopDatabaseInfo.COLUMN_INDEX_NAME),
-            cursor.getString(ShopDatabaseInfo.COLUMN_INDEX_FEATURE),
-            cursor.getFloat(ShopDatabaseInfo.COLUMN_INDEX_PRICE),
-            tableName
-        )
+    override fun getTotalCostFromShoppingCartDatabase(context: Context): Float {
+        var amount = 0f
+        try {
+            val databaseHelper = ShoppingCartDatabaseHelper.getInstance(context)
+            databaseHelper.use {
+                val cursor = rawQuery(
+                    "SELECT ${ShoppingCartDatabaseInfo.COLUMN_PRODUCT_PRICE} FROM ${ShoppingCartDatabaseInfo.TABLE_NAME}",
+                    null
+                )
+                if (cursor.moveToFirst()) {
+                    do {
+                        amount += cursor.getFloat(0)
+                    } while (cursor.moveToNext())
+                }
+                cursor.close()
+            }
+        } catch (e: Exception) {
+            Log.d("myLog", "TotalCost Exception: $e")
+        }
+        return amount
     }
+
+    override fun getProductQuantityFromShoppingCartDatabase(context: Context): Int {
+        var numberOne = 0
+        try {
+            val databaseHelper = ShoppingCartDatabaseHelper.getInstance(context)
+            databaseHelper.use {
+                val cursor = rawQuery("SELECT * FROM ${ShoppingCartDatabaseInfo.TABLE_NAME}", null)
+                numberOne = cursor.count
+                cursor.close()
+            }
+        } catch (e: Exception) {
+            Log.d("myLog", "cursor count  Exception: $e")
+        }
+        return numberOne
+    }
+
 
     override fun deleteProductFromShoppingCartDatabaseById(context: Context, id: Int) {
         try {
@@ -143,7 +151,7 @@ class DatabasesManager :
                 )
             }
         } catch (e: Exception) {
-            Log.d("myLog", "deleteProductFromShoppingCartDatabaseById Exception: " + e.toString())
+            Log.d("myLog", "deleteProductFromShoppingCartDatabaseById Exception: $e")
         }
     }
 
@@ -159,26 +167,37 @@ class DatabasesManager :
                             val product: ShoppingCartProduct = getShoppingCartProductFromCursor(this)
                             list.add(product)
                         } while (this.moveToNext())
-                    } else {
-                        Log.d("myLog", "!this.moveToFirst() ")
                     }
                 }
             }
         } catch (e: Exception) {
-            Log.d("myLog", "Exception: " + e.toString())
+            Log.d("myLog", "getProductListFromShoppingCartDatabase Exception: $e")
         }
         return list
     }
 
+
+    private fun getProductFromCursor(cursor: Cursor, tableName: String): Product {
+        return Product(
+            cursor.getInt(ShopDatabaseInfo.COLUMN_INDEX_ID),
+            cursor.getString(ShopDatabaseInfo.COLUMN_INDEX_IMAGE_PATH),
+            cursor.getString(ShopDatabaseInfo.COLUMN_INDEX_BRAND),
+            cursor.getString(ShopDatabaseInfo.COLUMN_INDEX_NAME),
+            cursor.getString(ShopDatabaseInfo.COLUMN_INDEX_FEATURE),
+            cursor.getFloat(ShopDatabaseInfo.COLUMN_INDEX_PRICE),
+            tableName
+        )
+    }
+
     private fun getShoppingCartProductFromCursor(cursor: Cursor): ShoppingCartProduct {
-        Log.d(
+/*        Log.d(
             "myLog", "getShopProduct " + cursor.getInt(ShoppingCartDatabaseInfo.COLUMN_INDEX_ID) + "\n" +
                     cursor.getString(ShoppingCartDatabaseInfo.COLUMN_INDEX_TYPE) + "\n" +
                     cursor.getString(ShoppingCartDatabaseInfo.COLUMN_INDEX_BRAND) + "\n" +
                     cursor.getString(ShoppingCartDatabaseInfo.COLUMN_INDEX_NAME) + "\n" +
                     cursor.getString(ShoppingCartDatabaseInfo.COLUMN_INDEX_FEATURE) + "\n" +
                     cursor.getFloat(ShoppingCartDatabaseInfo.COLUMN_INDEX_PRICE)
-        )
+        )*/
         return ShoppingCartProduct(
             cursor.getInt(ShoppingCartDatabaseInfo.COLUMN_INDEX_ID),
             cursor.getString(ShoppingCartDatabaseInfo.COLUMN_INDEX_TYPE),
@@ -190,7 +209,7 @@ class DatabasesManager :
         )
     }
 
-    fun getProductFromTable(context: Context, id: Int, tableName: String): Product {
+/*    fun getProductFromTable(context: Context, id: Int, tableName: String): Product {
         lateinit var product: Product
         try {
             val databaseHelper =
@@ -208,10 +227,6 @@ class DatabasesManager :
         } catch (e: Exception) {
             Log.d("myLog", "getProductFromTable Exception: " + e.toString())
         }
-        Log.d("myLog", "product: " + product.toString())
-        Log.d("myLog", "product id: " + product.id)
-        Log.d("myLog", "product name: " + product.name)
-        Log.d("myLog", "product price: " + product.price.toString())
         return product
-    }
+    }*/
 }

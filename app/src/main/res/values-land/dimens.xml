@@ -5,4 +5,6 @@
     <dimen name="layout_margin_start_item_product_list_cart">48dp</dimen>
     <dimen name="layout_margin_end_item_product_list_cart">48dp</dimen>
     <dimen name="layout_margin_start_headers_product_info">48dp</dimen>
+    <dimen name="layout_margin_start_item_product_list">48dp</dimen>
+    <dimen name="layout_margin_end_item_product_list">48dp</dimen>
 </resources>

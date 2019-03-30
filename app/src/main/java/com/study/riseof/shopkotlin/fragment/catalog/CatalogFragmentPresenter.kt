@@ -10,9 +10,8 @@ object CatalogFragmentPresenter : CatalogFragmentContract.Presenter {
 
     private val navigator = CatalogFragmentNavigator as CatalogFragmentContract.Navigator
 
-
     override fun imageSmartphoneSelected(context: Context?) {
-        context?:return
+        context ?: return
         val productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_SMARTPHONES)
         navigator.createFragment(
             ProductListFragment.getInstance(productList)
@@ -20,7 +19,7 @@ object CatalogFragmentPresenter : CatalogFragmentContract.Presenter {
     }
 
     override fun imageGraphicTabletSelected(context: Context?) {
-        context?:return
+        context ?: return
         val productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_GRAPHIC_TABLETS)
         navigator.createFragment(
             ProductListFragment.getInstance(productList)
@@ -28,48 +27,48 @@ object CatalogFragmentPresenter : CatalogFragmentContract.Presenter {
     }
 
     override fun imageLaptopSelected(context: Context?) {
-        context?:return
-        val productList =  getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_LAPTOPS)
+        context ?: return
+        val productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_LAPTOPS)
         navigator.createFragment(
             ProductListFragment.getInstance(productList)
         )
     }
 
     override fun imageCameraSelected(context: Context?) {
-        context?:return
-        val productList =   getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_CAMERAS)
+        context ?: return
+        val productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_CAMERAS)
         navigator.createFragment(
             ProductListFragment.getInstance(productList)
         )
     }
 
     override fun imageSpeakersSelected(context: Context?) {
-        context?:return
-        val productList =  getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_SPEAKERS)
+        context ?: return
+        val productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_SPEAKERS)
         navigator.createFragment(
             ProductListFragment.getInstance(productList)
         )
     }
 
     override fun imageHeadphonesSelected(context: Context?) {
-        context?:return
-        val productList =  getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_HEADPHONES)
+        context ?: return
+        val productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_HEADPHONES)
         navigator.createFragment(
             ProductListFragment.getInstance(productList)
         )
     }
 
     override fun imageMicrophoneSelected(context: Context?) {
-        context?:return
-        val productList =  getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_MICROPHONES)
+        context ?: return
+        val productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_MICROPHONES)
         navigator.createFragment(
             ProductListFragment.getInstance(productList)
         )
     }
 
     override fun imageFlashDriveSelected(context: Context?) {
-        context?:return
-        val productList =  getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_FLASH_DRIVES)
+        context ?: return
+        val productList = getProductListFromShopDatabase(context, ShopDatabaseInfo.TABLE_FLASH_DRIVES)
         navigator.createFragment(
             ProductListFragment.getInstance(productList)
         )

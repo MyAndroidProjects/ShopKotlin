@@ -27,7 +27,6 @@ class ProductInfoFragment : Fragment() {
 
     private lateinit var product: Product
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         getValuesFromSaveInstanceState(savedInstanceState)
@@ -40,6 +39,11 @@ class ProductInfoFragment : Fragment() {
         fillViewsContents(product)
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelable(keyProduct, product)
+    }
+
     private fun getValuesFromArguments() {
         product = arguments?.getParcelable(keyProduct) ?: return
     }
@@ -48,17 +52,12 @@ class ProductInfoFragment : Fragment() {
         product = savedInstanceState?.getParcelable(keyProduct) ?: return
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putParcelable(keyProduct, product)
-    }
-
-    private fun fillViewsContents(product: Product){
+    private fun fillViewsContents(product: Product) {
         setFeatureHeader(product.tableName)
-        productInfoBrand.text=product.brand
-        productInfoName.text=product.name
-        productInfoFeature.text=product.feature
-        productInfoPrice.text=product.price.toString()
+        productInfoBrand.text = product.brand
+        productInfoName.text = product.name
+        productInfoFeature.text = product.feature
+        productInfoPrice.text = product.price.toString()
         Picasso.get()
             .load(product.imagePath)
             .placeholder(com.study.riseof.shopkotlin.R.drawable.ic_baseline_add_shopping_cart_96px)
@@ -67,16 +66,18 @@ class ProductInfoFragment : Fragment() {
             .into(productInfoImage)
     }
 
-    private fun setFeatureHeader(tableName:String){
-        when(tableName){
-            ShopDatabaseInfo.TABLE_CAMERAS->featureHeader.text=resources.getString(R.string.feature_cameras)
-            ShopDatabaseInfo.TABLE_FLASH_DRIVES->featureHeader.text=resources.getString(R.string.feature_flash_drives)
-            ShopDatabaseInfo.TABLE_GRAPHIC_TABLETS->featureHeader.text=resources.getString(R.string.feature_graphic_tablets)
-            ShopDatabaseInfo.TABLE_HEADPHONES->featureHeader.text=resources.getString(R.string.feature_headphones)
-            ShopDatabaseInfo.TABLE_LAPTOPS->featureHeader.text=resources.getString(R.string.feature_laptops)
-            ShopDatabaseInfo.TABLE_MICROPHONES->featureHeader.text=resources.getString(R.string.feature_microphone)
-            ShopDatabaseInfo.TABLE_SMARTPHONES->featureHeader.text=resources.getString(R.string.feature_smartphones)
-            ShopDatabaseInfo.TABLE_SPEAKERS->featureHeader.text=resources.getString(R.string.feature_speakers)
+    private fun setFeatureHeader(tableName: String) {
+        when (tableName) {
+            ShopDatabaseInfo.TABLE_CAMERAS -> featureHeader.text = resources.getString(R.string.feature_cameras)
+            ShopDatabaseInfo.TABLE_FLASH_DRIVES -> featureHeader.text =
+                resources.getString(R.string.feature_flash_drives)
+            ShopDatabaseInfo.TABLE_GRAPHIC_TABLETS -> featureHeader.text =
+                resources.getString(R.string.feature_graphic_tablets)
+            ShopDatabaseInfo.TABLE_HEADPHONES -> featureHeader.text = resources.getString(R.string.feature_headphones)
+            ShopDatabaseInfo.TABLE_LAPTOPS -> featureHeader.text = resources.getString(R.string.feature_laptops)
+            ShopDatabaseInfo.TABLE_MICROPHONES -> featureHeader.text = resources.getString(R.string.feature_microphone)
+            ShopDatabaseInfo.TABLE_SMARTPHONES -> featureHeader.text = resources.getString(R.string.feature_smartphones)
+            ShopDatabaseInfo.TABLE_SPEAKERS -> featureHeader.text = resources.getString(R.string.feature_speakers)
         }
     }
 }

@@ -25,8 +25,8 @@ class TableSpeakersFiller : BaseTableFiller() {
         )
 
     override val price: Float
-        get() = ((100..3000).random()/10).toFloat()
+        get() = ((100..3000).random() / 10).toFloat()
     override val specialColumnValue: String
-        get() = (15..40).random().toString()+"W"
+        get() = (15..40).random().toString() + "W"
 
 }

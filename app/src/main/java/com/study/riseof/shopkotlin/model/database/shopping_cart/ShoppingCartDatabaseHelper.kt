@@ -24,14 +24,13 @@ class ShoppingCartDatabaseHelper(context: Context) :
             try {
                 instance!!
             } catch (e: Exception) {
-                Log.d("myLog", "ShoppingCartDatabaseHelper Exception: " + e.toString())
+                Log.d("myLog", "ShoppingCartDatabaseHelper Exception: $e")
             }
             return instance as ShoppingCartDatabaseHelper
         }
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
-        Log.d("myLog", " CREATE onCreate ShoppingCartDatabase ")
         try {
             db?.createTable(
                 ShoppingCartDatabaseInfo.TABLE_NAME, true,
@@ -43,11 +42,10 @@ class ShoppingCartDatabaseHelper(context: Context) :
                 ShoppingCartDatabaseInfo.COLUMN_PRODUCT_PRICE to REAL
             )
         } catch (e: Exception) {
-            Log.d("myLog", "Exception: " + e.toString())
+            Log.d("myLog", "ShoppingCartDatabaseHelper Exception: $e")
         }
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-
     }
 }

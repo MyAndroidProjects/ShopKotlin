@@ -11,5 +11,4 @@ data class ShoppingCartProduct (
      val name: String,
      val feature: String,
      val price: Float
-) : Parcelable {
-}
+) : Parcelable

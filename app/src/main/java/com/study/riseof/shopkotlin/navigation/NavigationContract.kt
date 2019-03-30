@@ -18,11 +18,13 @@ interface NavigationContract {
         fun closeDrawerLayout()
         fun callSuperOnBackPressed()
         fun cleanBackStack()
+        fun cleanAllInBackStack()
         fun showProductInfoButtons()
         fun selectedProduct(product: Product)
         fun startShoppingCartActivity(list: ArrayList<ShoppingCartProduct>)
         fun startMainActivity(fragmentType: Int, startSnackBarMessage: String?)
         fun shoppingCartActivityCallSuperOnBackPressed()
+        fun hideProductInfoButtons()
     }
 
     // Для работы с context, при работе с другими activity будут использоваться
@@ -31,7 +33,9 @@ interface NavigationContract {
         fun createFragment(fragment: Fragment)
         fun callSuperOnBackPressed()
         fun cleanBackStack()
+        fun cleanAllInBackStack()
         fun startShoppingCartActivity(list: ArrayList<ShoppingCartProduct>)
+
     }
 
     interface ShoppingCartActivity {
@@ -44,6 +48,7 @@ interface NavigationContract {
         fun closeDrawerLayout()
         fun showProductInfoButtons()
         fun selectedProduct(product: Product)
+        fun hideProductInfoButtons()
     }
 
     interface ShoppingCartActivityPresenter {

@@ -13,7 +13,6 @@ class ShoppingCartActivityRecyclerAdapter(
     private val clickListener: ProductListButtonDeleteClickListener
 ) :
     RecyclerView.Adapter<ShoppingCartActivityRecyclerAdapter.ViewHolder>() {
-    var imageSize: Int = 0
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(com.study.riseof.shopkotlin.R.layout.item_shopping_cart_list, viewGroup, false)
@@ -29,7 +28,7 @@ class ShoppingCartActivityRecyclerAdapter(
             Log.d("myLog", " onBindViewHolder list.isEmpty() ")
         }
         val item = list[position]
-        val brandAndName: String = "${item.brand} ${item.name},"
+        val brandAndName = "${item.brand} ${item.name},"
         holder.productView.productShoppingCartType.text = item.type
         holder.productView.productShoppingCartBrandAndName.text = brandAndName
         holder.productView.productShoppingCartFeature.text = item.feature
@@ -41,7 +40,7 @@ class ShoppingCartActivityRecyclerAdapter(
     }
 
 
-    class ViewHolder(val productView: View) : RecyclerView.ViewHolder(productView) {}
+    class ViewHolder(val productView: View) : RecyclerView.ViewHolder(productView)
 
     interface ProductListButtonDeleteClickListener {
         fun onDeleteFromCartButtonClick(product: ShoppingCartProduct)

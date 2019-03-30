@@ -11,6 +11,7 @@ class TableGraphicTabletsFiller : BaseTableFiller() {
         get() = ShopDatabaseInfo.COLUMN_GRAPHIC_TABLET_FORMAT
     override val productImageFolder: String
         get() = "graphicTablets/"
+
     override val brands: Array<String>
         get() = arrayOf(
             "Vacuum", "Junior"
@@ -23,6 +24,7 @@ class TableGraphicTabletsFiller : BaseTableFiller() {
 
     override val price: Float
         get() = (10..30).random() * 10f
+
     override val specialColumnValue: String
         get() = "A" + (4..6).random().toString()
 }

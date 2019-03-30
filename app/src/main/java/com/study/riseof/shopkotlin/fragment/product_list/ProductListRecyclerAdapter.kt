@@ -1,7 +1,6 @@
 package com.study.riseof.shopkotlin.fragment.product_list
 
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import com.study.riseof.shopkotlin.model.data.Product
@@ -16,7 +15,9 @@ class ProductListRecyclerAdapter(
     private val clickListener: ProductListItemClickListener
 ) :
     RecyclerView.Adapter<ProductListRecyclerAdapter.ViewHolder>() {
-    var imageSize: Int = 0
+
+    private var imageSize: Int = 0
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(com.study.riseof.shopkotlin.R.layout.item_product_list, viewGroup, false)
@@ -29,9 +30,6 @@ class ProductListRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        if(list.isEmpty()){
-            Log.d("myLog", " onBindViewHolder list.isEmpty() ")
-        }
         val item = list[position]
         holder.productView.productName.text = item.name
         holder.productView.productBrand.text = item.brand
@@ -48,8 +46,7 @@ class ProductListRecyclerAdapter(
         }
     }
 
-
-    class ViewHolder(val productView: View) : RecyclerView.ViewHolder(productView) {}
+    class ViewHolder(val productView: View) : RecyclerView.ViewHolder(productView)
 
     interface ProductListItemClickListener {
         fun onProductListItemClick(product: Product)

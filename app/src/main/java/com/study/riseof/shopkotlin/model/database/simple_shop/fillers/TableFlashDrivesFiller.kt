@@ -15,6 +15,7 @@ class TableFlashDrivesFiller : BaseTableFiller() {
         get() = arrayOf(
             "Lightning", "Flash", "Case", "Safe", "Stock", "Garage"
         )
+
     override val imageFileNames: Array<String>
         get() = arrayOf(
             "flash0.png", "flash1.png", "flash2.png",

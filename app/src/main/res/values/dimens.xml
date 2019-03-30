@@ -45,5 +45,9 @@
     <dimen name="layout_margin_start_headers_product_info">32dp</dimen>
     <dimen name="layout_margin_button_shopping_cart">8dp</dimen>
     <dimen name="corners_radius_button_shopping_cart">8dp</dimen>
+    <dimen name="layout_margin_start_item_product_list">24dp</dimen>
+    <dimen name="layout_margin_top_item_product_list">24dp</dimen>
+    <dimen name="layout_margin_end_item_product_list">24dp</dimen>
+    <dimen name="layout_margin_bottom_item_product_list">110dp</dimen>
 
 </resources>

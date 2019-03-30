@@ -16,11 +16,6 @@ class NavigationViewFragment : Fragment(), NavigationView.OnNavigationItemSelect
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        Log.d("myLog", "NavigationViewFragment onCreateView")
-        Log.d("myLog", "NavigationViewFragment activity" + activity)
-        Log.d("myLog", "NavigationViewFragment activity.toString()" + activity.toString())
-
-
         return inflater.inflate(R.layout.fragment_navigation_view, container, false)
     }
 
@@ -35,17 +30,15 @@ class NavigationViewFragment : Fragment(), NavigationView.OnNavigationItemSelect
                     presenter?.setCurrentActivity(NavigationViewFragmentPresenter.CurrentActivity.ShoppingCartActivity)
             }
         } catch (e: Exception) {
-            Log.d("myLog", "Exception: " + e.toString())
+            Log.d("myLog", "Exception: $e")
         }
         navigationView.setNavigationItemSelectedListener(this)
     }
 
     override fun onStop() {
-        Log.d("myLog", " onStop " + this.toString())
         presenter = null
         super.onStop()
     }
-
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
@@ -92,14 +85,4 @@ class NavigationViewFragment : Fragment(), NavigationView.OnNavigationItemSelect
         presenter?.anyCatalogSectionSelected()
         return true
     }
-
-/*    override fun onDestroyView() {
-        Log.d("myLog", " onDestroyView "+this.toString())
-        super.onDestroyView()
-    }
-
-    override fun onDestroy() {
-        Log.d("myLog", " onDestroy "+this.toString())
-        super.onDestroy()
-    }*/
 }

@@ -10,10 +10,14 @@ interface ShoppingCartActivityContract {
         fun openDrawer()
         fun closeDrawer()
         fun callSuperOnBackPressed()
-        fun showDeleteProductDialog(message: String, id: Int)
+        fun showDeleteProductDialog(message: String, id: Int, price: Float)
         fun showDeleteAllInShoppingCartDialog()
         fun showBuyProductsDialog()
+        fun showEmptyCardDialog()
         fun showSnackBar(message: String)
+        fun setToolbarText(text: String)
+        fun setTotalProductText(text: String)
+        fun setTotalCostText(text: String)
     }
 
     interface Presenter {
@@ -25,8 +29,10 @@ interface ShoppingCartActivityContract {
         fun buttonBuySelected()
         fun deleteItemButtonShoppingCartListSelected(context: Context, product: ShoppingCartProduct)
         fun yesButtonDeleteAllDialogSelected(context: Context)
-        fun yesButtonDeleteProductDialogSelected(context: Context, id: Int)
+        fun yesButtonDeleteProductDialogSelected(context: Context, id: Int, price: Float)
         fun yesButtonBuyDialogSelected(context: Context)
+        fun okButtonEmptyCardDialogSelected()
+        fun activityIsOnStart(context: Context)
     }
 
     interface Navigator {
@@ -38,5 +44,7 @@ interface ShoppingCartActivityContract {
         fun deleteProductFromShoppingCartDatabaseById(context: Context, id: Int)
         fun getProductListFromShoppingCartDatabase(context: Context): ArrayList<ShoppingCartProduct>
         fun deleteAllInShoppingCartDatabase(context: Context)
+        fun getProductQuantityFromShoppingCartDatabase(context: Context): Int
+        fun getTotalCostFromShoppingCartDatabase(context: Context): Float
     }
 }

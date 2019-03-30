@@ -5,10 +5,6 @@ import android.support.v4.app.Fragment
 import com.study.riseof.shopkotlin.model.data.Product
 
 interface CatalogFragmentContract {
-    interface View {
-
-    }
-
     interface Presenter {
         fun imageSmartphoneSelected(context: Context?)
         fun imageGraphicTabletSelected(context: Context?)
@@ -18,16 +14,13 @@ interface CatalogFragmentContract {
         fun imageHeadphonesSelected(context: Context?)
         fun imageMicrophoneSelected(context: Context?)
         fun imageFlashDriveSelected(context: Context?)
-
     }
 
-    interface Navigator{
+    interface Navigator {
         fun createFragment(fragment: Fragment)
-
     }
 
     interface Model {
         fun getProductListFromShopDatabase(context: Context, tableName: String): ArrayList<Product>
     }
-
 }

@@ -24,7 +24,7 @@ class TableHeadphonesFiller : BaseTableFiller() {
         )
 
     override val price: Float
-        get() =  (3..50).random() * 1f
+        get() = (3..50).random() * 1f
 
     private val headphonesTypes: Array<String>
         get() = arrayOf(

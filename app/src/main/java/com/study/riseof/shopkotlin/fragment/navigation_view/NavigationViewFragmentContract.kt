@@ -5,9 +5,6 @@ import android.support.v4.app.Fragment
 import com.study.riseof.shopkotlin.model.data.Product
 
 interface NavigationViewFragmentContract {
-    interface View {
-
-    }
 
     interface Presenter {
         fun navItemCatalogSelected(context: Context?)
@@ -27,8 +24,10 @@ interface NavigationViewFragmentContract {
         fun createFragment(fragment: Fragment)
         fun closeDrawerLayout()
         fun cleanBackStack()
+        fun cleanAllInBackStack()
         fun startMainActivity(fragmentType: Int, startSnackBarMessage: String?)
         fun shoppingCartActivityCallSuperOnBackPressed()
+        fun hideProductInfoButtons()
     }
 
     interface Model {

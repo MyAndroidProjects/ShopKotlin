@@ -12,5 +12,4 @@ open class Product(
     open val feature: String,
     open val price: Float,
     open val tableName: String
-) : Parcelable {
-}
+) : Parcelable

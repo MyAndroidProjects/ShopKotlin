@@ -25,7 +25,7 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:title="@string/collapsing_toolbar_title"
             app:titleMarginEnd="@dimen/title_margin_end_toolbar"
-            app:titleMarginStart="@dimen/title_margin_start_toolbar">
+            app:titleMarginStart="@dimen/title_margin_end_toolbar">
 
             <TextView
                 android:id="@+id/productsQuantity"
@@ -36,7 +36,6 @@
                 android:drawablePadding="@dimen/drawable_padding_text_toolbar"
                 android:paddingStart="@dimen/padding_start_text_toolbar"
                 android:paddingEnd="@dimen/padding_end_text_toolbar"
-                android:text="@string/start_text_toolbar"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 android:textColor="@color/toolbar_text"
                 android:textStyle="bold" />
@@ -98,7 +97,6 @@
                     android:gravity="start"
                     android:paddingStart="12dp"
                     android:paddingEnd="24dp"
-                    android:text="12"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
 
             </LinearLayout>
@@ -129,7 +127,6 @@
                     android:gravity="start"
                     android:paddingStart="12dp"
                     android:paddingEnd="24dp"
-                    android:text="120.8"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
             </LinearLayout>
 

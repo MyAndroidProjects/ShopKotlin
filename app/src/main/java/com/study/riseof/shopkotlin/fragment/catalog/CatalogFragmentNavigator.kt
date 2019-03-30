@@ -6,7 +6,7 @@ import com.study.riseof.shopkotlin.navigation.NavigationManager
 
 object CatalogFragmentNavigator : CatalogFragmentContract.Navigator {
 
-   private val manager = NavigationManager as NavigationContract.Manager
+    private val manager = NavigationManager as NavigationContract.Manager
 
     override fun createFragment(fragment: Fragment) {
         manager.createFragment(fragment)

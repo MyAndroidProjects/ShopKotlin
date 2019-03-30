@@ -19,6 +19,10 @@ object NavigationViewFragmentNavigator : NavigationViewFragmentContract.Navigato
         manager.cleanBackStack()
     }
 
+    override fun cleanAllInBackStack() {
+        manager.cleanAllInBackStack()
+    }
+
     override fun startMainActivity(fragmentType: Int, startSnackBarMessage: String?) {
         manager.startMainActivity(fragmentType, startSnackBarMessage)
     }
@@ -27,5 +31,7 @@ object NavigationViewFragmentNavigator : NavigationViewFragmentContract.Navigato
         manager.shoppingCartActivityCallSuperOnBackPressed()
     }
 
-
+    override fun hideProductInfoButtons() {
+        manager.hideProductInfoButtons()
+    }
 }

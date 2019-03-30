@@ -15,6 +15,7 @@ interface MainActivityContract {
         fun showSnackBar(message: String)
         fun setMainActivityFlagsToFalse()
         fun setStartSnackBarMessage(startSnackBarMessage: String?)
+        fun setToolbarText(text: String)
     }
 
     interface Presenter {
@@ -48,6 +49,6 @@ interface MainActivityContract {
         fun putProductToShoppingCartDatabase(context: Context, product: Product, type: String): Boolean
         fun getProductListFromShoppingCartDatabase(context: Context): ArrayList<ShoppingCartProduct>
         fun getProductListFromShopDatabase(context: Context, tableName: String): ArrayList<Product>
+        fun getProductQuantityFromShoppingCartDatabase(context: Context): Int
     }
-
 }

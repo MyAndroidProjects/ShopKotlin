@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -54,7 +53,6 @@
                     android:drawablePadding="@dimen/drawable_padding_text_toolbar"
                     android:paddingStart="@dimen/padding_start_text_toolbar"
                     android:paddingEnd="@dimen/padding_end_text_toolbar"
-                    android:text="@string/start_text_toolbar"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                     android:textColor="@color/toolbar_text"
                     android:textStyle="bold" />

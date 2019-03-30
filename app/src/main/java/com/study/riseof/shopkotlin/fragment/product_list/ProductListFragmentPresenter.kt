@@ -3,7 +3,7 @@ package com.study.riseof.shopkotlin.fragment.product_list
 import com.study.riseof.shopkotlin.fragment.product_info.ProductInfoFragment
 import com.study.riseof.shopkotlin.model.data.Product
 
-object ProductListFragmentPresenter:ProductListFragmentContract.Presenter {
+object ProductListFragmentPresenter : ProductListFragmentContract.Presenter {
 
     private val navigator = ProductListFragmentNavigator as ProductListFragmentContract.Navigator
 

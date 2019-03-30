@@ -22,7 +22,6 @@ class TableCamerasFiller : BaseTableFiller() {
     override val price: Float
         get() = (30..300).random() * 10f
 
-
     override val specialColumnValue: String
-        get()  = (8..18).random().toString() + "k"
+        get() = (8..18).random().toString() + "k"
 }

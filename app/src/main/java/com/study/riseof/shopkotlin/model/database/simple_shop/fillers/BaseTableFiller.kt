@@ -13,18 +13,20 @@ abstract class BaseTableFiller {
     protected abstract val tableName: String
     protected abstract val productQuantity: Int
     protected abstract val specialColumnName: String
-
     protected abstract val brands: Array<String>
     protected abstract val imageFileNames: Array<String>
     protected abstract val productImageFolder: String
-    protected open val brand: String
-        get() = brands[(0 until brands.size).random()]
-    protected open val name: String
-        get() = getRandomLetterUppercase() + ((10..900).random() * 10).toString()
-    protected open val imagePath: String
-        get() = basePath + productImageFolder + imageFileNames[(0 until imageFileNames.size).random()]
     protected abstract val price: Float
     protected abstract val specialColumnValue: String
+
+    protected open val brand: String
+        get() = brands[(0 until brands.size).random()]
+
+    protected open val name: String
+        get() = getRandomLetterUppercase() + ((10..900).random() * 10).toString()
+
+    protected open val imagePath: String
+        get() = basePath + productImageFolder + imageFileNames[(0 until imageFileNames.size).random()]
 
     open fun fillTable(context: Context): Boolean {
         try {
@@ -45,7 +47,7 @@ abstract class BaseTableFiller {
                 //  showBaseInLog(this)
             }
         } catch (e: Exception) {
-            Log.d("myLog", "Exception: " + e.toString())
+            Log.d("myLog", "Exception: $e")
             return false
         }
         return true
@@ -75,7 +77,7 @@ abstract class BaseTableFiller {
                 }
             }
         } catch (e: Exception) {
-            Log.d("myLog", "Exception: " + e.toString())
+            Log.d("myLog", "Exception: $e")
         }
     }
 }

@@ -1,20 +1,20 @@
 package com.study.riseof.shopkotlin.navigation
 
 import android.support.v4.app.Fragment
-import android.util.Log
 import com.study.riseof.shopkotlin.activity.main.MainActivityPresenter
 import com.study.riseof.shopkotlin.activity.shopping_cart.ShoppingCartActivityPresenter
 import com.study.riseof.shopkotlin.model.data.Product
 import com.study.riseof.shopkotlin.model.data.ShoppingCartProduct
 
 object NavigationManager : NavigationContract.Manager, NavigationContract.SetActivities {
+
     private var mainActivity: NavigationContract.MainActivity? = null
     private var shoppingCartActivity: NavigationContract.ShoppingCartActivity? = null
-    private val mainActivityPresenter = MainActivityPresenter
-            as NavigationContract.MainActivityPresenter
-    private val shoppingCartActivityPresenter = ShoppingCartActivityPresenter
-            as NavigationContract.ShoppingCartActivityPresenter
+    private val mainActivityPresenter: NavigationContract.MainActivityPresenter = MainActivityPresenter
+    private val shoppingCartActivityPresenter: NavigationContract.ShoppingCartActivityPresenter =
+        ShoppingCartActivityPresenter
 
+    // Implements function in interface NavigationContract.SetActivities
     override fun setMainActivityToNavigationManager(mainActivity: NavigationContract.MainActivity?) {
         this.mainActivity = mainActivity
     }
@@ -23,11 +23,10 @@ object NavigationManager : NavigationContract.Manager, NavigationContract.SetAct
         this.shoppingCartActivity = shoppingCartActivity
     }
 
+    // Implements function in interface NavigationContract.Manager
     override fun createFragment(fragment: Fragment) {
-        Log.d("myLog", " NavigationManager createFragment ")
         mainActivity?.createFragment(fragment)
     }
-
 
     override fun callSuperOnBackPressed() {
         mainActivity?.callSuperOnBackPressed()
@@ -37,7 +36,10 @@ object NavigationManager : NavigationContract.Manager, NavigationContract.SetAct
         mainActivity?.cleanBackStack()
     }
 
-    // Main Activity Presenter
+    override fun cleanAllInBackStack() {
+        mainActivity?.cleanAllInBackStack()
+    }
+
     override fun closeDrawerLayout() {
         mainActivityPresenter.closeDrawerLayout()
     }
@@ -50,16 +52,19 @@ object NavigationManager : NavigationContract.Manager, NavigationContract.SetAct
         mainActivityPresenter.selectedProduct(product)
     }
 
+    override fun hideProductInfoButtons() {
+        mainActivityPresenter.hideProductInfoButtons()
+    }
+
     override fun startShoppingCartActivity(list: ArrayList<ShoppingCartProduct>) {
         mainActivity?.startShoppingCartActivity(list)
     }
 
     override fun startMainActivity(fragmentType: Int, startSnackBarMessage: String?) {
-        shoppingCartActivity?.startMainActivity(fragmentType,startSnackBarMessage)
+        shoppingCartActivity?.startMainActivity(fragmentType, startSnackBarMessage)
     }
 
     override fun shoppingCartActivityCallSuperOnBackPressed() {
         shoppingCartActivityPresenter.callSuperOnBackPressed()
     }
-
 }

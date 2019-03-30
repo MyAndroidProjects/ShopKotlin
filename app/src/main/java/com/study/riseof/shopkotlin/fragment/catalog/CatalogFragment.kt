@@ -22,12 +22,6 @@ class CatalogFragment : Fragment() {
 
     private var presenter: CatalogFragmentContract.Presenter? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.fragment_catalog, container, false)
-    }
-
-
     private val clickListener = View.OnClickListener { v: View ->
         when (v) {
             imageSmartphone -> presenter?.imageSmartphoneSelected(context)
@@ -42,10 +36,20 @@ class CatalogFragment : Fragment() {
         }
     }
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
+        return inflater.inflate(R.layout.fragment_catalog, container, false)
+    }
+
     override fun onStart() {
         super.onStart()
         presenter = CatalogFragmentPresenter
         setCatalogClickListeners()
+    }
+
+    override fun onStop() {
+        presenter = null
+        super.onStop()
     }
 
     private fun setCatalogClickListeners() {
@@ -58,21 +62,5 @@ class CatalogFragment : Fragment() {
         imageMicrophone.setOnClickListener(clickListener)
         imageFlashDrive.setOnClickListener(clickListener)
     }
-
-    override fun onStop() {
-        Log.d("myLog", " onStop " + this.toString())
-        presenter = null
-        super.onStop()
-    }
-
-/*    override fun onDestroyView() {
-        Log.d("myLog", " onDestroyView " + this.toString())
-        super.onDestroyView()
-    }
-
-    override fun onDestroy() {
-        Log.d("myLog", " onDestroy " + this.toString())
-        super.onDestroy()
-    }*/
 }
 

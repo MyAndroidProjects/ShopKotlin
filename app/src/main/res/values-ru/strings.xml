@@ -10,7 +10,6 @@
     <string name="content_description_camera">Фотокамеры</string>
     <string name="content_description_microphone">Микрофоны</string>
     <string name="content_description_flash_drive">USB Флеш накопитель</string>
-    <string name="image_description_shopping_cart">Изображение тележки для продуктов</string>
 
     <string name="product_content_description">Изображение товара</string>
 
@@ -44,7 +43,7 @@
     <string name="button_back">Назад</string>
     <string name="button_clean">Очистить</string>
     <string name="button_buy">Купить</string>
-    <string name="label_products">products,</string>
+    <string name="text_button_delete_from_shopping_cart">убрать</string>
     <string name="label_total_products">Итого товаров:</string>
     <string name="label_amount">Стоимость:</string>
 
@@ -67,5 +66,8 @@
     <string name="title_buy_dialog">Зарезервировать товар?</string>
     <string name="message_buy_dialog">Вы сможете забрать зарезервированный товар втечении пяти дней.</string>
     <string name="message_buy_snack_bar">Товар зарезервирован.</string>
+    <string name="title_empty_dialog">Ваша корзина пуста.</string>
+    <string name="message_empty_dialog">Выберите товар в каталоге.</string>
+
 
 </resources>
