@@ -135,35 +135,41 @@ class ShoppingCartActivity : BaseActivity(),
     override fun showDeleteAllInShoppingCartDialog() {
         val message = resources.getString(R.string.message_delete_all_dialog)
         val title = resources.getString(R.string.title_delete_all_dialog)
-        alert(message, title) {
+        val dialog = alert(message, title) {
             yesButton { presenter?.yesButtonDeleteAllDialogSelected(this.ctx) }
             noButton {}
         }.show()
+        dialog.setCanceledOnTouchOutside(false)
     }
 
     override fun showDeleteProductDialog(message: String, id: Int, price: Float) {
         val title = resources.getString(R.string.title_delete_product_dialog)
-        alert(message, title) {
+        val dialog = alert(message, title) {
             yesButton { presenter?.yesButtonDeleteProductDialogSelected(this.ctx, id, price) }
             noButton {}
         }.show()
+        dialog.setCanceledOnTouchOutside(false)
     }
 
     override fun showBuyProductsDialog() {
         val message = resources.getString(R.string.message_buy_dialog)
         val title = resources.getString(R.string.title_buy_dialog)
-        alert(message, title) {
+        val dialog = alert(message, title) {
             yesButton { presenter?.yesButtonBuyDialogSelected(ctx) }
             noButton {}
         }.show()
+        dialog.setCanceledOnTouchOutside(false)
     }
 
     override fun showEmptyCardDialog() {
         val message = resources.getString(R.string.message_empty_dialog)
         val title = resources.getString(R.string.title_empty_dialog)
-        alert(message, title) {
-            okButton { presenter?.okButtonEmptyCardDialogSelected() }
+        val dialog = alert(message, title) {
+            okButton {
+                presenter?.okButtonEmptyCardDialogSelected()
+            }
         }.show()
+        dialog.setCanceledOnTouchOutside(false)
     }
 
     override fun showSnackBar(message: String) {

@@ -13,13 +13,13 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(getActivityLayout())
         setActionBar()
-        setStatusBarColor()
         getValuesFromIntent()
         getValuesFromSaveInstanceState(savedInstanceState)
     }
 
     override fun onStart() {
         super.onStart()
+        setStatusBarColor()
         setPresenterAndNavigationManager()
         setClickListeners()
     }
