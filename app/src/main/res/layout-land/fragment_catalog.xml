@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     app:columnCount="4">
 
-    <android.support.v7.widget.CardView style="@style/cart_catalog.left">
+    <android.support.v7.widget.CardView style="@style/catalog_card.left">
 
         <ImageView
             android:id="@+id/imageSmartphone"
@@ -15,7 +15,7 @@
 
     </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView style="@style/cart_catalog.center.left">
+    <android.support.v7.widget.CardView style="@style/catalog_card.center.left">
 
         <ImageView
             android:id="@+id/imageGraphicTablet"
@@ -24,7 +24,7 @@
             android:src="@drawable/graphic_tablet" />
     </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView style="@style/cart_catalog.center.right">
+    <android.support.v7.widget.CardView style="@style/catalog_card.center.right">
 
         <ImageView
             android:id="@+id/imageCamera"
@@ -33,7 +33,7 @@
             android:src="@drawable/camera" />
     </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView style="@style/cart_catalog.right">
+    <android.support.v7.widget.CardView style="@style/catalog_card.right">
 
         <ImageView
             android:id="@+id/imageLaptop"
@@ -42,7 +42,7 @@
             android:src="@drawable/laptop" />
     </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView style="@style/cart_catalog.left">
+    <android.support.v7.widget.CardView style="@style/catalog_card.left">
 
         <ImageView
             android:id="@+id/imageSpeakers"
@@ -51,7 +51,7 @@
             android:src="@drawable/speakers" />
     </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView style="@style/cart_catalog.center.left">
+    <android.support.v7.widget.CardView style="@style/catalog_card.center.left">
 
         <ImageView
             android:id="@+id/imageHeadphones"
@@ -61,7 +61,7 @@
 
     </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView style="@style/cart_catalog.center.right">
+    <android.support.v7.widget.CardView style="@style/catalog_card.center.right">
 
         <ImageView
             android:id="@+id/imageMicrophone"
@@ -70,7 +70,7 @@
             android:src="@drawable/microphone" />
     </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView style="@style/cart_catalog.right">
+    <android.support.v7.widget.CardView style="@style/catalog_card.right">
 
         <ImageView
             android:id="@+id/imageFlashDrive"

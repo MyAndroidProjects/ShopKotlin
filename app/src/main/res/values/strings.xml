@@ -13,7 +13,7 @@
     <string name="content_description_camera">Camera</string>
     <string name="content_description_microphone">Microphone</string>
     <string name="content_description_flash_drive">USB flash drive</string>
-    <string name="product_content_description">Image of product</string>
+    <string name="content_description_image_of_the_product">Image of product</string>
 
     <!-- Catalog -->
     <string name="menu_item_smartphones">Smartphones</string>
@@ -27,10 +27,10 @@
     <string name="menu_item_catalog">Catalog</string>
 
     <!-- product info -->
-    <string name="brand_header">Brand:</string>
-    <string name="name_header">Model:</string>
-    <string name="feature_header">Feature:</string>
-    <string name="price_header">Price:</string>
+    <string name="label_brand">Brand:</string>
+    <string name="label_name">Model:</string>
+    <string name="label_feature">Feature:</string>
+    <string name="label_price">Price:</string>
 
     <string name="feature_smartphones">Diagonal:</string>
     <string name="feature_microphone">Sensitivity:</string>

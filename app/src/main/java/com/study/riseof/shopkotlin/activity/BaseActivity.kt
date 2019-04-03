@@ -2,7 +2,6 @@ package com.study.riseof.shopkotlin.activity
 
 import android.os.Build
 import android.os.Bundle
-import android.support.v4.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
@@ -31,7 +30,6 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
 
-
     protected abstract fun getActivityLayout(): Int
 
     protected abstract fun nullifyPresenterAndNavigationManager()
@@ -48,7 +46,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected abstract fun menuButtonHomeSelected()
 
-   //protected abstract fun backButtonSelected(supportFragmentManager: FragmentManager?)
+    //protected abstract fun backButtonSelected(supportFragmentManager: FragmentManager?)
 
     private fun setActionBar() {
         setSupportActionBar(getToolbarView())
@@ -74,8 +72,4 @@ abstract class BaseActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
-
-
-
 }

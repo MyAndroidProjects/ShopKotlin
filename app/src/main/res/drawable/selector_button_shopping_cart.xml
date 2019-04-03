@@ -2,19 +2,19 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
-            <corners android:radius="@dimen/corners_radius_button_shopping_cart" />
+            <corners android:radius="@dimen/shopping_cart_button_corners_radius" />
             <solid android:color="@color/button_shopping_cart_pressed" />
         </shape>
     </item>
     <item android:state_focused="true">
         <shape android:shape="rectangle">
-            <corners android:radius="@dimen/corners_radius_button_shopping_cart" />
+            <corners android:radius="@dimen/shopping_cart_button_corners_radius" />
             <solid android:color="@color/button_shopping_cart_focused" />
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle">
-            <corners android:radius="@dimen/corners_radius_button_shopping_cart" />
+            <corners android:radius="@dimen/shopping_cart_button_corners_radius" />
             <solid android:color="@color/button_shopping_cart" />
         </shape>
     </item>

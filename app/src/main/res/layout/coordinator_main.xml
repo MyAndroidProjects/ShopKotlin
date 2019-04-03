@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,7 +10,7 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_app_bar_layout"
+        android:layout_height="@dimen/app_bar_layout_height"
         android:background="@color/app_bar_layout"
         android:fitsSystemWindows="true">
 
@@ -20,18 +21,22 @@
             android:fitsSystemWindows="true"
             app:contentScrim="@color/collapsing_toolbar"
             app:expandedTitleGravity="center_horizontal|bottom"
-            app:expandedTitleMarginEnd="@dimen/title_margin_end_collapsing_toolbar"
-            app:expandedTitleMarginStart="@dimen/title_margin_start_collapsing_toolbar"
+            app:expandedTitleMarginEnd="@dimen/collapsing_toolbar_title_margin_end"
+            app:expandedTitleMarginStart="@dimen/collapsing_toolbar_title_margin_start"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:title="@string/collapsing_toolbar_title">
+            app:title="@string/collapsing_toolbar_title"
+            app:collapsedTitleTextAppearance="@style/collapsing_toolbar_text"
+            app:expandedTitleTextAppearance="@style/collapsing_toolbar_text">
 
-            <!--            <ImageView
-                            android:id="@+id/collapsingImage"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:fitsSystemWindows="true"
-                            android:scaleType="centerCrop"
-                            app:layout_collapseMode="parallax" />-->
+            <ImageView
+                android:id="@+id/collapsingImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/collapsing_image"
+                app:layout_collapseMode="parallax"
+                tools:ignore="ContentDescription" />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -41,8 +46,8 @@
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 app:titleEnabled="false"
-                app:titleMarginEnd="@dimen/title_margin_end_toolbar"
-                app:titleMarginStart="@dimen/title_margin_start_toolbar">
+                app:titleMarginEnd="@dimen/toolbar_title_margin_end"
+                app:titleMarginStart="@dimen/toolbar_title_margin_start">
 
                 <TextView
                     android:id="@+id/productsQuantity"
@@ -50,9 +55,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical|end"
                     android:drawableStart="@drawable/ic_baseline_shopping_cart_24px"
-                    android:drawablePadding="@dimen/drawable_padding_text_toolbar"
-                    android:paddingStart="@dimen/padding_start_text_toolbar"
-                    android:paddingEnd="@dimen/padding_end_text_toolbar"
+                    android:drawablePadding="@dimen/toolbar_text_drawable_padding"
+                    android:paddingStart="@dimen/toolbar_text_padding_start"
+                    android:paddingEnd="@dimen/toolbar_text_padding_end"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                     android:textColor="@color/toolbar_text"
                     android:textStyle="bold" />
@@ -67,7 +72,7 @@
         android:layout_height="match_parent"
 
         android:scrollbarDefaultDelayBeforeFade="@integer/scrollbar_default_delay_before_fade_nested_scroll_view"
-        android:scrollbarSize="@dimen/scrollbar_size_nested_scroll_view"
+        android:scrollbarSize="@dimen/nested_scroll_view_scrollbar_size"
         android:scrollbars="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -87,12 +92,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|start"
-        android:layout_margin="@dimen/margin_fab"
-        android:elevation="@dimen/elevation_fab"
+        android:layout_margin="@dimen/fab_margin"
+        android:elevation="@dimen/fab_elevation"
         android:src="@drawable/ic_baseline_arrow_back_24px"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         android:visibility="gone"
-        app:backgroundTint="@color/fab_background_tint" />
+        app:backgroundTint="@color/fab_background_tint"
+        tools:targetApi="lollipop" />
 
 
     <android.support.design.widget.FloatingActionButton
@@ -100,21 +106,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
-        android:layout_margin="@dimen/margin_fab"
-        android:elevation="@dimen/elevation_fab"
-        android:visibility="gone"
+        android:layout_margin="@dimen/fab_margin"
+        android:elevation="@dimen/fab_elevation"
         android:src="@drawable/ic_baseline_add_shopping_cart_24px"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-        app:backgroundTint="@color/fab_background_tint" />
+        android:visibility="gone"
+        app:backgroundTint="@color/fab_background_tint"
+        tools:targetApi="lollipop" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabShoppingCart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/margin_fab"
-        android:elevation="@dimen/elevation_fab"
+        android:layout_margin="@dimen/fab_margin"
+        android:elevation="@dimen/fab_elevation"
         android:src="@drawable/ic_baseline_shopping_cart_24px"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-        app:backgroundTint="@color/fab_background_tint" />
+        app:backgroundTint="@color/fab_background_tint"
+        tools:targetApi="lollipop" />
 </android.support.design.widget.CoordinatorLayout>

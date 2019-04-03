@@ -8,7 +8,6 @@ import android.view.View
 import com.study.riseof.shopkotlin.navigation.NavigationContract
 import com.study.riseof.shopkotlin.navigation.NavigationManager
 import kotlinx.android.synthetic.main.coordinator_main.*
-import android.support.v4.app.FragmentManager
 import android.support.v4.view.GravityCompat
 import android.support.v7.widget.Toolbar
 import kotlinx.android.synthetic.main.activity_main.*

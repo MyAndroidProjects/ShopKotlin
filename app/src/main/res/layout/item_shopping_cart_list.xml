@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="24dp"
-    android:layout_marginEnd="24dp"
+    android:layout_marginStart="@dimen/item_shopping_cart_list_margin_start"
+    android:layout_marginEnd="@dimen/item_shopping_cart_list_margin_end"
     android:orientation="horizontal"
     android:weightSum="10">
 
@@ -26,7 +26,7 @@
             android:id="@+id/productShoppingCartType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="8dp"
+            android:paddingStart="@dimen/item_shopping_cart_list_product_text_padding_start"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
             tools:ignore="RtlSymmetry" />
 
@@ -34,7 +34,7 @@
             android:id="@+id/productShoppingCartBrandAndName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="8dp"
+            android:paddingStart="@dimen/item_shopping_cart_list_product_text_padding_start"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
             tools:ignore="RtlSymmetry" />
 
@@ -42,7 +42,7 @@
             android:id="@+id/productShoppingCartFeature"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="8dp"
+            android:paddingStart="@dimen/item_shopping_cart_list_product_text_padding_start"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
             tools:ignore="RtlSymmetry" />
 
@@ -51,13 +51,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_baseline_euro_symbol_24px"
-            android:drawablePadding="4dp"
+            android:drawablePadding="@dimen/item_shopping_cart_list_product_text_drawable_padding_start"
             android:gravity="end"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="@dimen/dividing_line_height"
             android:background="@color/toolbar"
  />
     </LinearLayout>

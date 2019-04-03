@@ -1,53 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- AppBarLayout -->
-    <dimen name="height_app_bar_layout">244dp</dimen>
-    <dimen name="title_margin_end_collapsing_toolbar">48dp</dimen>
-    <dimen name="title_margin_start_collapsing_toolbar">48dp</dimen>
-    <dimen name="drawable_padding_text_toolbar">12dp</dimen>
-    <dimen name="padding_start_text_toolbar">24dp</dimen>
-    <dimen name="padding_end_text_toolbar">24dp</dimen>
-    <dimen name="title_margin_start_toolbar">36dp</dimen>
-    <dimen name="title_margin_end_toolbar">12dp</dimen>
+    <!-- AppBarLayout, Shopping cart toolbar -->
+    <dimen name="app_bar_layout_height">244dp</dimen>
+    <dimen name="collapsing_toolbar_title_margin_end">48dp</dimen>
+    <dimen name="collapsing_toolbar_title_margin_start">48dp</dimen>
+    <dimen name="toolbar_text_drawable_padding">12dp</dimen>
+    <dimen name="toolbar_text_padding_start">24dp</dimen>
+    <dimen name="toolbar_text_padding_end">24dp</dimen>
+    <dimen name="toolbar_title_margin_start">36dp</dimen>
+    <dimen name="toolbar_title_margin_start_shopping_cart">12dp</dimen>
+    <dimen name="toolbar_title_margin_end">12dp</dimen>
+    <dimen name="nested_scroll_view_scrollbar_size">36dp</dimen>
 
     <!-- FAB -->
-    <dimen name="margin_fab">32dp</dimen>
-    <dimen name="elevation_fab">8dp</dimen>
+    <dimen name="fab_margin">32dp</dimen>
+    <dimen name="fab_elevation">8dp</dimen>
 
     <!-- Catalog -->
     <dimen name="catalog_image_height">144dp</dimen>
-    <dimen name="margin_top_cart_catalog">4dp</dimen>
-    <dimen name="margin_bottom_cart_catalog">4dp</dimen>
-    <dimen name="item_product_list_cart_margin">4dp</dimen>
-    <dimen name="item_product_list_cart_corner_radius">8dp</dimen>
-    <dimen name="item_product_list_cart_corner_elevation">8dp</dimen>
+    <dimen name="catalog_card_margin_top">4dp</dimen>
+    <dimen name="catalog_card_margin_bottom">4dp</dimen>
+    <dimen name="catalog_card_left_layout_margin_end">4dp</dimen>
+    <dimen name="catalog_card_left_layout_margin_start">12dp</dimen>
+    <dimen name="catalog_card_right_layout_margin_start">4dp</dimen>
+    <dimen name="catalog_card_right_layout_margin_end">12dp</dimen>
+
+    <!-- Item product in the product list -->
     <dimen name="item_product_list_image_size">96dp</dimen>
     <dimen name="item_product_list_image_margin">16dp</dimen>
     <dimen name="item_product_list_brand_margin">8dp</dimen>
-    <dimen name="margin_item_product_list_price">8dp</dimen>
     <dimen name="item_product_list_name_margin">8dp</dimen>
-    <dimen name="drawable_padding_item_product_list_price">8dp</dimen>
-    <dimen name="scrollbar_size_nested_scroll_view">36dp</dimen>
-    <dimen name="spacing_extra_item_product_list_name">16dp</dimen>
-    <dimen name="cart_corner_radius_cart_catalog">8dp</dimen>
-    <dimen name="cart_elevation_cart_catalog">4dp</dimen>
-    <dimen name="layout_margin_end_cart_catalog_left">4dp</dimen>
-    <dimen name="layout_margin_start_cart_catalog_left">12dp</dimen>
-    <dimen name="layout_margin_start_cart_catalog_right">4dp</dimen>
-    <dimen name="layout_margin_end_cart_catalog_right">12dp</dimen>
-    <dimen name="layout_margin_top_item_product_list_cart">4dp</dimen>
-    <dimen name="layout_margin_bottom_item_product_list_cart">4dp</dimen>
-    <dimen name="layout_margin_start_item_product_list_cart">12dp</dimen>
-    <dimen name="layout_margin_end_item_product_list_cart">12dp</dimen>
-    <dimen name="size_image_product_info">144dp</dimen>
-    <dimen name="layout_margin_image_product_info">24dp</dimen>
-    <dimen name="layout_margin_start_headers_product_info">32dp</dimen>
-    <dimen name="layout_margin_button_shopping_cart">8dp</dimen>
-    <dimen name="corners_radius_button_shopping_cart">8dp</dimen>
-    <dimen name="layout_margin_start_item_product_list">24dp</dimen>
-    <dimen name="layout_margin_top_item_product_list">24dp</dimen>
-    <dimen name="layout_margin_end_item_product_list">24dp</dimen>
-    <dimen name="layout_margin_bottom_item_product_list">110dp</dimen>
+    <dimen name="item_product_list_price_drawable_padding">8dp</dimen>
+    <dimen name="item_product_list_name_spacing_extra">16dp</dimen>
+    <dimen name="item_product_list_card_layout_margin_top">4dp</dimen>
+    <dimen name="item_product_list_card_layout_margin_bottom">4dp</dimen>
+    <dimen name="item_product_list_card_layout_margin_start">12dp</dimen>
+    <dimen name="item_product_list_card_layout_margin_end">12dp</dimen>
+
+    <!-- Product info -->
+    <dimen name="product_info_image_size">144dp</dimen>
+    <dimen name="product_info_image_layout_margin">24dp</dimen>
+    <dimen name="product_info_label_layout_margin_start">32dp</dimen>
+    <dimen name="product_info_layout_margin_start">24dp</dimen>
+    <dimen name="product_info_layout_margin_top">24dp</dimen>
+    <dimen name="product_info_layout_margin_end">24dp</dimen>
+    <dimen name="product_info_layout_margin_bottom">110dp</dimen>
+
+    <!-- Shopping cart -->
+    <dimen name="shopping_cart_button_layout_margin">8dp</dimen>
+    <dimen name="shopping_cart_button_corners_radius">8dp</dimen>
+    <dimen name="item_shopping_cart_list_margin_start">24dp</dimen>
+    <dimen name="item_shopping_cart_list_margin_end">24dp</dimen>
+    <dimen name="item_shopping_cart_list_product_text_padding_start">8dp</dimen>
+    <dimen name="item_shopping_cart_list_product_text_drawable_padding_start">4dp</dimen>
+    <dimen name="shopping_cart_label_total_product_padding_start">24dp</dimen>
+    <dimen name="shopping_cart_text_total_product_padding_start">12dp</dimen>
+    <dimen name="shopping_cart_text_total_product_padding_end">24dp</dimen>
+    <dimen name="shopping_cart_label_amount_padding_start">24dp</dimen>
+    <dimen name="shopping_cart_text_amount_padding_start">12dp</dimen>
+    <dimen name="shopping_cart_text_amount_padding_end">24dp</dimen>
+
+
+    <dimen name="card_corner_radius">8dp</dimen>
+    <dimen name="card_corner_elevation">8dp</dimen>
+    <dimen name="dividing_line_height">2dp</dimen>
+
 
 </resources>

@@ -4,13 +4,13 @@
     android:id="@+id/itemProductList"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/layout_margin_top_item_product_list_cart"
-    android:layout_marginBottom="@dimen/layout_margin_bottom_item_product_list_cart"
-    android:layout_marginStart="@dimen/layout_margin_start_item_product_list_cart"
-    android:layout_marginEnd="@dimen/layout_margin_end_item_product_list_cart"
+    android:layout_marginTop="@dimen/item_product_list_card_layout_margin_top"
+    android:layout_marginBottom="@dimen/item_product_list_card_layout_margin_bottom"
+    android:layout_marginStart="@dimen/item_product_list_card_layout_margin_start"
+    android:layout_marginEnd="@dimen/item_product_list_card_layout_margin_end"
     card_view:cardBackgroundColor="@color/item_product_list_cart_background"
-    card_view:cardCornerRadius="@dimen/item_product_list_cart_corner_radius"
-    card_view:cardElevation="@dimen/item_product_list_cart_corner_elevation">
+    card_view:cardCornerRadius="@dimen/card_corner_radius"
+    card_view:cardElevation="@dimen/card_corner_elevation">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             android:layout_width="@dimen/item_product_list_image_size"
             android:layout_height="@dimen/item_product_list_image_size"
             android:layout_margin="@dimen/item_product_list_image_margin"
-            android:contentDescription="@string/product_content_description"
+            android:contentDescription="@string/content_description_image_of_the_product"
             android:scaleType="centerCrop" />
 
         <LinearLayout
@@ -48,7 +48,7 @@
                 android:layout_marginStart="@dimen/item_product_list_name_margin"
                 android:layout_marginEnd="@dimen/item_product_list_name_margin"
                 android:gravity="top|end"
-                android:lineSpacingExtra="@dimen/spacing_extra_item_product_list_name"
+                android:lineSpacingExtra="@dimen/item_product_list_name_spacing_extra"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
 
             <TextView
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="start"
                 android:drawableStart="@drawable/ic_baseline_euro_symbol_24px"
-                android:drawablePadding="@dimen/drawable_padding_item_product_list_price"
+                android:drawablePadding="@dimen/item_product_list_price_drawable_padding"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
         </LinearLayout>
     </LinearLayout>

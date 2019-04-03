@@ -24,8 +24,8 @@
             app:layout_collapseMode="pin"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:title="@string/collapsing_toolbar_title"
-            app:titleMarginEnd="@dimen/title_margin_end_toolbar"
-            app:titleMarginStart="@dimen/title_margin_end_toolbar">
+            app:titleMarginEnd="@dimen/toolbar_title_margin_end"
+            app:titleMarginStart="@dimen/toolbar_title_margin_start_shopping_cart">
 
             <TextView
                 android:id="@+id/productsQuantity"
@@ -33,9 +33,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|end"
                 android:drawableStart="@drawable/ic_baseline_shopping_cart_24px"
-                android:drawablePadding="@dimen/drawable_padding_text_toolbar"
-                android:paddingStart="@dimen/padding_start_text_toolbar"
-                android:paddingEnd="@dimen/padding_end_text_toolbar"
+                android:drawablePadding="@dimen/toolbar_text_drawable_padding"
+                android:paddingStart="@dimen/toolbar_text_padding_start"
+                android:paddingEnd="@dimen/toolbar_text_padding_end"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 android:textColor="@color/toolbar_text"
                 android:textStyle="bold" />
@@ -61,7 +61,7 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="@dimen/dividing_line_height"
             android:background="@color/toolbar"
             app:layout_constraintBottom_toTopOf="@id/bottomInfoArea"/>
 
@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:paddingStart="24dp"
+                    android:paddingStart="@dimen/shopping_cart_label_total_product_padding_start"
                     android:text="@string/label_total_products"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                     tools:ignore="RtlSymmetry" />
@@ -95,8 +95,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:gravity="start"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="24dp"
+                    android:paddingStart="@dimen/shopping_cart_text_total_product_padding_start"
+                    android:paddingEnd="@dimen/shopping_cart_text_total_product_padding_end"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
 
             </LinearLayout>
@@ -113,7 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:paddingStart="24dp"
+                    android:paddingStart="@dimen/shopping_cart_label_amount_padding_start"
                     android:text="@string/label_amount"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                     tools:ignore="RtlSymmetry" />
@@ -125,8 +125,8 @@
                     android:layout_weight="0"
                     android:drawableStart="@drawable/ic_baseline_euro_symbol_24px"
                     android:gravity="start"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="24dp"
+                    android:paddingStart="@dimen/shopping_cart_text_amount_padding_start"
+                    android:paddingEnd="@dimen/shopping_cart_text_amount_padding_end"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
             </LinearLayout>
 

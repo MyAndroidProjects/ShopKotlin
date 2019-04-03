@@ -3,13 +3,13 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="@dimen/layout_margin_start_item_product_list"
-    android:layout_marginTop="@dimen/layout_margin_top_item_product_list"
-    android:layout_marginEnd="@dimen/layout_margin_end_item_product_list"
-    android:layout_marginBottom="@dimen/layout_margin_bottom_item_product_list"
+    android:layout_marginStart="@dimen/product_info_layout_margin_start"
+    android:layout_marginTop="@dimen/product_info_layout_margin_top"
+    android:layout_marginEnd="@dimen/product_info_layout_margin_end"
+    android:layout_marginBottom="@dimen/product_info_layout_margin_bottom"
     card_view:cardBackgroundColor="@color/item_product_list_cart_background"
-    card_view:cardCornerRadius="@dimen/item_product_list_cart_corner_radius"
-    card_view:cardElevation="@dimen/item_product_list_cart_corner_elevation">
+    card_view:cardCornerRadius="@dimen/card_corner_radius"
+    card_view:cardElevation="@dimen/card_corner_elevation">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,17 +18,17 @@
 
         <ImageView
             android:id="@+id/productInfoImage"
-            android:layout_width="@dimen/size_image_product_info"
-            android:layout_height="@dimen/size_image_product_info"
+            android:layout_width="@dimen/product_info_image_size"
+            android:layout_height="@dimen/product_info_image_size"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="@dimen/layout_margin_image_product_info"
-            android:contentDescription="@string/product_content_description"
+            android:layout_margin="@dimen/product_info_image_layout_margin"
+            android:contentDescription="@string/content_description_image_of_the_product"
             android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/brandHeader"
-            style="@style/headers_product_info"
-            android:text="@string/brand_header" />
+            style="@style/labels_product_info"
+            android:text="@string/label_brand" />
 
         <TextView
             android:id="@+id/productInfoBrand"
@@ -36,8 +36,8 @@
 
         <TextView
             android:id="@+id/nameHeader"
-            style="@style/headers_product_info"
-            android:text="@string/name_header" />
+            style="@style/labels_product_info"
+            android:text="@string/label_name" />
 
         <TextView
             android:id="@+id/productInfoName"
@@ -45,8 +45,8 @@
 
         <TextView
             android:id="@+id/featureHeader"
-            style="@style/headers_product_info"
-            android:text="@string/feature_header" />
+            style="@style/labels_product_info"
+            android:text="@string/label_feature" />
 
         <TextView
             android:id="@+id/productInfoFeature"
@@ -54,8 +54,8 @@
 
         <TextView
             android:id="@+id/priceHeader"
-            style="@style/headers_product_info"
-            android:text="@string/price_header" />
+            style="@style/labels_product_info"
+            android:text="@string/label_price" />
 
         <TextView
             android:id="@+id/productInfoPrice"

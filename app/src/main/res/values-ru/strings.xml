@@ -11,7 +11,7 @@
     <string name="content_description_microphone">Микрофоны</string>
     <string name="content_description_flash_drive">USB Флеш накопитель</string>
 
-    <string name="product_content_description">Изображение товара</string>
+    <string name="content_description_image_of_the_product">Изображение товара</string>
 
     <!-- Catalog -->
     <string name="menu_item_smartphones">Смартфоны</string>
@@ -25,10 +25,10 @@
     <string name="menu_item_catalog">Каталог</string>
 
     <!-- product info -->
-    <string name="brand_header">Производитель:</string>
-    <string name="name_header">Модель:</string>
-    <string name="feature_header">Характеристика:</string>
-    <string name="price_header">Цена:</string>
+    <string name="label_brand">Производитель:</string>
+    <string name="label_name">Модель:</string>
+    <string name="label_feature">Характеристика:</string>
+    <string name="label_price">Цена:</string>
 
     <string name="feature_smartphones">Диагональ:</string>
     <string name="feature_microphone">Чувствительность:</string>
