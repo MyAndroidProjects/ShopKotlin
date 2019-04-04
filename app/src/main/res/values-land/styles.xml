@@ -1,0 +1,23 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <style name="catalog_card.center">
+        <item name="layout_columnWeight">@integer/layout_column_weight_cart_catalog</item>
+        <item name="android:layout_marginStart">@dimen/catalog_card_center_layout_margin_start</item>
+        <item name="android:layout_marginEnd">@dimen/catalog_card_center_layout_margin_end</item>
+    </style>
+
+    <style name="catalog_card.center.left">
+        <item name="layout_column">@integer/layout_column_cart_catalog_center_left</item>
+
+    </style>
+
+    <style name="catalog_card.center.right">
+        <item name="layout_column">@integer/layout_column_cart_catalog_center_right</item>
+    </style>
+
+    <style name="collapsing_toolbar_text" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">@color/button_shopping_cart_text</item>
+    </style>
+
+</resources>

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -7,5 +7,71 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+    <style name="catalog_card">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/catalog_image_height</item>
+        <item name="android:layout_marginTop">@dimen/catalog_card_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/catalog_card_margin_bottom</item>
+        <item name="cardBackgroundColor">@color/cart_catalog_background</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">@dimen/card_corner_elevation</item>
+    </style>
+
+    <style name="catalog_card.left">
+        <item name="layout_column">@integer/layout_column_cart_catalog_left</item>
+        <item name="layout_columnWeight">@integer/layout_column_weight_cart_catalog</item>
+        <item name="android:layout_marginStart">@dimen/catalog_card_left_layout_margin_start</item>
+        <item name="android:layout_marginEnd">@dimen/catalog_card_left_layout_margin_end</item>
+    </style>
+
+    <style name="catalog_card.right">
+        <item name="layout_column">@integer/layout_column_cart_catalog_right</item>
+        <item name="layout_columnWeight">@integer/layout_column_weight_cart_catalog</item>
+        <item name="android:layout_marginStart">@dimen/catalog_card_right_layout_margin_start</item>
+        <item name="android:layout_marginEnd">@dimen/catalog_card_right_layout_margin_end</item>
+    </style>
+
+    <style name="catalog_image">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+
+    <style name="labels_product_info">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">start</item>
+        <item name="android:layout_marginStart">@dimen/product_info_label_layout_margin_start</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline5</item>
+    </style>
+
+    <style name="values_product_info">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline6</item>
+    </style>
+
+    <style name="button_shopping_cart" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textColor">@color/button_shopping_cart_text</item>
+        <item name="android:layout_margin">@dimen/shopping_cart_button_layout_margin</item>
+        <item name="android:background">@drawable/selector_button_shopping_cart</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="collapsing_toolbar_text" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textColor">@color/button_shopping_cart_text</item>
+    </style>
+
 
 </resources>

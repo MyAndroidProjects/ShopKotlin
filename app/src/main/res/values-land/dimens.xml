@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingDefaultResource">
+    <!-- Catalog -->
+    <dimen name="catalog_card_center_layout_margin_start">4dp</dimen>
+    <dimen name="catalog_card_center_layout_margin_end">4dp</dimen>
+
+    <!-- Item product in the product list -->
+    <dimen name="item_product_list_card_layout_margin_start">48dp</dimen>
+    <dimen name="item_product_list_card_layout_margin_end">48dp</dimen>
+
+    <!-- Product info -->
+    <dimen name="product_info_label_layout_margin_start">48dp</dimen>
+    <dimen name="product_info_layout_margin_start">48dp</dimen>
+    <dimen name="product_info_layout_margin_end">48dp</dimen>
+</resources>

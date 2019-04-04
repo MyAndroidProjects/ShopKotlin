@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_fragments">
+
+        <android.support.v7.widget.Toolbar  xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:layout_constraintTop_toTopOf="@id/constraintLayout"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/toolbar"
+            app:layout_collapseMode="pin"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="@string/collapsing_toolbar_title"
+            app:titleMarginEnd="@dimen/toolbar_title_margin_end"
+            app:titleMarginStart="@dimen/toolbar_title_margin_start_shopping_cart"
+            app:titleTextAppearance="@style/collapsing_toolbar_text"
+            >
+
+            <TextView
+                android:id="@+id/productsQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:drawableStart="@drawable/ic_baseline_shopping_cart_24px"
+                android:drawablePadding="@dimen/toolbar_text_drawable_padding"
+                android:paddingStart="@dimen/toolbar_text_padding_start"
+                android:paddingEnd="@dimen/toolbar_text_padding_end"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textColor="@color/toolbar_text"
+                android:textStyle="bold" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/bottomInfoArea"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+              <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerViewShoppingCart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:scrollbars="vertical"
+
+                    app:layout_constraintTop_toTopOf="@id/constraintLayout" />
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dividing_line_height"
+            android:background="@color/toolbar"
+            app:layout_constraintBottom_toTopOf="@id/bottomInfoArea"/>
+
+        <LinearLayout
+            android:id="@+id/bottomInfoArea"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/constraintLayout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/labelTotalProduct"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:paddingStart="@dimen/shopping_cart_label_total_product_padding_start"
+                    android:text="@string/label_total_products"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:id="@+id/textTotalProduct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:gravity="start"
+                    android:paddingStart="@dimen/shopping_cart_text_total_product_padding_start"
+                    android:paddingEnd="@dimen/shopping_cart_text_total_product_padding_end"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/labelAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:paddingStart="@dimen/shopping_cart_label_amount_padding_start"
+                    android:text="@string/label_amount"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:id="@+id/textAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:drawableStart="@drawable/ic_baseline_euro_symbol_24px"
+                    android:gravity="start"
+                    android:paddingStart="@dimen/shopping_cart_text_amount_padding_start"
+                    android:paddingEnd="@dimen/shopping_cart_text_amount_padding_end"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/buttonGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                app:layout_constraintBottom_toBottomOf="@id/constraintLayout">
+
+                <Button
+                    android:id="@+id/buttonBack"
+                    style="@style/button_shopping_cart"
+                    android:text="@string/button_back" />
+
+                <Button
+                    android:id="@+id/buttonClean"
+                    style="@style/button_shopping_cart"
+                    android:text="@string/button_clean" />
+
+                <Button
+                    android:id="@+id/buttonBuy"
+                    style="@style/button_shopping_cart"
+                    android:text="@string/button_buy" />
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+
+    <fragment
+        android:id="@+id/navigationViewContainer"
+        android:name="com.study.riseof.shopkotlin.fragment.navigation_view.NavigationViewFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start" />
+
+</android.support.v4.widget.DrawerLayout>

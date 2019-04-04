@@ -1,3 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ShopKotlin</string>
+    <string name="app_name" translatable="false">ShopKotlin</string>
+
+    <string name="collapsing_toolbar_title" translatable="false">Simple Shop</string>
+
+    <!-- content description -->
+    <string name="content_description_smartphone">Smartphone</string>
+    <string name="content_description_laptop">Laptop</string>
+    <string name="content_description_graphic_tablet">Graphic Tablet</string>
+    <string name="content_description_speakers">Speakers</string>
+    <string name="content_description_headphones">Headphones</string>
+    <string name="content_description_camera">Camera</string>
+    <string name="content_description_microphone">Microphone</string>
+    <string name="content_description_flash_drive">USB flash drive</string>
+    <string name="content_description_image_of_the_product">Image of product</string>
+
+    <!-- Catalog -->
+    <string name="menu_item_smartphones">Smartphones</string>
+    <string name="menu_item_microphone">Microphones</string>
+    <string name="menu_item_flash_drives">USB flash drive</string>
+    <string name="menu_item_graphic_tablets">Graphic tablets</string>
+    <string name="menu_item_laptops">Laptops</string>
+    <string name="menu_item_cameras">Cameras</string>
+    <string name="menu_item_headphones">Headphones</string>
+    <string name="menu_item_speakers">Speakers</string>
+    <string name="menu_item_catalog">Catalog</string>
+
+    <!-- product info -->
+    <string name="label_brand">Brand:</string>
+    <string name="label_name">Model:</string>
+    <string name="label_feature">Feature:</string>
+    <string name="label_price">Price:</string>
+
+    <string name="feature_smartphones">Diagonal:</string>
+    <string name="feature_microphone">Sensitivity:</string>
+    <string name="feature_flash_drives">Memory capacity:</string>
+    <string name="feature_graphic_tablets">Format:</string>
+    <string name="feature_laptops">Color:</string>
+    <string name="feature_cameras">Resolution:</string>
+    <string name="feature_headphones">Type:</string>
+    <string name="feature_speakers">Power:</string>
+
+    <!-- shopping cart -->
+    <string name="button_back">Back</string>
+    <string name="button_clean">Clean</string>
+    <string name="button_buy">Buy</string>
+    <string name="text_button_delete_from_shopping_cart">remove</string>
+    <string name="label_total_products">Total products:</string>
+    <string name="label_amount">Amount:</string>
+
+    <string name="product_type_smartphone">Smartphone</string>
+    <string name="product_type_microphone">Microphone</string>
+    <string name="product_type_flash_drive">USB flash drive</string>
+    <string name="product_type_graphic_tablet">Graphic tablet</string>
+    <string name="product_type_laptop">Laptop</string>
+    <string name="product_type_camera">Camera</string>
+    <string name="product_type_headphones">Headphones</string>
+    <string name="product_type_speakers">Speakers</string>
+
+    <!-- messages -->
+    <string name="end_of_message_add_to_shopping_cart">add to the shopping cart</string>
+    <string name="title_delete_product_dialog">Remove from the shopping cart?</string>
+    <string name="title_delete_all_dialog">Clean the shopping cart?</string>
+    <string name="message_delete_all_dialog">You\'ll lose all goods.</string>
+    <string name="message_delete_product_snack_bar">Product was remove from shopping cart</string>
+    <string name="message_delete_all_snack_bar">Your shopping cart is empty</string>
+    <string name="title_buy_dialog">Create a reserve?</string>
+    <string name="message_buy_dialog">You\'ll be able to take the goods within five days.</string>
+    <string name="message_buy_snack_bar">Reserve created.</string>
+    <string name="title_empty_dialog">Your shopping card is empty.</string>
+    <string name="message_empty_dialog">Select products in the catalog.</string>
+
+
 </resources>

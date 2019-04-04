@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingDefaultResource">
+    <integer name="layout_column_weight_cart_catalog">25</integer>
+    <integer name="layout_column_cart_catalog_right">3</integer>
+    <integer name="layout_column_cart_catalog_center_left">1</integer>
+    <integer name="layout_column_cart_catalog_center_right">2</integer>
+</resources>
