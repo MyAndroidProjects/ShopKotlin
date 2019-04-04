@@ -25,7 +25,9 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:title="@string/collapsing_toolbar_title"
             app:titleMarginEnd="@dimen/toolbar_title_margin_end"
-            app:titleMarginStart="@dimen/toolbar_title_margin_start_shopping_cart">
+            app:titleMarginStart="@dimen/toolbar_title_margin_start_shopping_cart"
+            app:titleTextAppearance="@style/collapsing_toolbar_text"
+            >
 
             <TextView
                 android:id="@+id/productsQuantity"

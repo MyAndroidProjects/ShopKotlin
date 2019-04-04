@@ -46,8 +46,6 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected abstract fun menuButtonHomeSelected()
 
-    //protected abstract fun backButtonSelected(supportFragmentManager: FragmentManager?)
-
     private fun setActionBar() {
         setSupportActionBar(getToolbarView())
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

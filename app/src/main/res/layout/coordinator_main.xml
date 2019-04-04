@@ -19,21 +19,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
+            app:collapsedTitleTextAppearance="@style/collapsing_toolbar_text"
             app:contentScrim="@color/collapsing_toolbar"
             app:expandedTitleGravity="center_horizontal|bottom"
             app:expandedTitleMarginEnd="@dimen/collapsing_toolbar_title_margin_end"
             app:expandedTitleMarginStart="@dimen/collapsing_toolbar_title_margin_start"
+            app:expandedTitleTextAppearance="@style/collapsing_toolbar_text"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:title="@string/collapsing_toolbar_title"
-            app:collapsedTitleTextAppearance="@style/collapsing_toolbar_text"
-            app:expandedTitleTextAppearance="@style/collapsing_toolbar_text">
+            app:title="@string/collapsing_toolbar_title">
 
             <ImageView
                 android:id="@+id/collapsingImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                android:scaleType="centerCrop"
+                android:paddingTop="?attr/actionBarSize"
+                android:paddingBottom="?attr/actionBarSize"
+                android:fitsSystemWindows="false"
+                android:scaleType="centerInside"
                 android:src="@drawable/collapsing_image"
                 app:layout_collapseMode="parallax"
                 tools:ignore="ContentDescription" />

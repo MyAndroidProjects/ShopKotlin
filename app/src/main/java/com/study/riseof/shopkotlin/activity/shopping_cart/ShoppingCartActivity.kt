@@ -1,11 +1,13 @@
 package com.study.riseof.shopkotlin.activity.shopping_cart
 
+import android.os.Build
 import android.os.Bundle
 import android.support.v4.view.GravityCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import com.study.riseof.shopkotlin.R
 import com.study.riseof.shopkotlin.activity.BaseActivity
 import com.study.riseof.shopkotlin.activity.main.MainActivity
